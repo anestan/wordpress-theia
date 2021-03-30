@@ -4,10 +4,6 @@ if ( ! defined( 'DISABLE_COMMENTS' ) ) {
 	define( 'DISABLE_COMMENTS', false );
 }
 
-define( 'GOOGLE_MAPS_API_KEY', 'AIzaSyDp6zzKdaW3XaW2SZSp_IeOhxDslNolOAk' );
-define( 'GOOGLE_RECAPTCHA_SITE_KEY', '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI' );
-define( 'GOOGLE_RECAPTCHA_SECRET_KEY', '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe' );
-
 require get_stylesheet_directory() . '/inc/helpers.php';
 
 if ( class_exists( 'WooCommerce' ) ) {
