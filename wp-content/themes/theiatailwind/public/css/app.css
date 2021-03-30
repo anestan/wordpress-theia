@@ -707,6 +707,9 @@ select{
 		content: 'screen: 2xl';
 	}
 }
+.col-span-12{
+	grid-column: span 12 / span 12 !important;
+}
 .mx-auto{
 	margin-left: auto !important;
 	margin-right: auto !important;
@@ -714,11 +717,50 @@ select{
 .mb-\[100px\]{
 	margin-bottom: 100px !important;
 }
+.mr-\[5px\]{
+	margin-right: 5px !important;
+}
+.grid{
+	display: grid !important;
+}
+.flex{
+	display: flex !important;
+}
 .h-\[500px\]{
 	height: 500px !important;
 }
+.h-5{
+	height: 1.25rem !important;
+}
 .w-full{
 	width: 100% !important;
+}
+.w-5{
+	width: 1.25rem !important;
+}
+@-webkit-keyframes spin{
+	to{
+		transform: rotate(360deg);
+	}
+}
+@keyframes spin{
+	to{
+		transform: rotate(360deg);
+	}
+}
+.animate-spin{
+	-webkit-animation: spin 1s linear infinite !important;
+	        animation: spin 1s linear infinite !important;
+}
+.grid-cols-12{
+	grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
+}
+.gap-y-\[15px\]{
+	row-gap: 15px !important;
+}
+.gap-x-\[30px\]{
+	-moz-column-gap: 30px !important;
+	     column-gap: 30px !important;
 }
 .p-2\.5{
 	padding: 0.625rem !important;
@@ -729,6 +771,16 @@ select{
 .px-\[15px\]{
 	padding-left: 15px !important;
 	padding-right: 15px !important;
+}
+.text-red-500{
+	--tw-text-opacity: 1 !important;
+	color: rgba(239, 68, 68, var(--tw-text-opacity)) !important;
+}
+.opacity-25{
+	opacity: 0.25 !important;
+}
+.opacity-75{
+	opacity: 0.75 !important;
 }
 body{
 	position: relative;
@@ -770,5 +822,10 @@ body::before{
 @media (min-width: 1536px){
 	body::before{
 		content: 'screen: 2xl';
+	}
+}
+@media (min-width: 1280px){
+	.xl\:col-span-6{
+		grid-column: span 6 / span 6 !important;
 	}
 }

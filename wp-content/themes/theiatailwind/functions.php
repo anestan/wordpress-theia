@@ -5,8 +5,8 @@ if ( ! defined( 'DISABLE_COMMENTS' ) ) {
 }
 
 define( 'GOOGLE_MAPS_API_KEY', 'AIzaSyDp6zzKdaW3XaW2SZSp_IeOhxDslNolOAk' );
-define( 'GOOGLE_RECAPTCHA_SITE_KEY', '6LfopvkUAAAAAHr9pHrpdXMGh7sJD-4YW5iWG9nl' );
-define( 'GOOGLE_RECAPTCHA_SECRET_KEY', '6LfopvkUAAAAAJrhoSID3dHJN0lb1fHYhPpnSGMN-4YW5iWG9nl' );
+define( 'GOOGLE_RECAPTCHA_SITE_KEY', '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI' );
+define( 'GOOGLE_RECAPTCHA_SECRET_KEY', '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe' );
 
 require get_stylesheet_directory() . '/inc/helpers.php';
 
@@ -43,14 +43,12 @@ function enqueueScripts() {
 	wp_enqueue_script( 'app-js', get_stylesheet_directory_uri() . $mix_manifest['/public/js/app.js'], [], false,
 		true );
 
-	wp_register_script( 'google-recaptcha',
-		'https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit', [], false, true);
-	wp_enqueue_script( 'google-recaptcha' );
-
 	wp_localize_script( 'app-js', 'wp_obj', [
-		'wp_nonce'                    => wp_create_nonce( date( 'YmdHis' ) ),
-		'google_maps_api_key'         => GOOGLE_MAPS_API_KEY,
-		'google_recaptcha_site_key'   => GOOGLE_RECAPTCHA_SITE_KEY,
+		'wp_nonce'                  => wp_create_nonce( 'wp-nonce' ),
+		'wp_ajax'                   => admin_url( 'admin-ajax.php' ),
+		'wp_action'                 => 'sendContactFormApplication',
+		'google_maps_api_key'       => GOOGLE_MAPS_API_KEY,
+		'google_recaptcha_site_key' => GOOGLE_RECAPTCHA_SITE_KEY,
 	] );
 }
 
@@ -155,3 +153,63 @@ if ( DISABLE_COMMENTS ) {
 
 	add_action( 'init', 'removeCommentLinksFromAdminBar' );
 }
+
+function sendContactFormApplication() {
+	if ( ! wp_verify_nonce( $_POST['wp_nonce'], 'wp-nonce' ) ) {
+		echo json_encode( [ 'status' => 0, 'message' => 'Invalid nonce.' ] );
+		die();
+	}
+
+	if ( ! validateRecaptcha( $_POST['g_recaptcha_response'] ) ) {
+		echo json_encode( [ 'status' => 2, 'message' => 'Failed to validate recaptcha.' ] );
+		die();
+	}
+
+	$to      = [];
+	$to[]    = get_option( 'admin_email' );
+	$subject = 'Contact Form Application';
+	$headers = '';
+
+	if ( count( $_FILES ) ) {
+		require_once( ABSPATH . 'wp-admin/includes/image.php' );
+		require_once( ABSPATH . 'wp-admin/includes/file.php' );
+		require_once( ABSPATH . 'wp-admin/includes/media.php' );
+		$attachment_id = media_handle_upload( 'photo_id', 0 );
+		$attachments   = [ wp_get_attachment_url( $attachment_id ) ];
+	} else {
+		$attachments = [];
+	}
+
+	ob_start();
+
+	echo '
+        <p>Name: ' . $_POST["name"] . '</p>
+        <p>Phone: ' . $_POST["phone"] . '</p>
+        <p>Email: ' . $_POST["email"] . '</p>
+        <p>Date: ' . $_POST["date"] . '</p>
+        <p>Message: ' . $_POST["message"] . '</p>
+        <p>Tnc: ' . $_POST["tnc"] . '</p>
+        ';
+
+	$message = ob_get_contents();
+
+	ob_end_clean();
+
+	$mail = wp_mail( $to, $subject, $message, $headers, $attachments );
+
+	if ( ! $mail ) {
+		echo json_encode( [ 'status' => 3, 'message' => 'Failed to send application.' ] );
+		die();
+	}
+
+	echo json_encode( [ 'status' => 1, 'message' => 'Application has been sent.' ] );
+	die();
+}
+
+function sendContactFormApplicationContentType() {
+	return 'text/html';
+}
+
+add_action( 'wp_ajax_sendContactFormApplication', 'sendContactFormApplication' );
+add_action( 'wp_ajax_nopriv_sendContactFormApplication', 'sendContactFormApplication' );
+add_filter( 'wp_mail_content_type', 'sendContactFormApplicationContentType' );
