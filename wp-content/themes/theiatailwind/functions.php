@@ -4,6 +4,10 @@ if ( ! defined( 'DISABLE_COMMENTS' ) ) {
 	define( 'DISABLE_COMMENTS', false );
 }
 
+define( 'GOOGLE_MAPS_API_KEY', 'AIzaSyDp6zzKdaW3XaW2SZSp_IeOhxDslNolOAk' );
+define( 'GOOGLE_RECAPTCHA_SITE_KEY', '6LfopvkUAAAAAHr9pHrpdXMGh7sJD-4YW5iWG9nl' );
+define( 'GOOGLE_RECAPTCHA_SECRET_KEY', '6LfopvkUAAAAAJrhoSID3dHJN0lb1fHYhPpnSGMN-4YW5iWG9nl' );
+
 require get_stylesheet_directory() . '/inc/helpers.php';
 
 if ( class_exists( 'WooCommerce' ) ) {
@@ -36,10 +40,17 @@ function enqueueScripts() {
 
 	wp_enqueue_style( 'style-css', get_stylesheet_directory_uri() . $mix_manifest['/style.css'] );
 	wp_enqueue_style( 'app-css', get_stylesheet_directory_uri() . $mix_manifest['/public/css/app.css'] );
-	wp_enqueue_script( 'app-js', get_stylesheet_directory_uri() . $mix_manifest['/public/js/app.js'], [], false, true );
+	wp_enqueue_script( 'app-js', get_stylesheet_directory_uri() . $mix_manifest['/public/js/app.js'], [], false,
+		true );
+
+	wp_register_script( 'google-recaptcha',
+		'https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit', [], false, true);
+	wp_enqueue_script( 'google-recaptcha' );
 
 	wp_localize_script( 'app-js', 'wp_obj', [
-		'wp_nonce' => wp_create_nonce( date( 'YmdHis' ) ),
+		'wp_nonce'                    => wp_create_nonce( date( 'YmdHis' ) ),
+		'google_maps_api_key'         => GOOGLE_MAPS_API_KEY,
+		'google_recaptcha_site_key'   => GOOGLE_RECAPTCHA_SITE_KEY,
 	] );
 }
 

@@ -711,6 +711,15 @@ select{
 	margin-left: auto !important;
 	margin-right: auto !important;
 }
+.mb-\[100px\]{
+	margin-bottom: 100px !important;
+}
+.h-\[500px\]{
+	height: 500px !important;
+}
+.w-full{
+	width: 100% !important;
+}
 .p-2\.5{
 	padding: 0.625rem !important;
 }
@@ -720,13 +729,6 @@ select{
 .px-\[15px\]{
 	padding-left: 15px !important;
 	padding-right: 15px !important;
-}
-.text-\[100px\]{
-	font-size: 100px !important;
-}
-.text-maroon-700{
-	--tw-text-opacity: 1 !important;
-	color: rgba(220, 53, 69, var(--tw-text-opacity)) !important;
 }
 body{
 	position: relative;

@@ -1,7 +1,9 @@
 <?php
 get_header();
 ?>
-	<p>404</p>
+<div class="container mx-auto mb-[100px] px-[15px]">
+    <p>404</p>
+</div>
 <?php
 get_footer();
 ?>
