@@ -5,6 +5,11 @@
 @tailwind utilities;
 //@tailwind screens;
 
+html, body {
+  @apply relative h-full;
+  scroll-behavior: smooth;
+}
+
 body {
   @apply debug-screens relative;
 }
