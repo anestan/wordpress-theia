@@ -123,26 +123,26 @@ get_header();
     <div class="sync-primary-carousel-swiper swiper-container relative h-[300px] w-full mb-[30px]">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
-                <img class="object-cover object-center h-full w-full" src="https://picsum.photos/1920/300" alt="">
+                <img class="object-cover object-center h-full w-full" src="http://via.placeholder.com/1920x300" alt="">
             </div>
             <div class="swiper-slide">
-                <img class="object-cover object-center h-full w-full" src="https://picsum.photos/1920/301" alt="">
+                <img class="object-cover object-center h-full w-full" src="http://via.placeholder.com/1920x301" alt="">
             </div>
             <div class="swiper-slide">
-                <img class="object-cover object-center h-full w-full" src="https://picsum.photos/1920/303" alt="">
+                <img class="object-cover object-center h-full w-full" src="http://via.placeholder.com/1920x302" alt="">
             </div>
         </div>
     </div>
     <div class="sync-secondary-carousel-swiper swiper-container relative h-[150px] w-full">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
-                <img class="object-cover object-center h-full w-full" src="https://picsum.photos/400/150" alt="">
+                <img class="object-cover object-center h-full w-full" src="http://via.placeholder.com/400x150" alt="">
             </div>
             <div class="swiper-slide">
-                <img class="object-cover object-center h-full w-full" src="https://picsum.photos/400/151" alt="">
+                <img class="object-cover object-center h-full w-full" src="http://via.placeholder.com/400x151" alt="">
             </div>
             <div class="swiper-slide">
-                <img class="object-cover object-center h-full w-full" src="https://picsum.photos/400/152" alt="">
+                <img class="object-cover object-center h-full w-full" src="http://via.placeholder.com/400x152" alt="">
             </div>
         </div>
         <div class="swiper-button-next absolute top-1/2 right-[15px] transform -translate-y-1/2"></div>
@@ -199,7 +199,7 @@ get_header();
 <!-- redo sync carousel -->
 <!-- carousel with index and custom pagination label -->
 <!-- load more posts -->
-<div id="scroll-to-top" class="fixed z-10 bottom-[100px] right-[100px] cursor-pointer bg-gray-300 p-[15px] rounded-full shadow-xl transition-all duration-300">
+<div id="scroll-to-top" class="fixed z-10 bottom-[30px] right-[30px] cursor-pointer bg-gray-300 p-[15px] rounded-full shadow-xl transition-all duration-300">
     <svg class="h-[30px] w-[30px] text-blue" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
     </svg>

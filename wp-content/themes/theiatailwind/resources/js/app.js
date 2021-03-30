@@ -422,8 +422,7 @@ initPhotoSwipeFromDOM('.my-gallery');
 let sync_primary_carousel_swiper = new Swiper('.sync-primary-carousel-swiper', {
   loop: true,
   speed: 300,
-  allowSlidePrev: false,
-  allowSlideNext: false,
+  allowTouchMove: false,
 });
 
 let sync_secondary_carousel_swiper = new Swiper('.sync-secondary-carousel-swiper', {
@@ -444,14 +443,10 @@ let sync_secondary_carousel_swiper = new Swiper('.sync-secondary-carousel-swiper
   spaceBetween: 30,
   on: {
     slidePrevTransitionStart: () => {
-      sync_primary_carousel_swiper.allowSlidePrev = true;
       sync_primary_carousel_swiper.slidePrev(300, true);
-      sync_primary_carousel_swiper.allowSlidePrev = false;
     },
     slideNextTransitionStart: () => {
-      sync_primary_carousel_swiper.allowSlideNext = true;
       sync_primary_carousel_swiper.slideNext(300, true);
-      sync_primary_carousel_swiper.allowSlidePrev = false;
     },
   },
 });
