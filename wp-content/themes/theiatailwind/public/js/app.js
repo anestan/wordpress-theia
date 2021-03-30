@@ -4586,7 +4586,8 @@ var half_way_carousel_swiper = new swiper_bundle__WEBPACK_IMPORTED_MODULE_8__.de
   pagination: {
     el: '.swiper-pagination'
   },
-  slidesPerView: 'auto'
+  slidesPerView: 'auto',
+  spaceBetween: 30
 });
 /**
  * MySwiper Carousel
@@ -4634,10 +4635,10 @@ var initPhotoSwipeFromDOM = function initPhotoSwipeFromDOM(gallerySelector) {
 
       linkEl = figureEl.children[0]; // <a> element
 
-      size = linkEl.getAttribute("data-size").split("x"); // create slide object
+      size = linkEl.getAttribute('data-size').split('x'); // create slide object
 
       item = {
-        src: linkEl.getAttribute("href"),
+        src: linkEl.getAttribute('href'),
         w: parseInt(size[0], 10),
         h: parseInt(size[1], 10)
       };
@@ -4649,7 +4650,7 @@ var initPhotoSwipeFromDOM = function initPhotoSwipeFromDOM(gallerySelector) {
 
       if (linkEl.children.length > 0) {
         // <img> thumbnail element, retrieving thumbnail url
-        item.msrc = linkEl.children[0].getAttribute("src");
+        item.msrc = linkEl.children[0].getAttribute('src');
       }
 
       item.el = figureEl; // save link to element for getThumbBoundsFn
@@ -4672,7 +4673,7 @@ var initPhotoSwipeFromDOM = function initPhotoSwipeFromDOM(gallerySelector) {
     var eTarget = e.target || e.srcElement; // find root element of slide
 
     var clickedListItem = closest(eTarget, function (el) {
-      return el.tagName && el.tagName.toUpperCase() === "LI";
+      return el.tagName && el.tagName.toUpperCase() === 'LI';
     });
 
     if (!clickedListItem) {
@@ -4717,14 +4718,14 @@ var initPhotoSwipeFromDOM = function initPhotoSwipeFromDOM(gallerySelector) {
       return params;
     }
 
-    var vars = hash.split("&");
+    var vars = hash.split('&');
 
     for (var i = 0; i < vars.length; i++) {
       if (!vars[i]) {
         continue;
       }
 
-      var pair = vars[i].split("=");
+      var pair = vars[i].split('=');
 
       if (pair.length < 2) {
         continue;
@@ -4741,7 +4742,7 @@ var initPhotoSwipeFromDOM = function initPhotoSwipeFromDOM(gallerySelector) {
   };
 
   var openPhotoSwipe = function openPhotoSwipe(index, galleryElement, disableAnimation, fromURL) {
-    var pswpElement = document.querySelectorAll(".pswp")[0],
+    var pswpElement = document.querySelectorAll('.pswp')[0],
         gallery,
         options,
         items;
@@ -4760,10 +4761,10 @@ var initPhotoSwipeFromDOM = function initPhotoSwipeFromDOM(gallerySelector) {
       arrowEl: true,
       preloaderEl: true,
       // define gallery index (for URL)
-      galleryUID: galleryElement.getAttribute("data-pswp-uid"),
+      galleryUID: galleryElement.getAttribute('data-pswp-uid'),
       getThumbBoundsFn: function getThumbBoundsFn(index) {
         // See Options -> getThumbBoundsFn section of documentation for more info
-        var thumbnail = items[index].el.getElementsByTagName("img")[0],
+        var thumbnail = items[index].el.getElementsByTagName('img')[0],
             // find thumbnail
         pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
             rect = thumbnail.getBoundingClientRect();
@@ -4809,7 +4810,7 @@ var initPhotoSwipeFromDOM = function initPhotoSwipeFromDOM(gallerySelector) {
     // photoswipe event: Gallery unbinds events
     // (triggers before closing animation)
 
-    gallery.listen("unbindEvents", function () {
+    gallery.listen('unbindEvents', function () {
       // This is index of current photoswipe slide
       var getCurrentIndex = gallery.getCurrentIndex(); // Update position of the slider
 
@@ -4821,7 +4822,7 @@ var initPhotoSwipeFromDOM = function initPhotoSwipeFromDOM(gallerySelector) {
   var galleryElements = document.querySelectorAll(gallerySelector);
 
   for (var i = 0, l = galleryElements.length; i < l; i++) {
-    galleryElements[i].setAttribute("data-pswp-uid", i + 1);
+    galleryElements[i].setAttribute('data-pswp-uid', i + 1);
     galleryElements[i].onclick = onThumbnailsClick;
   } // Parse URL and open gallery if it contains #&pid=3&gid=1
 
@@ -4834,7 +4835,78 @@ var initPhotoSwipeFromDOM = function initPhotoSwipeFromDOM(gallerySelector) {
 }; // execute above function
 
 
-initPhotoSwipeFromDOM(".my-gallery");
+initPhotoSwipeFromDOM('.my-gallery');
+/**
+ * Sync Carousel
+ */
+
+var sync_primary_carousel_swiper = new swiper_bundle__WEBPACK_IMPORTED_MODULE_8__.default('.sync-primary-carousel-swiper', {
+  loop: true,
+  speed: 300,
+  allowSlidePrev: false,
+  allowSlideNext: false
+});
+var sync_secondary_carousel_swiper = new swiper_bundle__WEBPACK_IMPORTED_MODULE_8__.default('.sync-secondary-carousel-swiper', {
+  loop: true,
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false
+  },
+  speed: 300,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev'
+  },
+  pagination: {
+    el: '.swiper-pagination'
+  },
+  slidesPerView: 3,
+  spaceBetween: 30,
+  on: {
+    slidePrevTransitionStart: function slidePrevTransitionStart() {
+      sync_primary_carousel_swiper.allowSlidePrev = true;
+      sync_primary_carousel_swiper.slidePrev(300, true);
+      sync_primary_carousel_swiper.allowSlidePrev = false;
+    },
+    slideNextTransitionStart: function slideNextTransitionStart() {
+      sync_primary_carousel_swiper.allowSlideNext = true;
+      sync_primary_carousel_swiper.slideNext(300, true);
+      sync_primary_carousel_swiper.allowSlidePrev = false;
+    }
+  }
+});
+/**
+ * Scroll to Top
+ */
+
+var scroll_to_top = document.getElementById('scroll-to-top');
+
+var scrollToTopOpacity = function scrollToTopOpacity() {
+  var y = window.scrollY;
+
+  if (y > 0) {
+    scroll_to_top.classList.add('opacity-100');
+    scroll_to_top.classList.remove('opacity-0');
+  } else {
+    scroll_to_top.classList.add('opacity-0');
+    scroll_to_top.classList.remove('opacity-100');
+  }
+};
+
+window.addEventListener('scroll', scrollToTopOpacity);
+
+var scrollToTop = function scrollToTop() {
+  var scrolled = document.documentElement.scrollTop || document.body.scrollTop;
+
+  if (scrolled > 0) {
+    window.scrollTo(0, 0);
+  }
+};
+
+scroll_to_top.onclick = function (e) {
+  e.preventDefault();
+  scrollToTop();
+};
 
 /***/ }),
 
