@@ -196,6 +196,8 @@ get_header();
         </li>
     </ul>
 </div>
+<!-- redo sync carousel -->
+<!-- carousel with index and custom pagination label -->
 <div id="scroll-to-top" class="fixed z-10 bottom-[100px] right-[100px] cursor-pointer bg-gray-300 p-[15px] rounded-full shadow-xl transition-all duration-300">
     <svg class="h-[30px] w-[30px] text-blue" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
