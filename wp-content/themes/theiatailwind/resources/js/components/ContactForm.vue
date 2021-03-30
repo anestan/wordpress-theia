@@ -55,12 +55,14 @@
             <vue-recaptcha ref="recaptcha" :sitekey="google_recaptcha_site_key" :loadRecaptchaScript="true"></vue-recaptcha>
           </div>
           <div class="col-span-12">
-            <div class="flex">
-              <svg v-if="loading" class="animate-spin h-5 w-5 mr-[5px]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <div class="inline-flex items-center">
+              <button type="submit" class="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                Submit
+              </button>
+              <svg v-if="loading" class="animate-spin h-[30px] w-[30px] ml-[15px]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                 <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
               </svg>
-              <button type="submit">Submit</button>
             </div>
           </div>
         </div>
@@ -260,10 +262,12 @@ export default {
 
             this.$refs.recaptcha.reset();
             this.loading = false;
+
             console.log(response);
           }).catch(error => {
             this.$refs.recaptcha.reset();
             this.loading = false;
+
             console.log(error);
           });
         }
@@ -272,7 +276,7 @@ export default {
   },
   mounted () {
     this.$refs.recaptcha.$on('verify', response => {
-      console.log(response);
+      this.$store.dispatch('updateRecaptcha', response);
     });
   }
 };

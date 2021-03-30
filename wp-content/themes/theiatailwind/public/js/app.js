@@ -4186,6 +4186,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 
 
@@ -4375,8 +4377,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   },
   mounted: function mounted() {
+    var _this2 = this;
+
     this.$refs.recaptcha.$on('verify', function (response) {
-      console.log(response);
+      _this2.$store.dispatch('updateRecaptcha', response);
     });
   }
 });
@@ -4449,7 +4453,8 @@ var store_contact_form = new vuex__WEBPACK_IMPORTED_MODULE_4__.default.Store({
         date: '',
         message: '',
         photo_id: null,
-        tnc: false
+        tnc: false,
+        g_recaptcha_response: ''
       }
     };
   },
@@ -4474,6 +4479,9 @@ var store_contact_form = new vuex__WEBPACK_IMPORTED_MODULE_4__.default.Store({
     },
     UPDATE_TNC: function UPDATE_TNC(state, value) {
       state.form_data.tnc = value;
+    },
+    UPDATE_RECAPTCHA: function UPDATE_RECAPTCHA(state, value) {
+      state.form_data.g_recaptcha_response = value;
     }
   },
   actions: {
@@ -4518,6 +4526,12 @@ var store_contact_form = new vuex__WEBPACK_IMPORTED_MODULE_4__.default.Store({
           state = _ref7.state;
       commit('UPDATE_TNC', value);
       return state.form_data.tnc;
+    },
+    updateRecaptcha: function updateRecaptcha(_ref8, value) {
+      var commit = _ref8.commit,
+          state = _ref8.state;
+      commit('UPDATE_RECAPTCHA', value);
+      return state.form_data.g_recaptcha_response;
     }
   }
 });
@@ -33539,12 +33553,23 @@ var render = function() {
                 ),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-span-12" }, [
-                  _c("div", { staticClass: "flex" }, [
+                  _c("div", { staticClass: "inline-flex items-center" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass:
+                          "inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500",
+                        attrs: { type: "submit" }
+                      },
+                      [_vm._v("\n              Submit\n            ")]
+                    ),
+                    _vm._v(" "),
                     _vm.loading
                       ? _c(
                           "svg",
                           {
-                            staticClass: "animate-spin h-5 w-5 mr-[5px]",
+                            staticClass:
+                              "animate-spin h-[30px] w-[30px] ml-[15px]",
                             attrs: {
                               xmlns: "http://www.w3.org/2000/svg",
                               fill: "none",
@@ -33573,11 +33598,7 @@ var render = function() {
                             })
                           ]
                         )
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _c("button", { attrs: { type: "submit" } }, [
-                      _vm._v("Submit")
-                    ])
+                      : _vm._e()
                   ])
                 ])
               ]

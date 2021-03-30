@@ -49,6 +49,7 @@ const store_contact_form = new Vuex.Store({
       message: '',
       photo_id: null,
       tnc: false,
+      g_recaptcha_response: '',
     },
   }),
   mutations: {
@@ -72,6 +73,9 @@ const store_contact_form = new Vuex.Store({
     },
     UPDATE_TNC: (state, value) => {
       state.form_data.tnc = value;
+    },
+    UPDATE_RECAPTCHA: (state, value) => {
+      state.form_data.g_recaptcha_response = value;
     },
   },
   actions: {
@@ -102,6 +106,10 @@ const store_contact_form = new Vuex.Store({
     updateTnc: ({commit, state}, value) => {
       commit('UPDATE_TNC', value);
       return state.form_data.tnc;
+    },
+    updateRecaptcha: ({commit, state}, value) => {
+      commit('UPDATE_RECAPTCHA', value);
+      return state.form_data.g_recaptcha_response;
     },
   },
 });

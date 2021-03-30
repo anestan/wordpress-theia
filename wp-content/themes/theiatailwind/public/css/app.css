@@ -720,11 +720,20 @@ select{
 .mr-\[5px\]{
 	margin-right: 5px !important;
 }
+.mr-\[15px\]{
+	margin-right: 15px !important;
+}
+.ml-\[15px\]{
+	margin-left: 15px !important;
+}
 .grid{
 	display: grid !important;
 }
 .flex{
 	display: flex !important;
+}
+.inline-flex{
+	display: inline-flex !important;
 }
 .h-\[500px\]{
 	height: 500px !important;
@@ -732,11 +741,23 @@ select{
 .h-5{
 	height: 1.25rem !important;
 }
+.h-\[15px\]{
+	height: 15px !important;
+}
+.h-\[30px\]{
+	height: 30px !important;
+}
 .w-full{
 	width: 100% !important;
 }
 .w-5{
 	width: 1.25rem !important;
+}
+.w-\[15px\]{
+	width: 15px !important;
+}
+.w-\[30px\]{
+	width: 30px !important;
 }
 @-webkit-keyframes spin{
 	to{
@@ -755,12 +776,32 @@ select{
 .grid-cols-12{
 	grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
 }
+.items-center{
+	align-items: center !important;
+}
 .gap-y-\[15px\]{
 	row-gap: 15px !important;
 }
 .gap-x-\[30px\]{
 	-moz-column-gap: 30px !important;
 	     column-gap: 30px !important;
+}
+.rounded{
+	border-radius: 0.25rem !important;
+}
+.rounded-md{
+	border-radius: 0.375rem !important;
+}
+.border{
+	border-width: 1px !important;
+}
+.border-gray-300{
+	--tw-border-opacity: 1 !important;
+	border-color: rgba(209, 213, 219, var(--tw-border-opacity)) !important;
+}
+.bg-white{
+	--tw-bg-opacity: 1 !important;
+	background-color: rgba(255, 255, 255, var(--tw-bg-opacity)) !important;
 }
 .p-2\.5{
 	padding: 0.625rem !important;
@@ -772,15 +813,77 @@ select{
 	padding-left: 15px !important;
 	padding-right: 15px !important;
 }
+.px-2\.5{
+	padding-left: 0.625rem !important;
+	padding-right: 0.625rem !important;
+}
+.py-1\.5{
+	padding-top: 0.375rem !important;
+	padding-bottom: 0.375rem !important;
+}
+.px-2{
+	padding-left: 0.5rem !important;
+	padding-right: 0.5rem !important;
+}
+.py-1{
+	padding-top: 0.25rem !important;
+	padding-bottom: 0.25rem !important;
+}
+.px-3{
+	padding-left: 0.75rem !important;
+	padding-right: 0.75rem !important;
+}
+.py-2{
+	padding-top: 0.5rem !important;
+	padding-bottom: 0.5rem !important;
+}
+.px-4{
+	padding-left: 1rem !important;
+	padding-right: 1rem !important;
+}
+.text-xs{
+	font-size: 0.75rem !important;
+	line-height: 1rem !important;
+}
+.text-sm{
+	font-size: 0.875rem !important;
+	line-height: 1.25rem !important;
+}
+.text-base{
+	font-size: 1rem !important;
+	line-height: 1.5rem !important;
+}
+.font-medium{
+	font-weight: 500 !important;
+}
+.leading-4{
+	line-height: 1rem !important;
+}
 .text-red-500{
 	--tw-text-opacity: 1 !important;
 	color: rgba(239, 68, 68, var(--tw-text-opacity)) !important;
+}
+.text-gray-700{
+	--tw-text-opacity: 1 !important;
+	color: rgba(55, 65, 81, var(--tw-text-opacity)) !important;
 }
 .opacity-25{
 	opacity: 0.25 !important;
 }
 .opacity-75{
 	opacity: 0.75 !important;
+}
+.shadow-sm{
+	--tw-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow) !important;
+}
+.transition-all{
+	transition-property: all !important;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+	transition-duration: 150ms !important;
+}
+.duration-300{
+	transition-duration: 300ms !important;
 }
 body{
 	position: relative;
@@ -823,6 +926,26 @@ body::before{
 	body::before{
 		content: 'screen: 2xl';
 	}
+}
+.hover\:bg-gray-50:hover{
+	--tw-bg-opacity: 1 !important;
+	background-color: rgba(249, 250, 251, var(--tw-bg-opacity)) !important;
+}
+.focus\:outline-none:focus{
+	outline: 2px solid transparent !important;
+	outline-offset: 2px !important;
+}
+.focus\:ring-2:focus{
+	--tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color) !important;
+	--tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color) !important;
+	box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000) !important;
+}
+.focus\:ring-indigo-500:focus{
+	--tw-ring-opacity: 1 !important;
+	--tw-ring-color: rgba(99, 102, 241, var(--tw-ring-opacity)) !important;
+}
+.focus\:ring-offset-2:focus{
+	--tw-ring-offset-width: 2px !important;
 }
 @media (min-width: 1280px){
 	.xl\:col-span-6{
