@@ -482,3 +482,26 @@ scroll_to_top.onclick = e => {
   e.preventDefault();
   scrollToTop();
 };
+
+/**
+ * Pagination Carousel
+ */
+let pagination_carousel_swiper = new Swiper('.pagination-carousel-swiper', {
+  loop: true,
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false,
+  },
+  speed: 300,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+    renderBullet: (index, className) => {
+      return '<span class="' + className + ' bg-red-500 text-white h-[30px] w-[30px] rounded-full flex items-center justify-center mx-[15px]">' + index + '</span>';
+    },
+  },
+});

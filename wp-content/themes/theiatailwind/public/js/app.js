@@ -4902,6 +4902,30 @@ scroll_to_top.onclick = function (e) {
   e.preventDefault();
   scrollToTop();
 };
+/**
+ * Pagination Carousel
+ */
+
+
+var pagination_carousel_swiper = new swiper_bundle__WEBPACK_IMPORTED_MODULE_8__.default('.pagination-carousel-swiper', {
+  loop: true,
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false
+  },
+  speed: 300,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev'
+  },
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+    renderBullet: function renderBullet(index, className) {
+      return '<span class="' + className + ' bg-red-500 text-white h-[30px] w-[30px] rounded-full flex items-center justify-center mx-[15px]">' + index + '</span>';
+    }
+  }
+});
 
 /***/ }),
 

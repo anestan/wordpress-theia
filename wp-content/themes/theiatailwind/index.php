@@ -196,9 +196,24 @@ get_header();
         </li>
     </ul>
 </div>
-<!-- redo sync carousel -->
-<!-- carousel with index and custom pagination label -->
-<!-- load more posts -->
+<div class="container mx-auto mb-[100px] px-[15px]">
+    <div class="pagination-carousel-swiper swiper-container relative h-[500px] w-full mb-[100px]">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img class="object-cover object-center h-full w-full" src="https://picsum.photos/1920/500" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img class="object-cover object-center h-full w-full" src="https://picsum.photos/1920/501" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img class="object-cover object-center h-full w-full" src="https://picsum.photos/1920/502" alt="">
+            </div>
+        </div>
+        <div class="swiper-button-next absolute top-1/2 right-[15px] transform -translate-y-1/2"></div>
+        <div class="swiper-button-prev absolute top-1/2 left-[15px] transform -translate-y-1/2"></div>
+        <div class="swiper-pagination absolute z-10 bottom-0 left-1/2 my-[15px] transform -translate-x-1/2 flex justify-center"></div>
+    </div>
+</div>
 <div id="scroll-to-top" class="fixed z-10 bottom-[30px] right-[30px] cursor-pointer bg-gray-300 p-[15px] rounded-full shadow-xl transition-all duration-300">
     <svg class="h-[30px] w-[30px] text-blue" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
