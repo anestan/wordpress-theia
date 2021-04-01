@@ -50512,7 +50512,7 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "div",
-                  { staticClass: "col-span-12" },
+                  { staticClass: "col-span-12 pb-[30px]" },
                   [
                     _c("vue-recaptcha", {
                       ref: "recaptcha",
@@ -50526,53 +50526,60 @@ var render = function() {
                 ),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-span-12" }, [
-                  _c("div", { staticClass: "inline-flex items-center" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass:
-                          "inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500",
-                        attrs: { type: "submit" }
-                      },
-                      [_vm._v("\n              Submit\n            ")]
-                    ),
-                    _vm._v(" "),
-                    _vm.loading
-                      ? _c(
-                          "svg",
-                          {
-                            staticClass:
-                              "animate-spin h-[30px] w-[30px] ml-[15px]",
-                            attrs: {
-                              xmlns: "http://www.w3.org/2000/svg",
-                              fill: "none",
-                              viewBox: "0 0 24 24"
-                            }
-                          },
-                          [
-                            _c("circle", {
-                              staticClass: "opacity-25",
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "inline-flex items-center form-message error-message"
+                    },
+                    [
+                      _c(
+                        "button",
+                        {
+                          staticClass:
+                            "inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500",
+                          attrs: { type: "submit" }
+                        },
+                        [_vm._v("\n              Submit\n            ")]
+                      ),
+                      _vm._v(" "),
+                      _vm.loading
+                        ? _c(
+                            "svg",
+                            {
+                              staticClass:
+                                "animate-spin h-[30px] w-[30px] ml-[15px]",
                               attrs: {
-                                cx: "12",
-                                cy: "12",
-                                r: "10",
-                                stroke: "currentColor",
-                                "stroke-width": "4"
+                                xmlns: "http://www.w3.org/2000/svg",
+                                fill: "none",
+                                viewBox: "0 0 24 24"
                               }
-                            }),
-                            _vm._v(" "),
-                            _c("path", {
-                              staticClass: "opacity-75",
-                              attrs: {
-                                fill: "currentColor",
-                                d:
-                                  "M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                              }
-                            })
-                          ]
-                        )
-                      : _vm._e()
-                  ])
+                            },
+                            [
+                              _c("circle", {
+                                staticClass: "opacity-25",
+                                attrs: {
+                                  cx: "12",
+                                  cy: "12",
+                                  r: "10",
+                                  stroke: "currentColor",
+                                  "stroke-width": "4"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("path", {
+                                staticClass: "opacity-75",
+                                attrs: {
+                                  fill: "currentColor",
+                                  d:
+                                    "M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                                }
+                              })
+                            ]
+                          )
+                        : _vm._e()
+                    ]
+                  )
                 ])
               ]
             )

@@ -51,11 +51,11 @@
               <small class="text-red-500">{{ errors.length ? errors[0] : '&nbsp;' }}</small>
             </ValidationProvider>
           </div>
-          <div class="col-span-12">
+          <div class="col-span-12 pb-[30px]">
             <vue-recaptcha ref="recaptcha" :sitekey="google_recaptcha_site_key" :loadRecaptchaScript="true"></vue-recaptcha>
           </div>
           <div class="col-span-12">
-            <div class="inline-flex items-center">
+            <div class="inline-flex items-center form-message error-message">
               <button type="submit" class="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                 Submit
               </button>

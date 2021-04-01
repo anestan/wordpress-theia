@@ -1378,20 +1378,17 @@ select{
 .left-\[15px\]{
 	left: 15px !important;
 }
+.bottom-0{
+	bottom: 0px !important;
+}
+.left-1\/2{
+	left: 50% !important;
+}
 .bottom-\[30px\]{
 	bottom: 30px !important;
 }
 .right-\[30px\]{
 	right: 30px !important;
-}
-.bottom-0{
-	bottom: 0px !important;
-}
-.left-0{
-	left: 0px !important;
-}
-.left-1\/2{
-	left: 50% !important;
 }
 .z-10{
 	z-index: 10 !important;
@@ -1412,13 +1409,13 @@ select{
 	margin-left: auto !important;
 	margin-right: auto !important;
 }
-.mx-\[15px\]{
-	margin-left: 15px !important;
-	margin-right: 15px !important;
-}
 .my-\[15px\]{
 	margin-top: 15px !important;
 	margin-bottom: 15px !important;
+}
+.mx-\[15px\]{
+	margin-left: 15px !important;
+	margin-right: 15px !important;
 }
 .mb-\[100px\]{
 	margin-bottom: 100px !important;
@@ -1456,9 +1453,6 @@ select{
 .h-\[150px\]{
 	height: 150px !important;
 }
-.h-\[10px\]{
-	height: 10px !important;
-}
 .w-full{
 	width: 100% !important;
 }
@@ -1467,9 +1461,6 @@ select{
 }
 .w-\[75\%\]{
 	width: 75% !important;
-}
-.w-\[10px\]{
-	width: 10px !important;
 }
 .max-w-xs{
 	max-width: 20rem !important;
@@ -1610,9 +1601,6 @@ select{
 .p-2{
 	padding: 0.5rem !important;
 }
-.p-\[30px\]{
-	padding: 30px !important;
-}
 .px-\[15px\]{
 	padding-left: 15px !important;
 	padding-right: 15px !important;
@@ -1628,6 +1616,9 @@ select{
 .py-2{
 	padding-top: 0.5rem !important;
 	padding-bottom: 0.5rem !important;
+}
+.pb-\[30px\]{
+	padding-bottom: 30px !important;
 }
 .text-base{
 	font-size: 1rem !important;
