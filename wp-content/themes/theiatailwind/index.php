@@ -1,7 +1,6 @@
 <?php
 get_header();
 ?>
-<!-- AJAX loading posts -->
 <!-- Banner Carousel -->
 <div class="banner-carousel swiper-container relative mb-[100px]">
     <div class="swiper-wrapper">
