@@ -1864,7 +1864,7 @@ class WPvivid {
 
         $sapi_type=php_sapi_name();
 
-        if($sapi_type=='cgi-fcgi'||$sapi_type==' fpm-fcgi')
+        if($sapi_type=='cgi-fcgi'||$sapi_type=='fpm-fcgi')
         {
             $alter_fcgi=true;
         }

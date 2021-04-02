@@ -4397,162 +4397,107 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var alpinejs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js");
 /* harmony import */ var alpinejs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(alpinejs__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var vue_sweetalert2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-sweetalert2 */ "./node_modules/vue-sweetalert2/dist/index.js");
-/* harmony import */ var sweetalert2_dist_sweetalert2_min_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! sweetalert2/dist/sweetalert2.min.css */ "./node_modules/sweetalert2/dist/sweetalert2.min.css");
-/* harmony import */ var _googlemaps_js_api_loader__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @googlemaps/js-api-loader */ "./node_modules/@googlemaps/js-api-loader/dist/index.esm.js");
-/* harmony import */ var _components_ContactForm_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/ContactForm.vue */ "./resources/js/components/ContactForm.vue");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var swiper_bundle__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! swiper/bundle */ "./node_modules/swiper/swiper-bundle.esm.js");
-/* harmony import */ var photoswipe__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! photoswipe */ "./node_modules/photoswipe/dist/photoswipe.js");
-/* harmony import */ var photoswipe__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(photoswipe__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var photoswipe_dist_photoswipe_ui_default__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! photoswipe/dist/photoswipe-ui-default */ "./node_modules/photoswipe/dist/photoswipe-ui-default.js");
-/* harmony import */ var photoswipe_dist_photoswipe_ui_default__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(photoswipe_dist_photoswipe_ui_default__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var swiper_bundle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! swiper/bundle */ "./node_modules/swiper/swiper-bundle.esm.js");
+/* harmony import */ var photoswipe__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! photoswipe */ "./node_modules/photoswipe/dist/photoswipe.js");
+/* harmony import */ var photoswipe__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(photoswipe__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var photoswipe_dist_photoswipe_ui_default__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! photoswipe/dist/photoswipe-ui-default */ "./node_modules/photoswipe/dist/photoswipe-ui-default.js");
+/* harmony import */ var photoswipe_dist_photoswipe_ui_default__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(photoswipe_dist_photoswipe_ui_default__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _googlemaps_js_api_loader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @googlemaps/js-api-loader */ "./node_modules/@googlemaps/js-api-loader/dist/index.esm.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vue_sweetalert2__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-sweetalert2 */ "./node_modules/vue-sweetalert2/dist/index.js");
+/* harmony import */ var sweetalert2_dist_sweetalert2_min_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! sweetalert2/dist/sweetalert2.min.css */ "./node_modules/sweetalert2/dist/sweetalert2.min.css");
+/* harmony import */ var _components_ContactForm_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/ContactForm.vue */ "./resources/js/components/ContactForm.vue");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
 
-
-
-
-
-vue__WEBPACK_IMPORTED_MODULE_3__.default.config.silent = true;
-vue__WEBPACK_IMPORTED_MODULE_3__.default.use(vuex__WEBPACK_IMPORTED_MODULE_4__.default);
-vue__WEBPACK_IMPORTED_MODULE_3__.default.use(vue_sweetalert2__WEBPACK_IMPORTED_MODULE_1__.default);
 /**
- * Google Maps
+ * Header
  */
 
+var header = document.getElementById('header');
 
-new _googlemaps_js_api_loader__WEBPACK_IMPORTED_MODULE_5__.Loader({
-  apiKey: window.wp_obj.google_maps_api_key,
-  version: 'weekly',
-  libraries: ['places']
-}).load().then(function () {
-  new google.maps.Map(document.getElementById('map'), {
-    center: {
-      lat: 0,
-      lng: 0
-    },
-    zoom: 4
-  });
-})["catch"](function (e) {
-  console.log(e);
-});
-/**
- * Contact Form
- */
+if (window.scrollY > header.getBoundingClientRect().height) {
+  header.classList.remove('bg-blue-500');
+  header.classList.add('bg-gray-500');
+}
 
-
-
-var store_contact_form = new vuex__WEBPACK_IMPORTED_MODULE_4__.default.Store({
-  state: function state() {
-    return {
-      wp_nonce: window.wp_obj.wp_nonce,
-      wp_ajax: window.wp_obj.wp_ajax,
-      wp_action: window.wp_obj.wp_action,
-      google_recaptcha_site_key: window.wp_obj.google_recaptcha_site_key,
-      form_data: {
-        name: '',
-        phone: '',
-        email: '',
-        date: '',
-        message: '',
-        photo_id: null,
-        tnc: false,
-        g_recaptcha_response: ''
-      }
-    };
-  },
-  mutations: {
-    UPDATE_NAME: function UPDATE_NAME(state, value) {
-      state.form_data.name = value;
-    },
-    UPDATE_PHONE: function UPDATE_PHONE(state, value) {
-      state.form_data.phone = value;
-    },
-    UPDATE_EMAIL: function UPDATE_EMAIL(state, value) {
-      state.form_data.email = value;
-    },
-    UPDATE_DATE: function UPDATE_DATE(state, value) {
-      state.form_data.date = moment__WEBPACK_IMPORTED_MODULE_7___default()(value).format('DD/MM/YYYY');
-    },
-    UPDATE_MESSAGE: function UPDATE_MESSAGE(state, value) {
-      state.form_data.message = value;
-    },
-    UPDATE_PHOTO_ID: function UPDATE_PHOTO_ID(state, value) {
-      state.form_data.photo_id = value;
-    },
-    UPDATE_TNC: function UPDATE_TNC(state, value) {
-      state.form_data.tnc = value;
-    },
-    UPDATE_RECAPTCHA: function UPDATE_RECAPTCHA(state, value) {
-      state.form_data.g_recaptcha_response = value;
-    }
-  },
-  actions: {
-    updateName: function updateName(_ref, value) {
-      var commit = _ref.commit,
-          state = _ref.state;
-      commit('UPDATE_NAME', value);
-      return state.form_data.name;
-    },
-    updatePhone: function updatePhone(_ref2, value) {
-      var commit = _ref2.commit,
-          state = _ref2.state;
-      commit('UPDATE_PHONE', value);
-      return state.form_data.phone;
-    },
-    updateEmail: function updateEmail(_ref3, value) {
-      var commit = _ref3.commit,
-          state = _ref3.state;
-      commit('UPDATE_EMAIL', value);
-      return state.form_data.email;
-    },
-    updateDate: function updateDate(_ref4, value) {
-      var commit = _ref4.commit,
-          state = _ref4.state;
-      commit('UPDATE_DATE', value);
-      return state.form_data.date;
-    },
-    updateMessage: function updateMessage(_ref5, value) {
-      var commit = _ref5.commit,
-          state = _ref5.state;
-      commit('UPDATE_MESSAGE', value);
-      return state.form_data.message;
-    },
-    updatePhotoId: function updatePhotoId(_ref6, value) {
-      var commit = _ref6.commit,
-          state = _ref6.state;
-      commit('UPDATE_PHOTO_ID', value);
-      return state.form_data.photo_id;
-    },
-    updateTnc: function updateTnc(_ref7, value) {
-      var commit = _ref7.commit,
-          state = _ref7.state;
-      commit('UPDATE_TNC', value);
-      return state.form_data.tnc;
-    },
-    updateRecaptcha: function updateRecaptcha(_ref8, value) {
-      var commit = _ref8.commit,
-          state = _ref8.state;
-      commit('UPDATE_RECAPTCHA', value);
-      return state.form_data.g_recaptcha_response;
-    }
+document.addEventListener('scroll', function () {
+  if (window.scrollY > header.getBoundingClientRect().height) {
+    header.classList.remove('bg-blue-500');
+    header.classList.add('bg-gray-500');
+  } else {
+    header.classList.add('bg-blue-500');
+    header.classList.remove('bg-gray-500');
   }
 });
-new vue__WEBPACK_IMPORTED_MODULE_3__.default({
-  el: '#contact-form',
-  store: store_contact_form,
-  render: function render(h) {
-    return h(_components_ContactForm_vue__WEBPACK_IMPORTED_MODULE_6__.default);
-  }
-});
+
+
+
 /**
  * Banner Carousel
  */
 
+var banner_carousel = new swiper_bundle__WEBPACK_IMPORTED_MODULE_1__.default('.banner-carousel', {
+  loop: true,
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false
+  },
+  speed: 300,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev'
+  },
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true
+  }
+});
+/**
+ * Hover Link Carousel
+ */
 
-var banner_carousel_swiper = new swiper_bundle__WEBPACK_IMPORTED_MODULE_8__.default('.banner-carousel-swiper', {
+var hover_link_carousel = new swiper_bundle__WEBPACK_IMPORTED_MODULE_1__.default('.hover-link-carousel', {
+  loop: true,
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false
+  },
+  speed: 300,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev'
+  },
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+      spaceBetween: 15
+    },
+    640: {
+      slidesPerView: 2,
+      spaceBetween: 30
+    },
+    1280: {
+      slidesPerView: 3,
+      spaceBetween: 30
+    }
+  }
+});
+/**
+ * Sync Carousel
+ */
+
+var sync_primary_carousel = new swiper_bundle__WEBPACK_IMPORTED_MODULE_1__.default('.sync-primary-carousel', {
+  loop: true,
+  speed: 300,
+  allowTouchMove: false
+});
+var sync_secondary_carousel = new swiper_bundle__WEBPACK_IMPORTED_MODULE_1__.default('.sync-secondary-carousel', {
   loop: true,
   autoplay: {
     delay: 3000,
@@ -4566,13 +4511,71 @@ var banner_carousel_swiper = new swiper_bundle__WEBPACK_IMPORTED_MODULE_8__.defa
   pagination: {
     el: '.swiper-pagination'
   },
-  lazy: true
+  slidesPerView: 3,
+  spaceBetween: 30,
+  on: {
+    slidePrevTransitionStart: function slidePrevTransitionStart() {
+      sync_primary_carousel.slidePrev(300, true);
+    },
+    slideNextTransitionStart: function slideNextTransitionStart() {
+      sync_primary_carousel.slideNext(300, true);
+    }
+  }
 });
 /**
- * Half Way Carousel
+ * Numbered Carousel
  */
 
-var half_way_carousel_swiper = new swiper_bundle__WEBPACK_IMPORTED_MODULE_8__.default('.half-way-carousel-swiper', {
+var numbered_carousel = new swiper_bundle__WEBPACK_IMPORTED_MODULE_1__.default('.numbered-carousel', {
+  loop: true,
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false
+  },
+  speed: 300,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev'
+  },
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+    renderBullet: function renderBullet(index, className) {
+      return '<span class="' + className + ' bg-red-500 text-white h-[30px] w-[30px] rounded-full flex items-center justify-center mx-[15px]">' + (index + 1) + '</span>';
+    }
+  },
+  init: false
+});
+numbered_carousel.on('init', function () {
+  document.getElementById('swiper-fraction').innerHTML = (numbered_carousel.realIndex + 1).toString().padStart(2, '0');
+});
+numbered_carousel.init();
+numbered_carousel.on('slideChange', function () {
+  document.getElementById('swiper-fraction').innerHTML = (numbered_carousel.realIndex + 1).toString().padStart(2, '0');
+});
+/**
+ * Centered Carousel
+ */
+
+var centered_carousel = new swiper_bundle__WEBPACK_IMPORTED_MODULE_1__.default('.centered-carousel', {
+  loop: true,
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false
+  },
+  speed: 300,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev'
+  },
+  slidesPerView: 3,
+  centeredSlides: true
+});
+/**
+ * Halfway Carousel
+ */
+
+var halfway_carousel = new swiper_bundle__WEBPACK_IMPORTED_MODULE_1__.default('.halfway-carousel', {
   loop: true,
   autoplay: {
     delay: 3000,
@@ -4593,7 +4596,7 @@ var half_way_carousel_swiper = new swiper_bundle__WEBPACK_IMPORTED_MODULE_8__.de
  * MySwiper Carousel
  */
 
-var mySwiper = new swiper_bundle__WEBPACK_IMPORTED_MODULE_8__.default('.my-swiper', {
+var mySwiper = new swiper_bundle__WEBPACK_IMPORTED_MODULE_1__.default('.my-swiper', {
   loop: true,
   autoplay: {
     delay: 3000,
@@ -4607,11 +4610,9 @@ var mySwiper = new swiper_bundle__WEBPACK_IMPORTED_MODULE_8__.default('.my-swipe
   pagination: {
     el: '.swiper-pagination'
   },
-  slidesPerView: '3',
+  slidesPerView: 3,
   spaceBetween: 30
-});
-
- // 2 of 2 : PHOTOSWIPE
+}); // 2 of 2 : PHOTOSWIPE
 
 var initPhotoSwipeFromDOM = function initPhotoSwipeFromDOM(gallerySelector) {
   // parse slide data (url, title, size ...) from DOM elements
@@ -4804,7 +4805,7 @@ var initPhotoSwipeFromDOM = function initPhotoSwipeFromDOM(gallerySelector) {
     } // Pass data to PhotoSwipe and initialize it
 
 
-    gallery = new (photoswipe__WEBPACK_IMPORTED_MODULE_9___default())(pswpElement, (photoswipe_dist_photoswipe_ui_default__WEBPACK_IMPORTED_MODULE_10___default()), items, options);
+    gallery = new (photoswipe__WEBPACK_IMPORTED_MODULE_2___default())(pswpElement, (photoswipe_dist_photoswipe_ui_default__WEBPACK_IMPORTED_MODULE_3___default()), items, options);
     gallery.init();
     /* EXTRA CODE (NOT FROM THE CORE) - UPDATE SWIPER POSITION TO THE CURRENT ZOOM_IN IMAGE (BETTER UI) */
     // photoswipe event: Gallery unbinds events
@@ -4837,58 +4838,250 @@ var initPhotoSwipeFromDOM = function initPhotoSwipeFromDOM(gallerySelector) {
 
 initPhotoSwipeFromDOM('.my-gallery');
 /**
- * Sync Carousel
+ * Google Maps
  */
 
-var sync_primary_carousel_swiper = new swiper_bundle__WEBPACK_IMPORTED_MODULE_8__.default('.sync-primary-carousel-swiper', {
-  loop: true,
-  speed: 300,
-  allowTouchMove: false
+
+new _googlemaps_js_api_loader__WEBPACK_IMPORTED_MODULE_4__.Loader({
+  apiKey: window.wp_obj.google_maps_api_key,
+  version: 'weekly',
+  libraries: ['places']
+}).load().then(function () {
+  var coordinates = {
+    lat: -36.9063145,
+    lng: 174.6874676
+  };
+  var map = new google.maps.Map(document.getElementById('map'), {
+    center: coordinates,
+    zoom: 18,
+    disableDefaultUI: true,
+    styles: [{
+      "featureType": "administrative",
+      "elementType": "all",
+      "stylers": [{
+        "saturation": "-100"
+      }]
+    }, {
+      "featureType": "administrative.province",
+      "elementType": "all",
+      "stylers": [{
+        "visibility": "off"
+      }]
+    }, {
+      "featureType": "landscape",
+      "elementType": "all",
+      "stylers": [{
+        "saturation": -100
+      }, {
+        "lightness": 65
+      }, {
+        "visibility": "on"
+      }]
+    }, {
+      "featureType": "poi",
+      "elementType": "all",
+      "stylers": [{
+        "saturation": -100
+      }, {
+        "lightness": "50"
+      }, {
+        "visibility": "simplified"
+      }]
+    }, {
+      "featureType": "road",
+      "elementType": "all",
+      "stylers": [{
+        "saturation": "-100"
+      }]
+    }, {
+      "featureType": "road.highway",
+      "elementType": "all",
+      "stylers": [{
+        "visibility": "simplified"
+      }]
+    }, {
+      "featureType": "road.arterial",
+      "elementType": "all",
+      "stylers": [{
+        "lightness": "30"
+      }]
+    }, {
+      "featureType": "road.local",
+      "elementType": "all",
+      "stylers": [{
+        "lightness": "40"
+      }]
+    }, {
+      "featureType": "transit",
+      "elementType": "all",
+      "stylers": [{
+        "saturation": -100
+      }, {
+        "visibility": "simplified"
+      }]
+    }, {
+      "featureType": "water",
+      "elementType": "geometry",
+      "stylers": [{
+        "hue": "#ffff00"
+      }, {
+        "lightness": -25
+      }, {
+        "saturation": -97
+      }]
+    }, {
+      "featureType": "water",
+      "elementType": "labels",
+      "stylers": [{
+        "lightness": -25
+      }, {
+        "saturation": -100
+      }]
+    }]
+  });
+  new google.maps.Marker({
+    position: coordinates,
+    map: map,
+    icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/parking_lot_maps.png'
+  });
+})["catch"](function (e) {
+  console.log(e);
 });
-var sync_secondary_carousel_swiper = new swiper_bundle__WEBPACK_IMPORTED_MODULE_8__.default('.sync-secondary-carousel-swiper', {
-  loop: true,
-  autoplay: {
-    delay: 3000,
-    disableOnInteraction: false
+/**
+ * Contact Form
+ */
+
+
+
+
+
+
+
+vue__WEBPACK_IMPORTED_MODULE_9__.default.use(vuex__WEBPACK_IMPORTED_MODULE_10__.default);
+vue__WEBPACK_IMPORTED_MODULE_9__.default.use(vue_sweetalert2__WEBPACK_IMPORTED_MODULE_5__.default);
+vue__WEBPACK_IMPORTED_MODULE_9__.default.config.silent = true;
+var store_contact_form = new vuex__WEBPACK_IMPORTED_MODULE_10__.default.Store({
+  state: function state() {
+    return {
+      wp_nonce: window.wp_obj.wp_nonce,
+      wp_ajax: window.wp_obj.wp_ajax,
+      wp_action: window.wp_obj.wp_action,
+      google_recaptcha_site_key: window.wp_obj.google_recaptcha_site_key,
+      form_data: {
+        name: '',
+        phone: '',
+        email: '',
+        date: '',
+        message: '',
+        photo_id: null,
+        tnc: false,
+        g_recaptcha_response: ''
+      }
+    };
   },
-  speed: 300,
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev'
-  },
-  pagination: {
-    el: '.swiper-pagination'
-  },
-  slidesPerView: 3,
-  spaceBetween: 30,
-  on: {
-    slidePrevTransitionStart: function slidePrevTransitionStart() {
-      sync_primary_carousel_swiper.slidePrev(300, true);
+  mutations: {
+    UPDATE_NAME: function UPDATE_NAME(state, value) {
+      state.form_data.name = value;
     },
-    slideNextTransitionStart: function slideNextTransitionStart() {
-      sync_primary_carousel_swiper.slideNext(300, true);
+    UPDATE_PHONE: function UPDATE_PHONE(state, value) {
+      state.form_data.phone = value;
+    },
+    UPDATE_EMAIL: function UPDATE_EMAIL(state, value) {
+      state.form_data.email = value;
+    },
+    UPDATE_DATE: function UPDATE_DATE(state, value) {
+      state.form_data.date = moment__WEBPACK_IMPORTED_MODULE_8___default()(value).format('DD/MM/YYYY');
+    },
+    UPDATE_MESSAGE: function UPDATE_MESSAGE(state, value) {
+      state.form_data.message = value;
+    },
+    UPDATE_PHOTO_ID: function UPDATE_PHOTO_ID(state, value) {
+      state.form_data.photo_id = value;
+    },
+    UPDATE_TNC: function UPDATE_TNC(state, value) {
+      state.form_data.tnc = value;
+    },
+    UPDATE_RECAPTCHA: function UPDATE_RECAPTCHA(state, value) {
+      state.form_data.g_recaptcha_response = value;
     }
+  },
+  actions: {
+    updateName: function updateName(_ref, value) {
+      var commit = _ref.commit,
+          state = _ref.state;
+      commit('UPDATE_NAME', value);
+      return state.form_data.name;
+    },
+    updatePhone: function updatePhone(_ref2, value) {
+      var commit = _ref2.commit,
+          state = _ref2.state;
+      commit('UPDATE_PHONE', value);
+      return state.form_data.phone;
+    },
+    updateEmail: function updateEmail(_ref3, value) {
+      var commit = _ref3.commit,
+          state = _ref3.state;
+      commit('UPDATE_EMAIL', value);
+      return state.form_data.email;
+    },
+    updateDate: function updateDate(_ref4, value) {
+      var commit = _ref4.commit,
+          state = _ref4.state;
+      commit('UPDATE_DATE', value);
+      return state.form_data.date;
+    },
+    updateMessage: function updateMessage(_ref5, value) {
+      var commit = _ref5.commit,
+          state = _ref5.state;
+      commit('UPDATE_MESSAGE', value);
+      return state.form_data.message;
+    },
+    updatePhotoId: function updatePhotoId(_ref6, value) {
+      var commit = _ref6.commit,
+          state = _ref6.state;
+      commit('UPDATE_PHOTO_ID', value);
+      return state.form_data.photo_id;
+    },
+    updateTnc: function updateTnc(_ref7, value) {
+      var commit = _ref7.commit,
+          state = _ref7.state;
+      commit('UPDATE_TNC', value);
+      return state.form_data.tnc;
+    },
+    updateRecaptcha: function updateRecaptcha(_ref8, value) {
+      var commit = _ref8.commit,
+          state = _ref8.state;
+      commit('UPDATE_RECAPTCHA', value);
+      return state.form_data.g_recaptcha_response;
+    }
+  }
+});
+new vue__WEBPACK_IMPORTED_MODULE_9__.default({
+  el: '#contact-form',
+  store: store_contact_form,
+  render: function render(h) {
+    return h(_components_ContactForm_vue__WEBPACK_IMPORTED_MODULE_7__.default);
   }
 });
 /**
  * Scroll to Top
  */
 
-var scroll_to_top = document.getElementById('scroll-to-top');
+var scroll_to_top_button = document.getElementById('scroll-to-top-button');
 
-var scrollToTopOpacity = function scrollToTopOpacity() {
+var toggleScrollToTopButton = function toggleScrollToTopButton() {
   var y = window.scrollY;
 
   if (y > 0) {
-    scroll_to_top.classList.add('opacity-100');
-    scroll_to_top.classList.remove('opacity-0');
+    scroll_to_top_button.classList.add('opacity-100');
+    scroll_to_top_button.classList.remove('opacity-0');
   } else {
-    scroll_to_top.classList.add('opacity-0');
-    scroll_to_top.classList.remove('opacity-100');
+    scroll_to_top_button.classList.add('opacity-0');
+    scroll_to_top_button.classList.remove('opacity-100');
   }
 };
 
-window.addEventListener('scroll', scrollToTopOpacity);
+window.addEventListener('scroll', toggleScrollToTopButton);
 
 var scrollToTop = function scrollToTop() {
   var scrolled = document.documentElement.scrollTop || document.body.scrollTop;
@@ -4898,34 +5091,10 @@ var scrollToTop = function scrollToTop() {
   }
 };
 
-scroll_to_top.onclick = function (e) {
+scroll_to_top_button.onclick = function (e) {
   e.preventDefault();
   scrollToTop();
 };
-/**
- * Pagination Carousel
- */
-
-
-var pagination_carousel_swiper = new swiper_bundle__WEBPACK_IMPORTED_MODULE_8__.default('.pagination-carousel-swiper', {
-  loop: true,
-  autoplay: {
-    delay: 3000,
-    disableOnInteraction: false
-  },
-  speed: 300,
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev'
-  },
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-    renderBullet: function renderBullet(index, className) {
-      return '<span class="' + className + ' bg-red-500 text-white h-[30px] w-[30px] rounded-full flex items-center justify-center mx-[15px]">' + index + '</span>';
-    }
-  }
-});
 
 /***/ }),
 

@@ -17,3 +17,25 @@ html, body {
 body {
   @apply debug-screens relative;
 }
+
+.centered-carousel {
+  .swiper-slide {
+    @apply  transition-all duration-300;
+
+    div {
+      @apply  transition-all duration-300;
+
+      img {
+        @apply object-cover object-center h-[200px] w-[300px] transition-all duration-300;
+      }
+    }
+
+    &.swiper-slide-active {
+      div {
+        img {
+          @apply h-[350px] w-[450px];
+        }
+      }
+    }
+  }
+}

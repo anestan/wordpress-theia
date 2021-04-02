@@ -1,131 +1,93 @@
 import 'alpinejs';
-import Vue from 'vue';
-import Vuex from 'vuex';
-import VueSweetalert2 from 'vue-sweetalert2';
-import 'sweetalert2/dist/sweetalert2.min.css';
-
-Vue.config.silent = true;
-Vue.use(Vuex);
-Vue.use(VueSweetalert2);
 
 /**
- * Google Maps
+ * Header
  */
-import { Loader } from '@googlemaps/js-api-loader';
+let header = document.getElementById('header');
 
-new Loader({
-  apiKey: window.wp_obj.google_maps_api_key,
-  version: 'weekly',
-  libraries: ['places']
-}).load().then(() => {
-  new google.maps.Map(document.getElementById('map'), {
-    center: {
-      lat: 0,
-      lng: 0
-    },
-    zoom: 4
-  });
-}).catch(e => {
-  console.log(e);
+if (window.scrollY > header.getBoundingClientRect().height) {
+  header.classList.remove('bg-blue-500');
+  header.classList.add('bg-gray-500');
+}
+
+document.addEventListener('scroll', () => {
+  if (window.scrollY > header.getBoundingClientRect().height) {
+    header.classList.remove('bg-blue-500');
+    header.classList.add('bg-gray-500');
+  } else {
+    header.classList.add('bg-blue-500');
+    header.classList.remove('bg-gray-500');
+  }
 });
 
-/**
- * Contact Form
- */
-import ContactForm from './components/ContactForm.vue';
-import moment from 'moment';
-
-const store_contact_form = new Vuex.Store({
-  state: () => ({
-    wp_nonce: window.wp_obj.wp_nonce,
-    wp_ajax: window.wp_obj.wp_ajax,
-    wp_action: window.wp_obj.wp_action,
-    google_recaptcha_site_key: window.wp_obj.google_recaptcha_site_key,
-    form_data: {
-      name: '',
-      phone: '',
-      email: '',
-      date: '',
-      message: '',
-      photo_id: null,
-      tnc: false,
-      g_recaptcha_response: '',
-    },
-  }),
-  mutations: {
-    UPDATE_NAME: (state, value) => {
-      state.form_data.name = value;
-    },
-    UPDATE_PHONE: (state, value) => {
-      state.form_data.phone = value;
-    },
-    UPDATE_EMAIL: (state, value) => {
-      state.form_data.email = value;
-    },
-    UPDATE_DATE: (state, value) => {
-      state.form_data.date = moment(value).format('DD/MM/YYYY');
-    },
-    UPDATE_MESSAGE: (state, value) => {
-      state.form_data.message = value;
-    },
-    UPDATE_PHOTO_ID: (state, value) => {
-      state.form_data.photo_id = value;
-    },
-    UPDATE_TNC: (state, value) => {
-      state.form_data.tnc = value;
-    },
-    UPDATE_RECAPTCHA: (state, value) => {
-      state.form_data.g_recaptcha_response = value;
-    },
-  },
-  actions: {
-    updateName: ({commit, state}, value) => {
-      commit('UPDATE_NAME', value);
-      return state.form_data.name;
-    },
-    updatePhone: ({commit, state}, value) => {
-      commit('UPDATE_PHONE', value);
-      return state.form_data.phone;
-    },
-    updateEmail: ({commit, state}, value) => {
-      commit('UPDATE_EMAIL', value);
-      return state.form_data.email;
-    },
-    updateDate: ({commit, state}, value) => {
-      commit('UPDATE_DATE', value);
-      return state.form_data.date;
-    },
-    updateMessage: ({commit, state}, value) => {
-      commit('UPDATE_MESSAGE', value);
-      return state.form_data.message;
-    },
-    updatePhotoId: ({commit, state}, value) => {
-      commit('UPDATE_PHOTO_ID', value);
-      return state.form_data.photo_id;
-    },
-    updateTnc: ({commit, state}, value) => {
-      commit('UPDATE_TNC', value);
-      return state.form_data.tnc;
-    },
-    updateRecaptcha: ({commit, state}, value) => {
-      commit('UPDATE_RECAPTCHA', value);
-      return state.form_data.g_recaptcha_response;
-    },
-  },
-});
-
-new Vue({
-  el: '#contact-form',
-  store: store_contact_form,
-  render: h => h(ContactForm),
-});
+import Swiper from 'swiper/bundle';
+import PhotoSwipe from 'photoswipe';
+import PhotoSwipeUI_Default from 'photoswipe/dist/photoswipe-ui-default';
 
 /**
  * Banner Carousel
  */
-import Swiper from 'swiper/bundle';
+let banner_carousel = new Swiper('.banner-carousel', {
+  loop: true,
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false,
+  },
+  speed: 300,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+});
 
-let banner_carousel_swiper = new Swiper('.banner-carousel-swiper', {
+/**
+ * Hover Link Carousel
+ */
+let hover_link_carousel = new Swiper('.hover-link-carousel', {
+  loop: true,
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false,
+  },
+  speed: 300,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+      spaceBetween: 15,
+    },
+    640: {
+      slidesPerView: 2,
+      spaceBetween: 30,
+    },
+    1280: {
+      slidesPerView: 3,
+      spaceBetween: 30,
+    },
+  },
+});
+
+/**
+ * Sync Carousel
+ */
+let sync_primary_carousel = new Swiper('.sync-primary-carousel', {
+  loop: true,
+  speed: 300,
+  allowTouchMove: false,
+});
+
+let sync_secondary_carousel = new Swiper('.sync-secondary-carousel', {
   loop: true,
   autoplay: {
     delay: 3000,
@@ -139,13 +101,73 @@ let banner_carousel_swiper = new Swiper('.banner-carousel-swiper', {
   pagination: {
     el: '.swiper-pagination',
   },
-  lazy: true,
+  slidesPerView: 3,
+  spaceBetween: 30,
+  on: {
+    slidePrevTransitionStart: () => {
+      sync_primary_carousel.slidePrev(300, true);
+    },
+    slideNextTransitionStart: () => {
+      sync_primary_carousel.slideNext(300, true);
+    },
+  },
 });
 
 /**
- * Half Way Carousel
+ * Numbered Carousel
  */
-let half_way_carousel_swiper = new Swiper('.half-way-carousel-swiper', {
+let numbered_carousel = new Swiper('.numbered-carousel', {
+  loop: true,
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false,
+  },
+  speed: 300,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+    renderBullet: (index, className) => {
+      return '<span class="' + className + ' bg-red-500 text-white h-[30px] w-[30px] rounded-full flex items-center justify-center mx-[15px]">' + (index + 1) + '</span>';
+    },
+  },
+  init: false,
+});
+
+numbered_carousel.on('init', () => {
+  document.getElementById('swiper-fraction').innerHTML = (numbered_carousel.realIndex + 1).toString().padStart(2, '0');
+});
+numbered_carousel.init();
+
+numbered_carousel.on('slideChange', () => {
+  document.getElementById('swiper-fraction').innerHTML = (numbered_carousel.realIndex + 1).toString().padStart(2, '0');
+});
+
+/**
+ * Centered Carousel
+ */
+let centered_carousel = new Swiper('.centered-carousel', {
+  loop: true,
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false,
+  },
+  speed: 300,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  slidesPerView: 3,
+  centeredSlides: true,
+});
+
+/**
+ * Halfway Carousel
+ */
+let halfway_carousel = new Swiper('.halfway-carousel', {
   loop: true,
   autoplay: {
     delay: 3000,
@@ -180,12 +202,9 @@ let mySwiper = new Swiper('.my-swiper', {
   pagination: {
     el: '.swiper-pagination',
   },
-  slidesPerView: '3',
+  slidesPerView: 3,
   spaceBetween: 30,
 });
-
-import PhotoSwipe from 'photoswipe';
-import PhotoSwipeUI_Default from 'photoswipe/dist/photoswipe-ui-default';
 
 // 2 of 2 : PHOTOSWIPE
 var initPhotoSwipeFromDOM = function (gallerySelector) {
@@ -417,58 +436,274 @@ var initPhotoSwipeFromDOM = function (gallerySelector) {
 initPhotoSwipeFromDOM('.my-gallery');
 
 /**
- * Sync Carousel
+ * Google Maps
  */
-let sync_primary_carousel_swiper = new Swiper('.sync-primary-carousel-swiper', {
-  loop: true,
-  speed: 300,
-  allowTouchMove: false,
+import { Loader } from '@googlemaps/js-api-loader';
+
+new Loader({
+  apiKey: window.wp_obj.google_maps_api_key,
+  version: 'weekly',
+  libraries: ['places']
+}).load().then(() => {
+  let coordinates = {lat: -36.9063145, lng: 174.6874676};
+
+  let map = new google.maps.Map(document.getElementById('map'), {
+    center: coordinates,
+    zoom: 18,
+    disableDefaultUI: true,
+    styles: [
+      {
+        "featureType": "administrative",
+        "elementType": "all",
+        "stylers": [
+          {
+            "saturation": "-100"
+          }
+        ]
+      },
+      {
+        "featureType": "administrative.province",
+        "elementType": "all",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+        ]
+      },
+      {
+        "featureType": "landscape",
+        "elementType": "all",
+        "stylers": [
+          {
+            "saturation": -100
+          },
+          {
+            "lightness": 65
+          },
+          {
+            "visibility": "on"
+          }
+        ]
+      },
+      {
+        "featureType": "poi",
+        "elementType": "all",
+        "stylers": [
+          {
+            "saturation": -100
+          },
+          {
+            "lightness": "50"
+          },
+          {
+            "visibility": "simplified"
+          }
+        ]
+      },
+      {
+        "featureType": "road",
+        "elementType": "all",
+        "stylers": [
+          {
+            "saturation": "-100"
+          }
+        ]
+      },
+      {
+        "featureType": "road.highway",
+        "elementType": "all",
+        "stylers": [
+          {
+            "visibility": "simplified"
+          }
+        ]
+      },
+      {
+        "featureType": "road.arterial",
+        "elementType": "all",
+        "stylers": [
+          {
+            "lightness": "30"
+          }
+        ]
+      },
+      {
+        "featureType": "road.local",
+        "elementType": "all",
+        "stylers": [
+          {
+            "lightness": "40"
+          }
+        ]
+      },
+      {
+        "featureType": "transit",
+        "elementType": "all",
+        "stylers": [
+          {
+            "saturation": -100
+          },
+          {
+            "visibility": "simplified"
+          }
+        ]
+      },
+      {
+        "featureType": "water",
+        "elementType": "geometry",
+        "stylers": [
+          {
+            "hue": "#ffff00"
+          },
+          {
+            "lightness": -25
+          },
+          {
+            "saturation": -97
+          }
+        ]
+      },
+      {
+        "featureType": "water",
+        "elementType": "labels",
+        "stylers": [
+          {
+            "lightness": -25
+          },
+          {
+            "saturation": -100
+          }
+        ]
+      }
+    ]
+  });
+
+  new google.maps.Marker({
+    position: coordinates,
+    map,
+    icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/parking_lot_maps.png',
+  });
+}).catch(e => {
+  console.log(e);
 });
 
-let sync_secondary_carousel_swiper = new Swiper('.sync-secondary-carousel-swiper', {
-  loop: true,
-  autoplay: {
-    delay: 3000,
-    disableOnInteraction: false,
-  },
-  speed: 300,
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-  pagination: {
-    el: '.swiper-pagination',
-  },
-  slidesPerView: 3,
-  spaceBetween: 30,
-  on: {
-    slidePrevTransitionStart: () => {
-      sync_primary_carousel_swiper.slidePrev(300, true);
+/**
+ * Contact Form
+ */
+import Vue from 'vue';
+import Vuex from 'vuex';
+import VueSweetalert2 from 'vue-sweetalert2';
+import 'sweetalert2/dist/sweetalert2.min.css';
+import ContactForm from './components/ContactForm.vue';
+import moment from 'moment';
+
+Vue.use(Vuex);
+Vue.use(VueSweetalert2);
+Vue.config.silent = true;
+
+const store_contact_form = new Vuex.Store({
+  state: () => ({
+    wp_nonce: window.wp_obj.wp_nonce,
+    wp_ajax: window.wp_obj.wp_ajax,
+    wp_action: window.wp_obj.wp_action,
+    google_recaptcha_site_key: window.wp_obj.google_recaptcha_site_key,
+    form_data: {
+      name: '',
+      phone: '',
+      email: '',
+      date: '',
+      message: '',
+      photo_id: null,
+      tnc: false,
+      g_recaptcha_response: '',
     },
-    slideNextTransitionStart: () => {
-      sync_primary_carousel_swiper.slideNext(300, true);
+  }),
+  mutations: {
+    UPDATE_NAME: (state, value) => {
+      state.form_data.name = value;
+    },
+    UPDATE_PHONE: (state, value) => {
+      state.form_data.phone = value;
+    },
+    UPDATE_EMAIL: (state, value) => {
+      state.form_data.email = value;
+    },
+    UPDATE_DATE: (state, value) => {
+      state.form_data.date = moment(value).format('DD/MM/YYYY');
+    },
+    UPDATE_MESSAGE: (state, value) => {
+      state.form_data.message = value;
+    },
+    UPDATE_PHOTO_ID: (state, value) => {
+      state.form_data.photo_id = value;
+    },
+    UPDATE_TNC: (state, value) => {
+      state.form_data.tnc = value;
+    },
+    UPDATE_RECAPTCHA: (state, value) => {
+      state.form_data.g_recaptcha_response = value;
     },
   },
+  actions: {
+    updateName: ({commit, state}, value) => {
+      commit('UPDATE_NAME', value);
+      return state.form_data.name;
+    },
+    updatePhone: ({commit, state}, value) => {
+      commit('UPDATE_PHONE', value);
+      return state.form_data.phone;
+    },
+    updateEmail: ({commit, state}, value) => {
+      commit('UPDATE_EMAIL', value);
+      return state.form_data.email;
+    },
+    updateDate: ({commit, state}, value) => {
+      commit('UPDATE_DATE', value);
+      return state.form_data.date;
+    },
+    updateMessage: ({commit, state}, value) => {
+      commit('UPDATE_MESSAGE', value);
+      return state.form_data.message;
+    },
+    updatePhotoId: ({commit, state}, value) => {
+      commit('UPDATE_PHOTO_ID', value);
+      return state.form_data.photo_id;
+    },
+    updateTnc: ({commit, state}, value) => {
+      commit('UPDATE_TNC', value);
+      return state.form_data.tnc;
+    },
+    updateRecaptcha: ({commit, state}, value) => {
+      commit('UPDATE_RECAPTCHA', value);
+      return state.form_data.g_recaptcha_response;
+    },
+  },
+});
+
+new Vue({
+  el: '#contact-form',
+  store: store_contact_form,
+  render: h => h(ContactForm),
 });
 
 /**
  * Scroll to Top
  */
-const scroll_to_top = document.getElementById('scroll-to-top');
+const scroll_to_top_button = document.getElementById('scroll-to-top-button');
 
-const scrollToTopOpacity = () => {
+const toggleScrollToTopButton = () => {
   let y = window.scrollY;
 
   if (y > 0) {
-    scroll_to_top.classList.add('opacity-100');
-    scroll_to_top.classList.remove('opacity-0');
+    scroll_to_top_button.classList.add('opacity-100');
+    scroll_to_top_button.classList.remove('opacity-0');
   } else {
-    scroll_to_top.classList.add('opacity-0');
-    scroll_to_top.classList.remove('opacity-100');
+    scroll_to_top_button.classList.add('opacity-0');
+    scroll_to_top_button.classList.remove('opacity-100');
   }
 };
 
-window.addEventListener('scroll', scrollToTopOpacity);
+window.addEventListener('scroll', toggleScrollToTopButton);
 
 const scrollToTop = () => {
   const scrolled = document.documentElement.scrollTop || document.body.scrollTop;
@@ -478,30 +713,7 @@ const scrollToTop = () => {
   }
 };
 
-scroll_to_top.onclick = e => {
+scroll_to_top_button.onclick = e => {
   e.preventDefault();
   scrollToTop();
 };
-
-/**
- * Pagination Carousel
- */
-let pagination_carousel_swiper = new Swiper('.pagination-carousel-swiper', {
-  loop: true,
-  autoplay: {
-    delay: 3000,
-    disableOnInteraction: false,
-  },
-  speed: 300,
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-    renderBullet: (index, className) => {
-      return '<span class="' + className + ' bg-red-500 text-white h-[30px] w-[30px] rounded-full flex items-center justify-center mx-[15px]">' + index + '</span>';
-    },
-  },
-});

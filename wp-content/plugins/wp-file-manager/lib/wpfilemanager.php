@@ -18,7 +18,7 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:400,700,900" rel="stylesheet">
 
         <div class="wp_fm_lang" style="float:left">
-            <h3 class="fm_heading"><span class="fm_head_icon"><img src="<?php echo plugins_url('images/wp_file_manager-color.png', dirname(__FILE__)); ?>"></span>
+            <h3 class="fm_heading"><span class="fm_head_icon"><img src="<?php echo plugins_url('images/wp_file_manager.svg', dirname(__FILE__)); ?>"></span>
                 <span class="fm_head_txt">
                     <?php _e('WP File Manager', 'wp-file-manager'); ?> </span> <a href="https://filemanagerpro.io/product/file-manager"
                     class="button button-primary fm_pro_btn" target="_blank" title="Click to Buy PRO">

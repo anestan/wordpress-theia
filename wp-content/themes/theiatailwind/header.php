@@ -8,7 +8,8 @@
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<div class="fixed z-10 bg-gray-500 w-full py-[15px]"
+<!-- Header -->
+<div id="header" class="fixed z-10 bg-blue-500 w-full py-[15px] transition-all duration-300"
      x-data="{ sidebarOpen: false }"
      @keydown.window.escape="sidebarOpen = false">
     <div class="container mx-auto px-[15px] flex justify-between">

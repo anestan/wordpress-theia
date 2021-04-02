@@ -163,8 +163,11 @@ function sendContactFormApplication() {
 
 	$to      = [];
 	$to[]    = get_option( 'admin_email' );
+
 	$subject = 'Contact Form Application';
-	$headers = '';
+
+	$headers = [];
+	$headers[] = 'From: ' . $_POST['name'] . ' <' . $_POST['email'] . '>';
 
 	if ( count( $_FILES ) ) {
 		require_once( ABSPATH . 'wp-admin/includes/image.php' );
@@ -179,12 +182,12 @@ function sendContactFormApplication() {
 	ob_start();
 
 	echo '
-        <p>Name: ' . $_POST["name"] . '</p>
-        <p>Phone: ' . $_POST["phone"] . '</p>
-        <p>Email: ' . $_POST["email"] . '</p>
-        <p>Date: ' . $_POST["date"] . '</p>
-        <p>Message: ' . $_POST["message"] . '</p>
-        <p>Tnc: ' . $_POST["tnc"] . '</p>
+        <p>Name: ' . $_POST['name'] . '</p>
+        <p>Phone: ' . $_POST['phone'] . '</p>
+        <p>Email: ' . $_POST['email'] . '</p>
+        <p>Date: ' . $_POST['date'] . '</p>
+        <p>Message: ' . $_POST['message'] . '</p>
+        <p>Tnc: ' . $_POST['tnc'] . '</p>
         ';
 
 	$message = ob_get_contents();
@@ -202,10 +205,20 @@ function sendContactFormApplication() {
 	die();
 }
 
+add_action( 'wp_ajax_sendContactFormApplication', 'sendContactFormApplication' );
+add_action( 'wp_ajax_nopriv_sendContactFormApplication', 'sendContactFormApplication' );
+
 function sendContactFormApplicationContentType() {
 	return 'text/html';
 }
 
-add_action( 'wp_ajax_sendContactFormApplication', 'sendContactFormApplication' );
-add_action( 'wp_ajax_nopriv_sendContactFormApplication', 'sendContactFormApplication' );
 add_filter( 'wp_mail_content_type', 'sendContactFormApplicationContentType' );
+
+function showMailFailedError( $wp_error ) {
+	echo "<pre>";
+	print_r( $wp_error );
+	echo "<pre>";
+	die();
+}
+
+add_action( 'wp_mail_failed', 'showMailFailedError' );

@@ -4,7 +4,7 @@
   Plugin URI: https://wordpress.org/plugins/wp-file-manager
   Description: Manage your WP files.
   Author: mndpsingh287
-  Version: 7.1
+  Version: 7.1.1
   Author URI: https://profiles.wordpress.org/mndpsingh287
   License: GPLv2
  **/
@@ -16,12 +16,13 @@ if (!class_exists('mk_file_folder_manager')):
     class mk_file_folder_manager
     {
         protected $SERVER = 'http://ikon.digital/plugindata/api.php';
-        var $ver = '7.1';
+        var $ver = '7.1.1';
         /* Auto Load Hooks */
         public function __construct()
         {
             add_action('admin_menu', array(&$this, 'ffm_menu_page'));
             add_action('admin_enqueue_scripts', array(&$this, 'ffm_admin_things'));
+            add_action('admin_enqueue_scripts', array(&$this, 'ffm_admin_script'));
             add_action('wp_ajax_mk_file_folder_manager', array(&$this, 'mk_file_folder_manager_action_callback'));
             add_action('wp_ajax_mk_fm_close_fm_help', array($this, 'mk_fm_close_fm_help'));
             add_filter('plugin_action_links', array(&$this, 'mk_file_folder_manager_action_links'), 10, 2);
@@ -613,7 +614,7 @@ if (!class_exists('mk_file_folder_manager')):
             'manage_options',
             'wp_file_manager',
             array(&$this, 'ffm_settings_callback'),
-            plugins_url('images/wp_file_manager.png', __FILE__)
+            plugins_url('images/wp_file_manager.svg', __FILE__)
             );
             /* Only for admin */
             add_submenu_page('wp_file_manager', __('Settings', 'wp-file-manager'), __('Settings', 'wp-file-manager'), 'manage_options', 'wp_file_manager_settings', array(&$this, 'wp_file_manager_settings'));
@@ -678,6 +679,10 @@ if (!class_exists('mk_file_folder_manager')):
             if (is_admin()):
              include 'inc/logs.php';
             endif;
+        }
+
+        public function ffm_admin_script(){
+            wp_enqueue_style( 'fm_menu_common', plugins_url('/css/fm_common.css', __FILE__) );
         }
 
          /* Admin  Things */

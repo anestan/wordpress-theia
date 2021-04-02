@@ -4,7 +4,7 @@ Tags: move, clone, migrate, cleaner, backup, restore, auto backup, cloud backup
 Requires at least: 4.5
 Tested up to: 5.7
 Requires PHP: 5.3
-Stable tag: 0.9.51
+Stable tag: 0.9.52
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 
@@ -187,6 +187,10 @@ Thank you for translating WPvivid Backup Plugin to your languages!
 * [Daniel Wilczkowiak](https://profiles.wordpress.org/virtual03/) (German)
 
 == Changelog ==
+= 0.9.52 =
+- Fixed a fatal error occurred during website transfer in some cases.
+- Fixed some bugs in the plugin code.
+- Optimized the plugin code.
 = 0.9.51 =
 - Added: Once a backup is created, the plugin will check whether the zip is good and will prompt you if it is corrupted.
 - Fixed some bugs in the plugin code.
