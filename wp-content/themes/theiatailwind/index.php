@@ -1,10 +1,6 @@
 <?php
 get_header();
 ?>
-<!-- Storefront Theme -->
-<!-- Storefront Child Theme -->
-<!-- Underscores WooCommerce Theme -->
-<!-- WPGraphQL + WooCommerce RESTful API -->
 <!-- AJAX loading posts -->
 <!-- Banner Carousel -->
 <div class="banner-carousel swiper-container relative mb-[100px]">
