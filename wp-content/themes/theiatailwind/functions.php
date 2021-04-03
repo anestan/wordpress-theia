@@ -67,7 +67,7 @@ function modifyLoginPage() {
 add_action( 'login_enqueue_scripts', 'modifyLoginPage' );
 
 function showAdminBar() {
-	add_filter( 'show_admin_bar', '__return_false' );
+	add_filter( 'show_admin_bar', '__return_true' );
 }
 
 add_action( 'after_setup_theme', 'showAdminBar' );
