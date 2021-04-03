@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit586c0110d258f49604079460e9ec4aa8
+class ComposerStaticInit6ed407182ac753633963224927734109
 {
     public static $files = array (
         'a3ed03db03d57650e139da3e8903943c' => __DIR__ . '/../..' . '/access-functions.php',
@@ -271,6 +271,7 @@ class ComposerStaticInit586c0110d258f49604079460e9ec4aa8
         'WPGraphQL\\Data\\Connection\\UserRoleConnectionResolver' => __DIR__ . '/../..' . '/src/Data/Connection/UserRoleConnectionResolver.php',
         'WPGraphQL\\Data\\Cursor\\CursorBuilder' => __DIR__ . '/../..' . '/src/Data/Cursor/CursorBuilder.php',
         'WPGraphQL\\Data\\Cursor\\PostObjectCursor' => __DIR__ . '/../..' . '/src/Data/Cursor/PostObjectCursor.php',
+        'WPGraphQL\\Data\\Cursor\\TermObjectCursor' => __DIR__ . '/../..' . '/src/Data/Cursor/TermObjectCursor.php',
         'WPGraphQL\\Data\\Cursor\\UserCursor' => __DIR__ . '/../..' . '/src/Data/Cursor/UserCursor.php',
         'WPGraphQL\\Data\\DataSource' => __DIR__ . '/../..' . '/src/Data/DataSource.php',
         'WPGraphQL\\Data\\Loader\\AbstractDataLoader' => __DIR__ . '/../..' . '/src/Data/Loader/AbstractDataLoader.php',
@@ -430,9 +431,9 @@ class ComposerStaticInit586c0110d258f49604079460e9ec4aa8
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit586c0110d258f49604079460e9ec4aa8::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit586c0110d258f49604079460e9ec4aa8::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit586c0110d258f49604079460e9ec4aa8::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit6ed407182ac753633963224927734109::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit6ed407182ac753633963224927734109::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit6ed407182ac753633963224927734109::$classMap;
 
         }, null, ClassLoader::class);
     }
