@@ -1,6 +1,8 @@
 <?php
 get_header();
 ?>
+<!-- vue apollo -->
+<!-- html 5 video -->
 <!-- Banner Carousel -->
 <div class="banner-carousel swiper-container relative mb-[100px]">
     <div class="swiper-wrapper">

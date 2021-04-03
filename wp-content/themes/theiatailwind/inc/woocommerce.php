@@ -42,6 +42,13 @@ function disableAllWooCommerceStyle() {
 
 //add_action( 'after_setup_theme', 'disableAllWooCommerceStyle' );
 
+function sf_child_theme_dequeue_style() {
+	wp_dequeue_style( 'storefront-style' );
+	wp_dequeue_style( 'storefront-woocommerce-style' );
+}
+
+//add_action( 'wp_enqueue_scripts', 'sf_child_theme_dequeue_style', 999 );
+
 function wooCommerceOutputContentWrapper() {
 	echo "<div class=''>";
 }
@@ -54,13 +61,6 @@ remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wr
 remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
 add_action( 'woocommerce_before_main_content', 'wooCommerceOutputContentWrapper', 10 );
 add_action( 'woocommerce_after_main_content', 'wooCommerceOutputContentWrapperEnd', 10 );
-
-function sf_child_theme_dequeue_style() {
-	wp_dequeue_style( 'storefront-style' );
-	wp_dequeue_style( 'storefront-woocommerce-style' );
-}
-
-//add_action( 'wp_enqueue_scripts', 'sf_child_theme_dequeue_style', 999 );
 
 function removeRelatedProducts() {
 	remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
