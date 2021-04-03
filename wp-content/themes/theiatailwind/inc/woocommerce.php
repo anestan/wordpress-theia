@@ -42,6 +42,20 @@ function disableAllWooCommerceStyle() {
 
 //add_action( 'after_setup_theme', 'disableAllWooCommerceStyle' );
 
+function wooCommerceOutputContentWrapper() {
+	echo "<div class=''>";
+}
+
+function wooCommerceOutputContentWrapperEnd() {
+	echo "</div>";
+}
+
+remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
+remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
+add_action('woocommerce_before_main_content', 'wooCommerceOutputContentWrapper', 10);
+add_action('woocommerce_after_main_content', 'wooCommerceOutputContentWrapperEnd', 10);
+
+
 function sf_child_theme_dequeue_style() {
 	wp_dequeue_style( 'storefront-style' );
 	wp_dequeue_style( 'storefront-woocommerce-style' );

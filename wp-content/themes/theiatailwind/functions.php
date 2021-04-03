@@ -20,9 +20,27 @@ function setupTheme() {
 	register_nav_menus( [
 		'menu-1' => 'Menu 1'
 	] );
+
+	add_theme_support( 'customize-selective-refresh-widgets' );
 }
 
 add_action( 'after_setup_theme', 'setupTheme' );
+
+function setupWidgets() {
+	register_sidebar(
+		[
+			'name'          => esc_html__( 'Sidebar' ),
+			'id'            => 'sidebar-1',
+			'description'   => esc_html__( 'Add widgets here.' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		]
+	);
+}
+
+add_action( 'widgets_init', 'setupWidgets' );
 
 function enqueueScripts() {
 	$mix_manifest = (array) json_decode( file_get_contents( __DIR__ . '/mix-manifest.json' ) );
@@ -154,12 +172,12 @@ function sendContactFormApplication() {
 		die();
 	}
 
-	$to      = [];
-	$to[]    = get_option( 'admin_email' );
+	$to   = [];
+	$to[] = get_option( 'admin_email' );
 
 	$subject = 'Contact Form Application';
 
-	$headers = [];
+	$headers   = [];
 	$headers[] = 'From: ' . $_POST['name'] . ' <' . $_POST['email'] . '>';
 
 	if ( count( $_FILES ) ) {
