@@ -50,11 +50,10 @@ function wooCommerceOutputContentWrapperEnd() {
 	echo "</div>";
 }
 
-remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
-remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
-add_action('woocommerce_before_main_content', 'wooCommerceOutputContentWrapper', 10);
-add_action('woocommerce_after_main_content', 'wooCommerceOutputContentWrapperEnd', 10);
-
+remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
+remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
+add_action( 'woocommerce_before_main_content', 'wooCommerceOutputContentWrapper', 10 );
+add_action( 'woocommerce_after_main_content', 'wooCommerceOutputContentWrapperEnd', 10 );
 
 function sf_child_theme_dequeue_style() {
 	wp_dequeue_style( 'storefront-style' );
@@ -81,11 +80,15 @@ function removeProductMeta() {
 
 //add_action( 'init', 'removeProductMeta' );
 
-function redirectToCheckoutOnAddToCart(): string {
+function getCheckoutURL() {
 	return wc_get_checkout_url();
 }
 
-add_filter( 'woocommerce_add_to_cart_redirect', 'redirectToCheckoutOnAddToCart' );
+function redirectToCheckoutOnAddToCart() {
+	add_filter( 'woocommerce_add_to_cart_redirect', 'getCheckoutURL' );
+}
+
+//add_action( 'init', 'redirectToCheckoutOnAddToCart' );
 
 function hideNotifications() {
 	add_filter( 'wc_add_to_cart_message_html', '__return_true' );
