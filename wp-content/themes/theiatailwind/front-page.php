@@ -1,8 +1,29 @@
 <?php
 get_header();
 ?>
+<!-- component based styling -->
+<!-- rename function hooks -->
+<!-- further simply classes if possible -->
+<!-- have a how to section -->
+<!-- -css into -styling, wp obj by component js -->
+<!-- redo the menu better spacing -->
+<!-- transition then transform -->
+<!-- mobile responsive -->
+<!-- store has its own contact dir using index -->
 <!-- vue apollo -->
-<!-- html 5 video -->
+<!-- reset db -->
+<!-- Video -->
+<div class="relative h-[200px] xl:h-[600px] mb-[100px] overflow-hidden">
+    <video class="absolute w-full" src="https://westendresidences.com.au/video/intro1.mp4" autoplay playsinline loop muted></video>
+    <div class="absolute inset-0 bg-indigo-500 bg-opacity-50 h-full w-full flex items-center">
+        <div class="container mx-auto">
+            <div class="text-[80px] text-white">Lorem ipsum</div>
+            <button type="button" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                Button
+            </button>
+        </div>
+    </div>
+</div>
 <!-- Banner Carousel -->
 <div class="banner-carousel swiper-container relative mb-[100px]">
     <div class="swiper-wrapper">
@@ -32,8 +53,8 @@ get_header();
 <div class="container mx-auto mb-[100px] px-[15px]">
     <div class="hover-link-carousel swiper-container relative">
         <div class="swiper-wrapper">
-            <a href="#" class="swiper-slide relative" x-data="{ overlay : false }" x-on:mouseover="overlay = true" x-on:mouseleave="overlay = false">
-                <img class="object-cover object-center h-full w-full" src="https://picsum.photos/500/300" alt="">
+            <a href="#" class="swiper-slide relative overflow-hidden" x-data="{ overlay : false }" x-on:mouseover="overlay = true" x-on:mouseleave="overlay = false">
+                <img class="object-cover object-center h-full w-full transition-all duration-300 transform" src="https://picsum.photos/500/300" alt="" x-bind:class="{'scale-150' : overlay, 'scale-100': !overlay}">
                 <div class="absolute z-10 inset-0 h-full w-full bg-yellow-500 bg-opacity-50"
                      x-show="overlay"
                      x-transition:enter="transition-opacity duration-300 ease-linear"
@@ -45,8 +66,8 @@ get_header();
                     <div class="flex items-center justify-center h-full w-full text-[30px] text-white">Lorem ipsum</div>
                 </div>
             </a>
-            <a href="#" class="swiper-slide relative" x-data="{ overlay : false }" x-on:mouseover="overlay = true" x-on:mouseleave="overlay = false">
-                <img class="object-cover object-center h-full w-full" src="https://picsum.photos/500/301" alt="">
+            <a href="#" class="swiper-slide relative overflow-hidden" x-data="{ overlay : false }" x-on:mouseover="overlay = true" x-on:mouseleave="overlay = false">
+                <img class="object-cover object-center h-full w-full transition-all duration-300 transform" src="https://picsum.photos/500/301" alt="" x-bind:class="{'scale-150' : overlay, 'scale-100': !overlay}">
                 <div class="absolute z-10 inset-0 h-full w-full bg-yellow-500 bg-opacity-50"
                      x-show="overlay"
                      x-transition:enter="transition-opacity duration-300 ease-linear"
@@ -58,8 +79,8 @@ get_header();
                     <div class="flex items-center justify-center h-full w-full text-[30px] text-white">Lorem ipsum</div>
                 </div>
             </a>
-            <a href="#" class="swiper-slide relative" x-data="{ overlay : false }" x-on:mouseover="overlay = true" x-on:mouseleave="overlay = false">
-                <img class="object-cover object-center h-full w-full" src="https://picsum.photos/500/302" alt="">
+            <a href="#" class="swiper-slide relative overflow-hidden" x-data="{ overlay : false }" x-on:mouseover="overlay = true" x-on:mouseleave="overlay = false">
+                <img class="object-cover object-center h-full w-full transition-all duration-300 transform" src="https://picsum.photos/500/302" alt="" x-bind:class="{'scale-150' : overlay, 'scale-100': !overlay}">
                 <div class="absolute z-10 inset-0 h-full w-full bg-yellow-500 bg-opacity-50"
                      x-show="overlay"
                      x-transition:enter="transition-opacity duration-300 ease-linear"
@@ -259,16 +280,25 @@ get_header();
         <div class="col-span-1 p-[15px] bg-red-500 cursor-pointer" x-on:click="tab = '1'">Tab #1</div>
         <div class="col-span-1 p-[15px] bg-green-500 cursor-pointer" x-on:click="tab = '2'">Tab #2</div>
         <div class="col-span-1 p-[15px] bg-blue-500 cursor-pointer" x-on:click="tab = '3'">Tab #3</div>
+        <div class="col-span-1 p-[15px] bg-purple-500 cursor-pointer" x-on:click="tab = '4'">Tab #4</div>
     </div>
-    <div class="grid grid-cols-12 h-[300px]">
-        <div class="col-span-12 p-[15px] bg-red-400" x-show="tab === '1'" style="display: none;">
+    <div class="relative h-[300px]">
+        <div class="absolute inset-0 h-full w-full p-[15px] bg-red-400 transition-all duration-300 opacity-0"
+             x-bind:class="{'opacity-100' : tab == 1}"
+        >
             Content #1
         </div>
-        <div class="col-span-12 p-[15px] bg-green-400" x-show="tab === '2'" style="display: none;">
+        <div class="absolute inset-0 h-full w-full p-[15px] bg-green-400 transition-all duration-300 opacity-0"
+             x-bind:class="{'opacity-100' : tab == 2}">
             Content #2
         </div>
-        <div class="col-span-12 p-[15px] bg-blue-400" x-show="tab === '3'" style="display: none;">
+        <div class="absolute inset-0 h-full w-full p-[15px] bg-blue-400 transition-all duration-300 opacity-0"
+             x-bind:class="{'opacity-100' : tab == 3}">
             Content #3
+        </div>
+        <div class="absolute inset-0 h-full w-full p-[15px] bg-purple-400 transition-all duration-300 opacity-0"
+             x-bind:class="{'opacity-100' : tab == 4}">
+            Content #4
         </div>
     </div>
 </div>

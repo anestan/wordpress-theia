@@ -1462,6 +1462,9 @@ select{
 .hidden{
 	display: none !important;
 }
+.h-auto{
+	height: auto !important;
+}
 .h-full{
 	height: 100% !important;
 }
@@ -1476,9 +1479,6 @@ select{
 }
 .h-\[30px\]{
 	height: 30px !important;
-}
-.h-\[120px\]{
-	height: 120px !important;
 }
 .h-\[200px\]{
 	height: 200px !important;
@@ -1537,6 +1537,10 @@ select{
 }
 .translate-x-0{
 	--tw-translate-x: 0px !important;
+}
+.scale-150{
+	--tw-scale-x: 1.5 !important;
+	--tw-scale-y: 1.5 !important;
 }
 .scale-100{
 	--tw-scale-x: 1 !important;
@@ -1614,13 +1618,17 @@ select{
 	--tw-bg-opacity: 1 !important;
 	background-color: rgba(107, 114, 128, var(--tw-bg-opacity)) !important;
 }
-.bg-green-500{
+.bg-indigo-500{
 	--tw-bg-opacity: 1 !important;
-	background-color: rgba(16, 185, 129, var(--tw-bg-opacity)) !important;
+	background-color: rgba(99, 102, 241, var(--tw-bg-opacity)) !important;
 }
 .bg-indigo-600{
 	--tw-bg-opacity: 1 !important;
 	background-color: rgba(79, 70, 229, var(--tw-bg-opacity)) !important;
+}
+.bg-green-500{
+	--tw-bg-opacity: 1 !important;
+	background-color: rgba(16, 185, 129, var(--tw-bg-opacity)) !important;
 }
 .bg-yellow-500{
 	--tw-bg-opacity: 1 !important;
@@ -1634,6 +1642,10 @@ select{
 	--tw-bg-opacity: 1 !important;
 	background-color: rgba(239, 68, 68, var(--tw-bg-opacity)) !important;
 }
+.bg-purple-500{
+	--tw-bg-opacity: 1 !important;
+	background-color: rgba(139, 92, 246, var(--tw-bg-opacity)) !important;
+}
 .bg-red-400{
 	--tw-bg-opacity: 1 !important;
 	background-color: rgba(248, 113, 113, var(--tw-bg-opacity)) !important;
@@ -1645,6 +1657,10 @@ select{
 .bg-blue-400{
 	--tw-bg-opacity: 1 !important;
 	background-color: rgba(96, 165, 250, var(--tw-bg-opacity)) !important;
+}
+.bg-purple-400{
+	--tw-bg-opacity: 1 !important;
+	background-color: rgba(167, 139, 250, var(--tw-bg-opacity)) !important;
 }
 .bg-white{
 	--tw-bg-opacity: 1 !important;
@@ -1751,8 +1767,8 @@ select{
 	--tw-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
 	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow) !important;
 }
-.transition-opacity{
-	transition-property: opacity !important;
+.transition{
+	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform !important;
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
 	transition-duration: 150ms !important;
 }
@@ -1761,8 +1777,8 @@ select{
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
 	transition-duration: 150ms !important;
 }
-.transition{
-	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform !important;
+.transition-opacity{
+	transition-property: opacity !important;
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
 	transition-duration: 150ms !important;
 }
@@ -1895,5 +1911,8 @@ body::before{
 @media (min-width: 1280px){
 	.xl\:col-span-6{
 		grid-column: span 6 / span 6 !important;
+	}
+	.xl\:h-\[600px\]{
+		height: 600px !important;
 	}
 }
