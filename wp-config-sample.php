@@ -88,9 +88,3 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /** Sets up WordPress vars and included files. */
 require_once ABSPATH . 'wp-settings.php';
-
-define( 'GOOGLE_MAPS_API_KEY', '' );
-define( 'GOOGLE_RECAPTCHA_SITE_KEY', '' );
-define( 'GOOGLE_RECAPTCHA_SECRET_KEY', '' );
-
-define( 'GRAPHQL_DEBUG', false );

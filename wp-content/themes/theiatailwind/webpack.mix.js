@@ -33,7 +33,10 @@ mix.sass('resources/sass/app.scss', 'public/css/app.css').options({
     require("@tailwindcss/jit"),
   ],
 });
-mix.js('resources/js/app.js', 'public/js/app.js').vue();
+mix.js('resources/js/app.js', 'public/js/app.js');
+mix.js('resources/js/carousels.js', 'public/js/carousels.js');
+mix.js('resources/js/google-maps.js', 'public/js/google-maps.js');
+mix.js('resources/js/contact-form.js', 'public/js/contact-form.js').vue();
 
 if (mix.inProduction()) {
   mix.version();
