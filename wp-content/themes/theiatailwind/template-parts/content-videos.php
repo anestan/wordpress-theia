@@ -1,5 +1,5 @@
 <!-- Video Banner -->
-<div class="overflow-hidden h-[250px] xl:h-[600px] mb-[100px] relative">
+<div class="overflow-hidden h-[250px] xl:h-[500px] mb-[100px] relative">
 	<video class="w-full absolute" src="https://westendresidences.com.au/video/intro1.mp4" autoplay playsinline loop muted></video>
 	<div class="flex h-full w-full items-center bg-gray-500 bg-opacity-50 absolute inset-0">
 		<div class="container px-[15px] mx-auto">

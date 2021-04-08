@@ -1,5 +1,5 @@
 <!-- Banner Carousel -->
-<div class="banner-carousel swiper-container relative mb-[100px]">
+<div class="banner-carousel swiper-container mb-[100px] relative">
     <div class="swiper-wrapper">
         <div class="swiper-slide">
             <img class="object-cover object-center h-full w-full" src="https://picsum.photos/1920/600" alt="">
@@ -24,7 +24,7 @@
     </div>
 </div>
 <!-- Hover Link Carousel -->
-<div class="container mx-auto mb-[100px] px-[15px]">
+<div class="container px-[15px] mx-auto mb-[100px]">
     <div class="hover-link-carousel swiper-container relative">
         <div class="swiper-wrapper">
             <a href="#" class="swiper-slide relative overflow-hidden" x-data="{ overlay : false }" x-on:mouseover="overlay = true" x-on:mouseleave="overlay = false">
@@ -73,7 +73,7 @@
     </div>
 </div>
 <!-- Sync Carousel -->
-<div class="container mx-auto mb-[100px] px-[15px]">
+<div class="container px-[15px] mx-auto mb-[100px]">
     <div class="sync-primary-carousel swiper-container relative mb-[30px]">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
@@ -105,7 +105,7 @@
     </div>
 </div>
 <!-- Numbered Carousel -->
-<div class="container mx-auto mb-[100px] px-[15px]">
+<div class="container px-[15px] mx-auto mb-[100px]">
     <div class="numbered-carousel swiper-container relative">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
@@ -126,7 +126,7 @@
     </div>
 </div>
 <!-- Centered Carousel -->
-<div class="container mx-auto mb-[100px] px-[15px]">
+<div class="container px-[15px] mx-auto mb-[100px]">
     <div class="centered-carousel swiper-container relative" x-data="{ navigation: false }" x-on:mouseover="navigation = true" x-on:mouseleave="navigation = false">
         <div class="swiper-wrapper">
             <div class="swiper-slide h-[500px] w-[500px]">
@@ -169,7 +169,7 @@
     </div>
 </div>
 <!-- My Swiper Carousel -->
-<div class="container mx-auto mb-[100px] px-[15px]">
+<div class="container px-[15px] mx-auto mb-[100px]">
     <div class="my-swiper swiper-container relative h-[300px]">
         <ul class="swiper-wrapper my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
             <li class="swiper-slide" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">

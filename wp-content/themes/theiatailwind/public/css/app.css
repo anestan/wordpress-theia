@@ -1947,7 +1947,7 @@ body::before{
 	.xl\:col-span-6{
 		grid-column: span 6 / span 6 !important;
 	}
-	.xl\:h-\[600px\]{
-		height: 600px !important;
+	.xl\:h-\[500px\]{
+		height: 500px !important;
 	}
 }
