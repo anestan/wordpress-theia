@@ -150,14 +150,14 @@ export default {
   },
   computed: {
     ...mapState({
-      wp_nonce: state => state.wp_nonce,
-      wp_ajax: state => state.wp_ajax,
-      wp_action: state => state.wp_action,
-      google_recaptcha_site_key: state => state.google_recaptcha_site_key,
+      wp_nonce: state => state.contact_form.wp_nonce,
+      wp_ajax: state => state.contact_form.wp_ajax,
+      wp_action: state => state.contact_form.wp_action,
+      google_recaptcha_site_key: state => state.contact_form.google_recaptcha_site_key,
     }),
     name: {
       get () {
-        return this.$store.state.form_data.name;
+        return this.$store.state.contact_form.form_data.name;
       },
       set (value) {
         this.$store.dispatch('updateName', value);
@@ -165,7 +165,7 @@ export default {
     },
     phone: {
       get () {
-        return this.$store.state.form_data.phone;
+        return this.$store.state.contact_form.form_data.phone;
       },
       set (value) {
         this.$store.dispatch('updatePhone', value);
@@ -173,7 +173,7 @@ export default {
     },
     email: {
       get () {
-        return this.$store.state.form_data.email;
+        return this.$store.state.contact_form.form_data.email;
       },
       set (value) {
         this.$store.dispatch('updateEmail', value);
@@ -181,7 +181,7 @@ export default {
     },
     date: {
       get () {
-        return this.$store.state.form_data.date;
+        return this.$store.state.contact_form.form_data.date;
       },
       set (value) {
         this.$store.dispatch('updateDate', value);
@@ -189,7 +189,7 @@ export default {
     },
     message: {
       get () {
-        return this.$store.state.form_data.message;
+        return this.$store.state.contact_form.form_data.message;
       },
       set (value) {
         this.$store.dispatch('updateMessage', value);
@@ -197,7 +197,7 @@ export default {
     },
     photo_id: {
       get () {
-        return this.$store.state.form_data.photo_id;
+        return this.$store.state.contact_form.form_data.photo_id;
       },
       set (value) {
         this.$store.dispatch('updatePhotoId', value);
@@ -205,7 +205,7 @@ export default {
     },
     tnc: {
       get () {
-        return this.$store.state.form_data.tnc;
+        return this.$store.state.contact_form.form_data.tnc;
       },
       set (value) {
         this.$store.dispatch('updateTnc', value);

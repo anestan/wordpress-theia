@@ -1988,21 +1988,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_6__.mapState)({
     wp_nonce: function wp_nonce(state) {
-      return state.wp_nonce;
+      return state.contact_form.wp_nonce;
     },
     wp_ajax: function wp_ajax(state) {
-      return state.wp_ajax;
+      return state.contact_form.wp_ajax;
     },
     wp_action: function wp_action(state) {
-      return state.wp_action;
+      return state.contact_form.wp_action;
     },
     google_recaptcha_site_key: function google_recaptcha_site_key(state) {
-      return state.google_recaptcha_site_key;
+      return state.contact_form.google_recaptcha_site_key;
     }
   })), {}, {
     name: {
       get: function get() {
-        return this.$store.state.form_data.name;
+        return this.$store.state.contact_form.form_data.name;
       },
       set: function set(value) {
         this.$store.dispatch('updateName', value);
@@ -2010,7 +2010,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     phone: {
       get: function get() {
-        return this.$store.state.form_data.phone;
+        return this.$store.state.contact_form.form_data.phone;
       },
       set: function set(value) {
         this.$store.dispatch('updatePhone', value);
@@ -2018,7 +2018,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     email: {
       get: function get() {
-        return this.$store.state.form_data.email;
+        return this.$store.state.contact_form.form_data.email;
       },
       set: function set(value) {
         this.$store.dispatch('updateEmail', value);
@@ -2026,7 +2026,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     date: {
       get: function get() {
-        return this.$store.state.form_data.date;
+        return this.$store.state.contact_form.form_data.date;
       },
       set: function set(value) {
         this.$store.dispatch('updateDate', value);
@@ -2034,7 +2034,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     message: {
       get: function get() {
-        return this.$store.state.form_data.message;
+        return this.$store.state.contact_form.form_data.message;
       },
       set: function set(value) {
         this.$store.dispatch('updateMessage', value);
@@ -2042,7 +2042,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     photo_id: {
       get: function get() {
-        return this.$store.state.form_data.photo_id;
+        return this.$store.state.contact_form.form_data.photo_id;
       },
       set: function set(value) {
         this.$store.dispatch('updatePhotoId', value);
@@ -2050,7 +2050,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     tnc: {
       get: function get() {
-        return this.$store.state.form_data.tnc;
+        return this.$store.state.contact_form.form_data.tnc;
       },
       set: function set(value) {
         this.$store.dispatch('updateTnc', value);
@@ -2126,6 +2126,145 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     this.$refs.recaptcha.$on('verify', function (response) {
       _this2.$store.dispatch('updateRecaptcha', response);
     });
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/index.js":
+/*!*************************************!*\
+  !*** ./resources/js/store/index.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var _modules_contact_form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/contact-form */ "./resources/js/store/modules/contact-form.js");
+
+
+
+vue__WEBPACK_IMPORTED_MODULE_1__.default.use(vuex__WEBPACK_IMPORTED_MODULE_2__.default);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new vuex__WEBPACK_IMPORTED_MODULE_2__.default.Store({
+  modules: {
+    contact_form: _modules_contact_form__WEBPACK_IMPORTED_MODULE_0__.default
+  }
+}));
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/contact-form.js":
+/*!****************************************************!*\
+  !*** ./resources/js/store/modules/contact-form.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  state: function state() {
+    return {
+      wp_nonce: window.wp_obj.wp_nonce,
+      wp_ajax: window.wp_obj.wp_ajax,
+      wp_action: window.wp_obj.wp_action,
+      google_recaptcha_site_key: window.wp_obj.google_recaptcha_site_key,
+      form_data: {
+        name: '',
+        phone: '',
+        email: '',
+        date: '',
+        message: '',
+        photo_id: null,
+        tnc: false,
+        g_recaptcha_response: ''
+      }
+    };
+  },
+  mutations: {
+    UPDATE_NAME: function UPDATE_NAME(state, value) {
+      state.form_data.name = value;
+    },
+    UPDATE_PHONE: function UPDATE_PHONE(state, value) {
+      state.form_data.phone = value;
+    },
+    UPDATE_EMAIL: function UPDATE_EMAIL(state, value) {
+      state.form_data.email = value;
+    },
+    UPDATE_DATE: function UPDATE_DATE(state, value) {
+      state.form_data.date = moment__WEBPACK_IMPORTED_MODULE_0___default()(value).format('DD/MM/YYYY');
+    },
+    UPDATE_MESSAGE: function UPDATE_MESSAGE(state, value) {
+      state.form_data.message = value;
+    },
+    UPDATE_PHOTO_ID: function UPDATE_PHOTO_ID(state, value) {
+      state.form_data.photo_id = value;
+    },
+    UPDATE_TNC: function UPDATE_TNC(state, value) {
+      state.form_data.tnc = value;
+    },
+    UPDATE_RECAPTCHA: function UPDATE_RECAPTCHA(state, value) {
+      state.form_data.g_recaptcha_response = value;
+    }
+  },
+  actions: {
+    updateName: function updateName(_ref, value) {
+      var commit = _ref.commit,
+          state = _ref.state;
+      commit('UPDATE_NAME', value);
+      return state.form_data.name;
+    },
+    updatePhone: function updatePhone(_ref2, value) {
+      var commit = _ref2.commit,
+          state = _ref2.state;
+      commit('UPDATE_PHONE', value);
+      return state.form_data.phone;
+    },
+    updateEmail: function updateEmail(_ref3, value) {
+      var commit = _ref3.commit,
+          state = _ref3.state;
+      commit('UPDATE_EMAIL', value);
+      return state.form_data.email;
+    },
+    updateDate: function updateDate(_ref4, value) {
+      var commit = _ref4.commit,
+          state = _ref4.state;
+      commit('UPDATE_DATE', value);
+      return state.form_data.date;
+    },
+    updateMessage: function updateMessage(_ref5, value) {
+      var commit = _ref5.commit,
+          state = _ref5.state;
+      commit('UPDATE_MESSAGE', value);
+      return state.form_data.message;
+    },
+    updatePhotoId: function updatePhotoId(_ref6, value) {
+      var commit = _ref6.commit,
+          state = _ref6.state;
+      commit('UPDATE_PHOTO_ID', value);
+      return state.form_data.photo_id;
+    },
+    updateTnc: function updateTnc(_ref7, value) {
+      var commit = _ref7.commit,
+          state = _ref7.state;
+      commit('UPDATE_TNC', value);
+      return state.form_data.tnc;
+    },
+    updateRecaptcha: function updateRecaptcha(_ref8, value) {
+      var commit = _ref8.commit,
+          state = _ref8.state;
+      commit('UPDATE_RECAPTCHA', value);
+      return state.form_data.g_recaptcha_response;
+    }
   }
 });
 
@@ -47388,12 +47527,10 @@ var __webpack_exports__ = {};
   \**************************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var vue_sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-sweetalert2 */ "./node_modules/vue-sweetalert2/dist/index.js");
-/* harmony import */ var sweetalert2_dist_sweetalert2_min_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! sweetalert2/dist/sweetalert2.min.css */ "./node_modules/sweetalert2/dist/sweetalert2.min.css");
-/* harmony import */ var _components_ContactForm_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/ContactForm.vue */ "./resources/js/components/ContactForm.vue");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./store */ "./resources/js/store/index.js");
+/* harmony import */ var _components_ContactForm_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/ContactForm.vue */ "./resources/js/components/ContactForm.vue");
+/* harmony import */ var vue_sweetalert2__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-sweetalert2 */ "./node_modules/vue-sweetalert2/dist/index.js");
+/* harmony import */ var sweetalert2_dist_sweetalert2_min_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! sweetalert2/dist/sweetalert2.min.css */ "./node_modules/sweetalert2/dist/sweetalert2.min.css");
 /**
  * Contact Form
  */
@@ -47402,111 +47539,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-vue__WEBPACK_IMPORTED_MODULE_4__.default.use(vuex__WEBPACK_IMPORTED_MODULE_5__.default);
-vue__WEBPACK_IMPORTED_MODULE_4__.default.use(vue_sweetalert2__WEBPACK_IMPORTED_MODULE_0__.default);
 vue__WEBPACK_IMPORTED_MODULE_4__.default.config.silent = false;
-var store_contact_form = new vuex__WEBPACK_IMPORTED_MODULE_5__.default.Store({
-  state: function state() {
-    return {
-      wp_nonce: window.wp_obj.wp_nonce,
-      wp_ajax: window.wp_obj.wp_ajax,
-      wp_action: window.wp_obj.wp_action,
-      google_recaptcha_site_key: window.wp_obj.google_recaptcha_site_key,
-      form_data: {
-        name: '',
-        phone: '',
-        email: '',
-        date: '',
-        message: '',
-        photo_id: null,
-        tnc: false,
-        g_recaptcha_response: ''
-      }
-    };
-  },
-  mutations: {
-    UPDATE_NAME: function UPDATE_NAME(state, value) {
-      state.form_data.name = value;
-    },
-    UPDATE_PHONE: function UPDATE_PHONE(state, value) {
-      state.form_data.phone = value;
-    },
-    UPDATE_EMAIL: function UPDATE_EMAIL(state, value) {
-      state.form_data.email = value;
-    },
-    UPDATE_DATE: function UPDATE_DATE(state, value) {
-      state.form_data.date = moment__WEBPACK_IMPORTED_MODULE_3___default()(value).format('DD/MM/YYYY');
-    },
-    UPDATE_MESSAGE: function UPDATE_MESSAGE(state, value) {
-      state.form_data.message = value;
-    },
-    UPDATE_PHOTO_ID: function UPDATE_PHOTO_ID(state, value) {
-      state.form_data.photo_id = value;
-    },
-    UPDATE_TNC: function UPDATE_TNC(state, value) {
-      state.form_data.tnc = value;
-    },
-    UPDATE_RECAPTCHA: function UPDATE_RECAPTCHA(state, value) {
-      state.form_data.g_recaptcha_response = value;
-    }
-  },
-  actions: {
-    updateName: function updateName(_ref, value) {
-      var commit = _ref.commit,
-          state = _ref.state;
-      commit('UPDATE_NAME', value);
-      return state.form_data.name;
-    },
-    updatePhone: function updatePhone(_ref2, value) {
-      var commit = _ref2.commit,
-          state = _ref2.state;
-      commit('UPDATE_PHONE', value);
-      return state.form_data.phone;
-    },
-    updateEmail: function updateEmail(_ref3, value) {
-      var commit = _ref3.commit,
-          state = _ref3.state;
-      commit('UPDATE_EMAIL', value);
-      return state.form_data.email;
-    },
-    updateDate: function updateDate(_ref4, value) {
-      var commit = _ref4.commit,
-          state = _ref4.state;
-      commit('UPDATE_DATE', value);
-      return state.form_data.date;
-    },
-    updateMessage: function updateMessage(_ref5, value) {
-      var commit = _ref5.commit,
-          state = _ref5.state;
-      commit('UPDATE_MESSAGE', value);
-      return state.form_data.message;
-    },
-    updatePhotoId: function updatePhotoId(_ref6, value) {
-      var commit = _ref6.commit,
-          state = _ref6.state;
-      commit('UPDATE_PHOTO_ID', value);
-      return state.form_data.photo_id;
-    },
-    updateTnc: function updateTnc(_ref7, value) {
-      var commit = _ref7.commit,
-          state = _ref7.state;
-      commit('UPDATE_TNC', value);
-      return state.form_data.tnc;
-    },
-    updateRecaptcha: function updateRecaptcha(_ref8, value) {
-      var commit = _ref8.commit,
-          state = _ref8.state;
-      commit('UPDATE_RECAPTCHA', value);
-      return state.form_data.g_recaptcha_response;
-    }
-  }
-});
+vue__WEBPACK_IMPORTED_MODULE_4__.default.use(vue_sweetalert2__WEBPACK_IMPORTED_MODULE_2__.default);
 new vue__WEBPACK_IMPORTED_MODULE_4__.default({
   el: '#contact-form',
-  store: store_contact_form,
+  store: _store__WEBPACK_IMPORTED_MODULE_0__.default,
   render: function render(h) {
-    return h(_components_ContactForm_vue__WEBPACK_IMPORTED_MODULE_2__.default);
+    return h(_components_ContactForm_vue__WEBPACK_IMPORTED_MODULE_1__.default);
   }
 });
 })();

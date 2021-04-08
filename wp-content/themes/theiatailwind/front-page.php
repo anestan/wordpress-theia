@@ -1,6 +1,5 @@
 <?php get_header(); ?>
 <!-- simplify css classes, pixel before margin, margin y then x, class transition then class transform, mobile responsive -->
-<!-- store has its own contact dir using index -->
 <!-- vue apollo -->
 <?php get_template_part( 'template-parts/content', 'videos' ); ?>
 <?php get_template_part( 'template-parts/content', 'how-to' ); ?>
