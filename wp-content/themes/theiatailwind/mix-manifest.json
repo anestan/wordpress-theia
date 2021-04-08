@@ -1,8 +1,8 @@
 {
     "/public/js/app.js": "/public/js/app.js",
-    "/public/js/contact-form.js": "/public/js/contact-form.js",
-    "/public/js/google-maps.js": "/public/js/google-maps.js",
     "/public/js/carousels.js": "/public/js/carousels.js",
+    "/public/js/google-maps.js": "/public/js/google-maps.js",
+    "/public/js/contact-form.js": "/public/js/contact-form.js",
     "/public/css/app.css": "/public/css/app.css",
     "/style.css": "/style.css"
 }
