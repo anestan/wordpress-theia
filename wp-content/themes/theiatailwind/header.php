@@ -9,7 +9,7 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 <!-- Header -->
-<div id="header" class="w-full bg-blue-500 py-[15px] fixed z-10 transition-all duration-300"
+<div id="header" class="w-full py-[15px] fixed z-10 transition-all duration-300"
      x-data="{ sidebarOpen: false }"
      @keydown.window.escape="sidebarOpen = false">
     <div class="flex items-center justify-between container px-[15px] mx-auto">
@@ -65,3 +65,4 @@
         </div>
     </div>
 </div>
+<div class="h-[70px]"></div>

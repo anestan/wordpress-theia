@@ -18,6 +18,13 @@ function showAdminBar() {
 
 add_action( 'after_setup_theme', 'showAdminBar' );
 
+function printTemplate() {
+	global $template;
+	print_r( $template );
+}
+
+//add_action('wp_head', 'printTemplate');
+
 function setupTheme() {
 	add_theme_support( 'custom-logo' );
 	add_theme_support( 'title-tag' );
@@ -55,31 +62,39 @@ function enqueueScripts() {
 	wp_enqueue_script( 'app', get_stylesheet_directory_uri() . $mix_manifest['/public/js/app.js'], [], false,
 		true );
 
-	wp_enqueue_script( 'carousels', get_stylesheet_directory_uri() . $mix_manifest['/public/js/carousels.js'], [],
-		false,
-		true );
+	if ( is_home() || is_front_page() ) {
+		wp_enqueue_script( 'carousels', get_stylesheet_directory_uri() . $mix_manifest['/public/js/carousels.js'], [],
+			false,
+			true );
 
-	wp_enqueue_script( 'google-maps', get_stylesheet_directory_uri() . $mix_manifest['/public/js/google-maps.js'],
-		[],
-		false,
-		true );
-	wp_localize_script( 'google-maps', 'wp_obj', [
-		'google_maps_api_key' => GOOGLE_MAPS_API_KEY,
-	] );
+		wp_enqueue_script( 'google-maps', get_stylesheet_directory_uri() . $mix_manifest['/public/js/google-maps.js'],
+			[],
+			false,
+			true );
+		wp_localize_script( 'google-maps', 'wp_obj', [
+			'google_maps_api_key' => GOOGLE_MAPS_API_KEY,
+		] );
 
-	wp_enqueue_script( 'contact-form', get_stylesheet_directory_uri() . $mix_manifest['/public/js/contact-form.js'],
-		[],
-		false,
-		true );
-	wp_localize_script( 'contact-form', 'wp_obj', [
-		'wp_nonce'                  => wp_create_nonce( 'wp-nonce' ),
-		'wp_ajax'                   => admin_url( 'admin-ajax.php' ),
-		'wp_action'                 => 'contactFormMail',
-		'google_recaptcha_site_key' => GOOGLE_RECAPTCHA_SITE_KEY,
-	] );
+		wp_enqueue_script( 'contact-form', get_stylesheet_directory_uri() . $mix_manifest['/public/js/contact-form.js'],
+			[],
+			false,
+			true );
+		wp_localize_script( 'contact-form', 'wp_obj', [
+			'wp_nonce'                  => wp_create_nonce( 'wp-nonce' ),
+			'wp_ajax'                   => admin_url( 'admin-ajax.php' ),
+			'wp_action'                 => 'contactFormMail',
+			'google_recaptcha_site_key' => GOOGLE_RECAPTCHA_SITE_KEY,
+		] );
+	}
 }
 
 add_action( 'wp_enqueue_scripts', 'enqueueScripts', 10000 );
+
+function dequeueScripts() {
+
+}
+
+add_action( 'wp_print_scripts', 'dequeueScripts', 100 );
 
 function bodyClass( $classes ) {
 	$classes[] = '';

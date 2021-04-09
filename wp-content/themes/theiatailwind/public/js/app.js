@@ -1974,21 +1974,21 @@ __webpack_require__.r(__webpack_exports__);
  * Header
  */
 
-var header = document.getElementById('header');
+function headerTransitions() {
+  var header = document.getElementById('header');
 
-if (window.scrollY > header.getBoundingClientRect().height) {
-  header.classList.remove('bg-blue-500');
-  header.classList.add('bg-gray-500');
-}
-
-document.addEventListener('scroll', function () {
   if (window.scrollY > header.getBoundingClientRect().height) {
     header.classList.remove('bg-blue-500');
     header.classList.add('bg-gray-500');
   } else {
-    header.classList.add('bg-blue-500');
     header.classList.remove('bg-gray-500');
+    header.classList.add('bg-blue-500');
   }
+}
+
+headerTransitions();
+document.addEventListener('scroll', function () {
+  headerTransitions();
 });
 /**
  * Scroll to Top
