@@ -30885,7 +30885,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "container mx-auto mb-[100px] px-[15px]" },
+    { staticClass: "container mx-auto mb-20 px-4" },
     [
       _c("ValidationObserver", { ref: "form" }, [
         _c(
@@ -30899,416 +30899,410 @@ var render = function() {
             }
           },
           [
-            _c(
-              "div",
-              { staticClass: "grid grid-cols-12 gap-y-[15px] gap-x-[30px]" },
-              [
-                _c(
-                  "div",
-                  { staticClass: "col-span-12 xl:col-span-6" },
-                  [
-                    _c("ValidationProvider", {
-                      attrs: { rules: "nameRequired" },
-                      scopedSlots: _vm._u([
-                        {
-                          key: "default",
-                          fn: function(ref) {
-                            var errors = ref.errors
-                            return [
-                              _c("input", {
-                                directives: [
-                                  {
-                                    name: "model",
-                                    rawName: "v-model",
-                                    value: _vm.name,
-                                    expression: "name"
-                                  }
-                                ],
-                                staticClass: "w-full",
-                                attrs: { type: "text", placeholder: "Name*" },
-                                domProps: { value: _vm.name },
-                                on: {
-                                  input: function($event) {
-                                    if ($event.target.composing) {
-                                      return
-                                    }
-                                    _vm.name = $event.target.value
-                                  }
+            _c("div", { staticClass: "grid grid-cols-12 gap-y-4 gap-x-8" }, [
+              _c(
+                "div",
+                { staticClass: "col-span-12 xl:col-span-6" },
+                [
+                  _c("ValidationProvider", {
+                    attrs: { rules: "nameRequired" },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function(ref) {
+                          var errors = ref.errors
+                          return [
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.name,
+                                  expression: "name"
                                 }
-                              }),
-                              _vm._v(" "),
-                              _c("small", { staticClass: "text-red-500" }, [
-                                _vm._v(_vm._s(errors.length ? errors[0] : " "))
-                              ])
-                            ]
-                          }
-                        }
-                      ])
-                    })
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "col-span-12 xl:col-span-6" },
-                  [
-                    _c("ValidationProvider", {
-                      attrs: { rules: "phoneRequired" },
-                      scopedSlots: _vm._u([
-                        {
-                          key: "default",
-                          fn: function(ref) {
-                            var errors = ref.errors
-                            return [
-                              _c("input", {
-                                directives: [
-                                  {
-                                    name: "model",
-                                    rawName: "v-model",
-                                    value: _vm.phone,
-                                    expression: "phone"
+                              ],
+                              staticClass: "w-full",
+                              attrs: { type: "text", placeholder: "Name*" },
+                              domProps: { value: _vm.name },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
                                   }
-                                ],
-                                staticClass: "w-full",
-                                attrs: { type: "text", placeholder: "Phone*" },
-                                domProps: { value: _vm.phone },
-                                on: {
-                                  input: function($event) {
-                                    if ($event.target.composing) {
-                                      return
-                                    }
-                                    _vm.phone = $event.target.value
-                                  }
+                                  _vm.name = $event.target.value
                                 }
-                              }),
-                              _vm._v(" "),
-                              _c("small", { staticClass: "text-red-500" }, [
-                                _vm._v(_vm._s(errors.length ? errors[0] : " "))
-                              ])
-                            ]
-                          }
-                        }
-                      ])
-                    })
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "col-span-12 xl:col-span-6" },
-                  [
-                    _c("ValidationProvider", {
-                      attrs: { rules: "emailRequired|emailValid" },
-                      scopedSlots: _vm._u([
-                        {
-                          key: "default",
-                          fn: function(ref) {
-                            var errors = ref.errors
-                            return [
-                              _c("input", {
-                                directives: [
-                                  {
-                                    name: "model",
-                                    rawName: "v-model",
-                                    value: _vm.email,
-                                    expression: "email"
-                                  }
-                                ],
-                                staticClass: "w-full",
-                                attrs: { type: "email", placeholder: "Email*" },
-                                domProps: { value: _vm.email },
-                                on: {
-                                  input: function($event) {
-                                    if ($event.target.composing) {
-                                      return
-                                    }
-                                    _vm.email = $event.target.value
-                                  }
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c("small", { staticClass: "text-red-500" }, [
-                                _vm._v(_vm._s(errors.length ? errors[0] : " "))
-                              ])
-                            ]
-                          }
-                        }
-                      ])
-                    })
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "col-span-12 xl:col-span-6" },
-                  [
-                    _c("ValidationProvider", {
-                      attrs: { rules: "dateRequired" },
-                      scopedSlots: _vm._u([
-                        {
-                          key: "default",
-                          fn: function(ref) {
-                            var errors = ref.errors
-                            return [
-                              _c("datepicker", {
-                                attrs: {
-                                  "input-class": "w-full",
-                                  format: _vm.formatDate,
-                                  placeholder: "Date*"
-                                },
-                                model: {
-                                  value: _vm.date,
-                                  callback: function($$v) {
-                                    _vm.date = $$v
-                                  },
-                                  expression: "date"
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c("small", { staticClass: "text-red-500" }, [
-                                _vm._v(_vm._s(errors.length ? errors[0] : " "))
-                              ])
-                            ]
-                          }
-                        }
-                      ])
-                    })
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "col-span-12" },
-                  [
-                    _c("ValidationProvider", {
-                      attrs: { rules: "messageRequired" },
-                      scopedSlots: _vm._u([
-                        {
-                          key: "default",
-                          fn: function(ref) {
-                            var errors = ref.errors
-                            return [
-                              _c("textarea", {
-                                directives: [
-                                  {
-                                    name: "model",
-                                    rawName: "v-model",
-                                    value: _vm.message,
-                                    expression: "message"
-                                  }
-                                ],
-                                staticClass: "w-full",
-                                attrs: { rows: 5, placeholder: "Message*" },
-                                domProps: { value: _vm.message },
-                                on: {
-                                  input: function($event) {
-                                    if ($event.target.composing) {
-                                      return
-                                    }
-                                    _vm.message = $event.target.value
-                                  }
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c("small", { staticClass: "text-red-500" }, [
-                                _vm._v(_vm._s(errors.length ? errors[0] : " "))
-                              ])
-                            ]
-                          }
-                        }
-                      ])
-                    })
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "col-span-12" },
-                  [
-                    _c("ValidationProvider", {
-                      attrs: { rules: "photoIdRequired|photoIdImage" },
-                      scopedSlots: _vm._u([
-                        {
-                          key: "default",
-                          fn: function(ref) {
-                            var errors = ref.errors
-                            var validate = ref.validate
-                            return [
-                              _c("div", [
-                                _c("label", [_vm._v("Photo ID*:")]),
-                                _vm._v(" "),
-                                _vm.photoIdEnabled
-                                  ? _c("input", {
-                                      attrs: { type: "file" },
-                                      on: {
-                                        change: function($event) {
-                                          _vm.handlePhotoId($event) ||
-                                            validate($event)
-                                        }
-                                      }
-                                    })
-                                  : _vm._e()
-                              ]),
-                              _vm._v(" "),
-                              _c("small", { staticClass: "text-red-500" }, [
-                                _vm._v(_vm._s(errors.length ? errors[0] : " "))
-                              ])
-                            ]
-                          }
-                        }
-                      ])
-                    })
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "col-span-12" },
-                  [
-                    _c("ValidationProvider", {
-                      attrs: { rules: "tncRequired" },
-                      scopedSlots: _vm._u([
-                        {
-                          key: "default",
-                          fn: function(ref) {
-                            var errors = ref.errors
-                            return [
-                              _c("div", [
-                                _c("label", [
-                                  _vm._v("I accept the terms and conditions.")
-                                ]),
-                                _vm._v(" "),
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.tnc,
-                                      expression: "tnc"
-                                    }
-                                  ],
-                                  attrs: { type: "checkbox" },
-                                  domProps: {
-                                    checked: Array.isArray(_vm.tnc)
-                                      ? _vm._i(_vm.tnc, null) > -1
-                                      : _vm.tnc
-                                  },
-                                  on: {
-                                    change: function($event) {
-                                      var $$a = _vm.tnc,
-                                        $$el = $event.target,
-                                        $$c = $$el.checked ? true : false
-                                      if (Array.isArray($$a)) {
-                                        var $$v = null,
-                                          $$i = _vm._i($$a, $$v)
-                                        if ($$el.checked) {
-                                          $$i < 0 &&
-                                            (_vm.tnc = $$a.concat([$$v]))
-                                        } else {
-                                          $$i > -1 &&
-                                            (_vm.tnc = $$a
-                                              .slice(0, $$i)
-                                              .concat($$a.slice($$i + 1)))
-                                        }
-                                      } else {
-                                        _vm.tnc = $$c
-                                      }
-                                    }
-                                  }
-                                })
-                              ]),
-                              _vm._v(" "),
-                              _c("small", { staticClass: "text-red-500" }, [
-                                _vm._v(_vm._s(errors.length ? errors[0] : " "))
-                              ])
-                            ]
-                          }
-                        }
-                      ])
-                    })
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "col-span-12 pb-[30px]" },
-                  [
-                    _c("vue-recaptcha", {
-                      ref: "recaptcha",
-                      attrs: {
-                        sitekey: _vm.google_recaptcha_site_key,
-                        loadRecaptchaScript: true
-                      }
-                    })
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-span-12" }, [
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "inline-flex items-center form-message error-message"
-                    },
-                    [
-                      _c(
-                        "button",
-                        {
-                          staticClass:
-                            "inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500",
-                          attrs: { type: "submit" }
-                        },
-                        [_vm._v("\n              Submit\n            ")]
-                      ),
-                      _vm._v(" "),
-                      _vm.loading
-                        ? _c(
-                            "svg",
-                            {
-                              staticClass:
-                                "animate-spin h-[30px] w-[30px] ml-[15px]",
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                fill: "none",
-                                viewBox: "0 0 24 24"
                               }
-                            },
-                            [
-                              _c("circle", {
-                                staticClass: "opacity-25",
-                                attrs: {
-                                  cx: "12",
-                                  cy: "12",
-                                  r: "10",
-                                  stroke: "currentColor",
-                                  "stroke-width": "4"
+                            }),
+                            _vm._v(" "),
+                            _c("small", { staticClass: "text-red-700" }, [
+                              _vm._v(_vm._s(errors.length ? errors[0] : " "))
+                            ])
+                          ]
+                        }
+                      }
+                    ])
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "col-span-12 xl:col-span-6" },
+                [
+                  _c("ValidationProvider", {
+                    attrs: { rules: "phoneRequired" },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function(ref) {
+                          var errors = ref.errors
+                          return [
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.phone,
+                                  expression: "phone"
                                 }
-                              }),
+                              ],
+                              staticClass: "w-full",
+                              attrs: { type: "text", placeholder: "Phone*" },
+                              domProps: { value: _vm.phone },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.phone = $event.target.value
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("small", { staticClass: "text-red-700" }, [
+                              _vm._v(_vm._s(errors.length ? errors[0] : " "))
+                            ])
+                          ]
+                        }
+                      }
+                    ])
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "col-span-12 xl:col-span-6" },
+                [
+                  _c("ValidationProvider", {
+                    attrs: { rules: "emailRequired|emailValid" },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function(ref) {
+                          var errors = ref.errors
+                          return [
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.email,
+                                  expression: "email"
+                                }
+                              ],
+                              staticClass: "w-full",
+                              attrs: { type: "email", placeholder: "Email*" },
+                              domProps: { value: _vm.email },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.email = $event.target.value
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("small", { staticClass: "text-red-700" }, [
+                              _vm._v(_vm._s(errors.length ? errors[0] : " "))
+                            ])
+                          ]
+                        }
+                      }
+                    ])
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "col-span-12 xl:col-span-6" },
+                [
+                  _c("ValidationProvider", {
+                    attrs: { rules: "dateRequired" },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function(ref) {
+                          var errors = ref.errors
+                          return [
+                            _c("datepicker", {
+                              attrs: {
+                                "input-class": "w-full",
+                                format: _vm.formatDate,
+                                placeholder: "Date*"
+                              },
+                              model: {
+                                value: _vm.date,
+                                callback: function($$v) {
+                                  _vm.date = $$v
+                                },
+                                expression: "date"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("small", { staticClass: "text-red-700" }, [
+                              _vm._v(_vm._s(errors.length ? errors[0] : " "))
+                            ])
+                          ]
+                        }
+                      }
+                    ])
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "col-span-12" },
+                [
+                  _c("ValidationProvider", {
+                    attrs: { rules: "messageRequired" },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function(ref) {
+                          var errors = ref.errors
+                          return [
+                            _c("textarea", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.message,
+                                  expression: "message"
+                                }
+                              ],
+                              staticClass: "w-full",
+                              attrs: { rows: 5, placeholder: "Message*" },
+                              domProps: { value: _vm.message },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.message = $event.target.value
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("small", { staticClass: "text-red-700" }, [
+                              _vm._v(_vm._s(errors.length ? errors[0] : " "))
+                            ])
+                          ]
+                        }
+                      }
+                    ])
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "col-span-12" },
+                [
+                  _c("ValidationProvider", {
+                    attrs: { rules: "photoIdRequired|photoIdImage" },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function(ref) {
+                          var errors = ref.errors
+                          var validate = ref.validate
+                          return [
+                            _c("div", [
+                              _c("label", [_vm._v("Photo ID*:")]),
                               _vm._v(" "),
-                              _c("path", {
-                                staticClass: "opacity-75",
-                                attrs: {
-                                  fill: "currentColor",
-                                  d:
-                                    "M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                              _vm.photoIdEnabled
+                                ? _c("input", {
+                                    attrs: { type: "file" },
+                                    on: {
+                                      change: function($event) {
+                                        _vm.handlePhotoId($event) ||
+                                          validate($event)
+                                      }
+                                    }
+                                  })
+                                : _vm._e()
+                            ]),
+                            _vm._v(" "),
+                            _c("small", { staticClass: "text-red-700" }, [
+                              _vm._v(_vm._s(errors.length ? errors[0] : " "))
+                            ])
+                          ]
+                        }
+                      }
+                    ])
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "col-span-12" },
+                [
+                  _c("ValidationProvider", {
+                    attrs: { rules: "tncRequired" },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function(ref) {
+                          var errors = ref.errors
+                          return [
+                            _c("div", [
+                              _c("label", [
+                                _vm._v("I accept the terms and conditions.")
+                              ]),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.tnc,
+                                    expression: "tnc"
+                                  }
+                                ],
+                                attrs: { type: "checkbox" },
+                                domProps: {
+                                  checked: Array.isArray(_vm.tnc)
+                                    ? _vm._i(_vm.tnc, null) > -1
+                                    : _vm.tnc
+                                },
+                                on: {
+                                  change: function($event) {
+                                    var $$a = _vm.tnc,
+                                      $$el = $event.target,
+                                      $$c = $$el.checked ? true : false
+                                    if (Array.isArray($$a)) {
+                                      var $$v = null,
+                                        $$i = _vm._i($$a, $$v)
+                                      if ($$el.checked) {
+                                        $$i < 0 && (_vm.tnc = $$a.concat([$$v]))
+                                      } else {
+                                        $$i > -1 &&
+                                          (_vm.tnc = $$a
+                                            .slice(0, $$i)
+                                            .concat($$a.slice($$i + 1)))
+                                      }
+                                    } else {
+                                      _vm.tnc = $$c
+                                    }
+                                  }
                                 }
                               })
-                            ]
-                          )
-                        : _vm._e()
-                    ]
-                  )
-                ])
-              ]
-            )
+                            ]),
+                            _vm._v(" "),
+                            _c("small", { staticClass: "text-red-700" }, [
+                              _vm._v(_vm._s(errors.length ? errors[0] : " "))
+                            ])
+                          ]
+                        }
+                      }
+                    ])
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "col-span-12 pb-8" },
+                [
+                  _c("vue-recaptcha", {
+                    ref: "recaptcha",
+                    attrs: {
+                      sitekey: _vm.google_recaptcha_site_key,
+                      loadRecaptchaScript: true
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-span-12" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "inline-flex items-center form-message error-message"
+                  },
+                  [
+                    _c(
+                      "button",
+                      {
+                        staticClass:
+                          "inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500",
+                        attrs: { type: "submit" }
+                      },
+                      [_vm._v("\n              Submit\n            ")]
+                    ),
+                    _vm._v(" "),
+                    _vm.loading
+                      ? _c(
+                          "svg",
+                          {
+                            staticClass: "animate-spin h-8 w-8 ml-4",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              fill: "none",
+                              viewBox: "0 0 24 24"
+                            }
+                          },
+                          [
+                            _c("circle", {
+                              staticClass: "opacity-25",
+                              attrs: {
+                                cx: "12",
+                                cy: "12",
+                                r: "10",
+                                stroke: "currentColor",
+                                "stroke-width": "4"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("path", {
+                              staticClass: "opacity-75",
+                              attrs: {
+                                fill: "currentColor",
+                                d:
+                                  "M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                              }
+                            })
+                          ]
+                        )
+                      : _vm._e()
+                  ]
+                )
+              ])
+            ])
           ]
         )
       ])

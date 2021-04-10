@@ -1,36 +1,36 @@
 <template>
-  <div class="container mx-auto mb-[100px] px-[15px]">
+  <div class="container mx-auto mb-20 px-4">
     <ValidationObserver ref="form">
       <form @submit.prevent="onSubmit">
-        <div class="grid grid-cols-12 gap-y-[15px] gap-x-[30px]">
+        <div class="grid grid-cols-12 gap-y-4 gap-x-8">
           <div class="col-span-12 xl:col-span-6">
             <ValidationProvider rules="nameRequired" v-slot="{ errors }">
               <input class="w-full" v-model="name" type="text" placeholder="Name*">
-              <small class="text-red-500">{{ errors.length ? errors[0] : '&nbsp;' }}</small>
+              <small class="text-red-700">{{ errors.length ? errors[0] : '&nbsp;' }}</small>
             </ValidationProvider>
           </div>
           <div class="col-span-12 xl:col-span-6">
             <ValidationProvider rules="phoneRequired" v-slot="{ errors }">
               <input class="w-full" v-model="phone" type="text" placeholder="Phone*">
-              <small class="text-red-500">{{ errors.length ? errors[0] : '&nbsp;' }}</small>
+              <small class="text-red-700">{{ errors.length ? errors[0] : '&nbsp;' }}</small>
             </ValidationProvider>
           </div>
           <div class="col-span-12 xl:col-span-6">
             <ValidationProvider rules="emailRequired|emailValid" v-slot="{ errors }">
               <input class="w-full" v-model="email" type="email" placeholder="Email*">
-              <small class="text-red-500">{{ errors.length ? errors[0] : '&nbsp;' }}</small>
+              <small class="text-red-700">{{ errors.length ? errors[0] : '&nbsp;' }}</small>
             </ValidationProvider>
           </div>
           <div class="col-span-12 xl:col-span-6">
             <ValidationProvider rules="dateRequired" v-slot="{ errors }">
               <datepicker :input-class="'w-full'" v-model="date" :format="formatDate" placeholder="Date*"></datepicker>
-              <small class="text-red-500">{{ errors.length ? errors[0] : '&nbsp;' }}</small>
+              <small class="text-red-700">{{ errors.length ? errors[0] : '&nbsp;' }}</small>
             </ValidationProvider>
           </div>
           <div class="col-span-12">
             <ValidationProvider rules="messageRequired" v-slot="{ errors }">
               <textarea class="w-full" v-model="message" :rows="5" placeholder="Message*"></textarea>
-              <small class="text-red-500">{{ errors.length ? errors[0] : '&nbsp;' }}</small>
+              <small class="text-red-700">{{ errors.length ? errors[0] : '&nbsp;' }}</small>
             </ValidationProvider>
           </div>
           <div class="col-span-12">
@@ -39,7 +39,7 @@
                 <label>Photo ID*:</label>
                 <input type="file" v-if="photoIdEnabled" @change="handlePhotoId($event) || validate($event)">
               </div>
-              <small class="text-red-500">{{ errors.length ? errors[0] : '&nbsp;' }}</small>
+              <small class="text-red-700">{{ errors.length ? errors[0] : '&nbsp;' }}</small>
             </ValidationProvider>
           </div>
           <div class="col-span-12">
@@ -48,10 +48,10 @@
                 <label>I accept the terms and conditions.</label>
                 <input v-model="tnc" type="checkbox">
               </div>
-              <small class="text-red-500">{{ errors.length ? errors[0] : '&nbsp;' }}</small>
+              <small class="text-red-700">{{ errors.length ? errors[0] : '&nbsp;' }}</small>
             </ValidationProvider>
           </div>
-          <div class="col-span-12 pb-[30px]">
+          <div class="col-span-12 pb-8">
             <vue-recaptcha ref="recaptcha" :sitekey="google_recaptcha_site_key" :loadRecaptchaScript="true"></vue-recaptcha>
           </div>
           <div class="col-span-12">
@@ -59,7 +59,7 @@
               <button type="submit" class="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                 Submit
               </button>
-              <svg v-if="loading" class="animate-spin h-[30px] w-[30px] ml-[15px]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <svg v-if="loading" class="animate-spin h-8 w-8 ml-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                 <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
               </svg>

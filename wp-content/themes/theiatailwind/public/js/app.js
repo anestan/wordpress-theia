@@ -1971,18 +1971,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var alpinejs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(alpinejs__WEBPACK_IMPORTED_MODULE_0__);
 
 /**
- * Header
+ * Header Menu
  */
 
 function headerTransitions() {
   var header = document.getElementById('header');
 
-  if (window.scrollY > header.getBoundingClientRect().height) {
-    header.classList.remove('bg-blue-500');
-    header.classList.add('bg-gray-500');
-  } else {
-    header.classList.remove('bg-gray-500');
-    header.classList.add('bg-blue-500');
+  if (header) {
+    if (window.scrollY > header.getBoundingClientRect().height) {
+      header.classList.remove('bg-blue-700');
+      header.classList.add('bg-gray-700');
+    } else {
+      header.classList.remove('bg-gray-700');
+      header.classList.add('bg-blue-700');
+    }
   }
 }
 

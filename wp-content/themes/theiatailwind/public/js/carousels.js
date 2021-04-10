@@ -16695,6 +16695,27 @@ var banner_carousel = new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__.default('.b
   }
 });
 /**
+ * Halfway Carousel
+ */
+
+var halfway_carousel = new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__.default('.halfway-carousel', {
+  loop: true,
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false
+  },
+  speed: 300,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev'
+  },
+  pagination: {
+    el: '.swiper-pagination'
+  },
+  slidesPerView: 'auto',
+  spaceBetween: 30
+});
+/**
  * Hover Link Carousel
  */
 
@@ -16727,6 +16748,24 @@ var hover_link_carousel = new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__.default
       spaceBetween: 30
     }
   }
+});
+/**
+ * Centered Carousel
+ */
+
+var centered_carousel = new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__.default('.centered-carousel', {
+  loop: true,
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false
+  },
+  speed: 300,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev'
+  },
+  slidesPerView: 3,
+  centeredSlides: true
 });
 /**
  * Sync Carousel
@@ -16781,7 +16820,7 @@ var numbered_carousel = new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__.default('
     el: '.swiper-pagination',
     clickable: true,
     renderBullet: function renderBullet(index, className) {
-      return '<span class="' + className + ' bg-red-500 text-white h-[30px] w-[30px] rounded-full flex items-center justify-center mx-[15px]">' + (index + 1) + '</span>';
+      return '<span class="' + className + ' bg-red-700 text-white h-[30px] w-[30px] rounded-full flex items-center justify-center mx-[15px]">' + (index + 1) + '</span>';
     }
   },
   init: false
@@ -16792,45 +16831,6 @@ numbered_carousel.on('init', function () {
 numbered_carousel.init();
 numbered_carousel.on('slideChange', function () {
   document.getElementById('swiper-fraction').innerHTML = (numbered_carousel.realIndex + 1).toString().padStart(2, '0');
-});
-/**
- * Centered Carousel
- */
-
-var centered_carousel = new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__.default('.centered-carousel', {
-  loop: true,
-  autoplay: {
-    delay: 3000,
-    disableOnInteraction: false
-  },
-  speed: 300,
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev'
-  },
-  slidesPerView: 3,
-  centeredSlides: true
-});
-/**
- * Halfway Carousel
- */
-
-var halfway_carousel = new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__.default('.halfway-carousel', {
-  loop: true,
-  autoplay: {
-    delay: 3000,
-    disableOnInteraction: false
-  },
-  speed: 300,
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev'
-  },
-  pagination: {
-    el: '.swiper-pagination'
-  },
-  slidesPerView: 'auto',
-  spaceBetween: 30
 });
 /**
  * MySwiper Carousel
@@ -17077,6 +17077,69 @@ var initPhotoSwipeFromDOM = function initPhotoSwipeFromDOM(gallerySelector) {
 
 
 initPhotoSwipeFromDOM('.my-gallery');
+/**
+ * Vertical Line On Carousel A
+ */
+
+var vertical_line_on_carousel_a = new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__.default('.vertical-line-on-carousel-a', {
+  loop: true,
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false
+  },
+  speed: 300,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev'
+  },
+  pagination: {
+    el: '.swiper-pagination'
+  },
+  slidesPerView: 'auto',
+  spaceBetween: 30
+});
+/**
+ * Vertical Line On Carousel B
+ */
+
+var vertical_line_on_carousel_b = new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__.default('.vertical-line-on-carousel-b', {
+  loop: true,
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false
+  },
+  speed: 300,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev'
+  },
+  pagination: {
+    el: '.swiper-pagination'
+  },
+  slidesPerView: 'auto',
+  spaceBetween: 30
+});
+/**
+ * Vertical Line On Carousel C
+ */
+
+var vertical_line_on_carousel_c = new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__.default('.vertical-line-on-carousel-c', {
+  loop: true,
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false
+  },
+  speed: 300,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev'
+  },
+  pagination: {
+    el: '.swiper-pagination'
+  },
+  slidesPerView: 'auto',
+  spaceBetween: 30
+});
 })();
 
 /******/ })()

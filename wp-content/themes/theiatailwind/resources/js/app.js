@@ -1,17 +1,19 @@
 import 'alpinejs';
 
 /**
- * Header
+ * Header Menu
  */
 function headerTransitions () {
   let header = document.getElementById('header');
 
-  if (window.scrollY > header.getBoundingClientRect().height) {
-    header.classList.remove('bg-blue-500');
-    header.classList.add('bg-gray-500');
-  } else {
-    header.classList.remove('bg-gray-500');
-    header.classList.add('bg-blue-500');
+  if (header) {
+    if (window.scrollY > header.getBoundingClientRect().height) {
+      header.classList.remove('bg-blue-700');
+      header.classList.add('bg-gray-700');
+    } else {
+      header.classList.remove('bg-gray-700');
+      header.classList.add('bg-blue-700');
+    }
   }
 }
 

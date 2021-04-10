@@ -8,61 +8,35 @@
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<!-- Header -->
-<div id="header" class="w-full py-[15px] fixed z-10 transition-all duration-300"
-     x-data="{ sidebarOpen: false }"
-     @keydown.window.escape="sidebarOpen = false">
-    <div class="flex items-center justify-between container px-[15px] mx-auto">
-        <a class="text-[20px] text-white" href="#">Home</a>
-        <div class="flex items-center gap-x-[30px]">
-            <a class="text-[20px] text-white" href="#">Services</a>
-            <a class="text-[20px] text-white" href="#">About</a>
-            <a class="text-[20px] text-white" href="#">Contact</a>
-            <div class="cursor-pointer"
-                 @click.stop="sidebarOpen = true">
-                <svg class="h-[40px] w-[40px] text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                </svg>
-            </div>
-        </div>
-    </div>
-    <div x-show="sidebarOpen"
-         style="display: none;">
-        <div class="flex fixed inset-0">
-            <div class="fixed inset-0" @click="sidebarOpen = false"
-                 x-show="sidebarOpen"
-                 x-transition:enter="transition-opacity ease-linear duration-300"
-                 x-transition:enter-start="opacity-0"
-                 x-transition:enter-end="opacity-100"
-                 x-transition:leave="transition-opacity ease-linear duration-300"
-                 x-transition:leave-start="opacity-100"
-                 x-transition:leave-end="opacity-0">
-                <div class="bg-gray-500 opacity-75 absolute inset-0"></div>
-            </div>
-            <div class="flex flex-col w-full max-w-xs bg-blue-500 relative"
-                 x-show="sidebarOpen"
-                 x-transition:enter="transition ease-in-out duration-300 transform"
-                 x-transition:enter-start="-translate-x-full"
-                 x-transition:enter-end="translate-x-0"
-                 x-transition:leave="transition ease-in-out duration-300 transform"
-                 x-transition:leave-start="translate-x-0"
-                 x-transition:leave-end="-translate-x-full">
-                <div class="absolute top-[15px] right-[15px]">
-                    <div class="cursor-pointer"
-                         @click.stop="sidebarOpen = false">
-                        <svg class="h-[40px] w-[40px] text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                        </svg>
-                    </div>
-                </div>
-                <div class="flex flex-col gap-y-[30px] overflow-y-auto h-full p-[50px]">
-                    <a class="text-[20px] text-white" href="#">Home</a>
-                    <a class="text-[20px] text-white" href="#">Services</a>
-                    <a class="text-[20px] text-white" href="#">About</a>
-                    <a class="text-[20px] text-white" href="#">Contact</a>
-                </div>
-            </div>
-        </div>
+<?php
+if ( false ) {
+?>
+<div class="relative" x-data="loadingScreen()">
+    <div class="h-screen w-screen bg-cover bg-center bg-no-repeat fixed z-50"
+         style="background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/public/imgs/admin-bg.jpg);"
+         x-show="showLoadingScreen"
+         x-on:load.window.debounce.300="toggleLoadingScreen()"
+         x-transition:enter="transition-opacity ease-linear duration-1000"
+         x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+         x-transition:leave="transition-opacity ease-linear duration-1000"
+         x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
+
+        <svg class="animate-spin h-16 w-16 absolute top-1/2 right-1/2 -translate-y-1/2 -translate-x-1/2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="gray" stroke-width="4"></circle>
+            <path class="opacity-75" fill="blue" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
     </div>
 </div>
-<div class="h-[70px]"></div>
+<script>
+  function loadingScreen () {
+    return {
+      showLoadingScreen: true,
+      toggleLoadingScreen () {
+        this.showLoadingScreen = !this.showLoadingScreen;
+      }
+    };
+  }
+</script>
+<?php
+}
+?>

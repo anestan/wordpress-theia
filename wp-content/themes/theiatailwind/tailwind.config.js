@@ -17,9 +17,9 @@ module.exports = {
   darkMode: false,
   theme: {
     fontFamily: {
-      'sans': ['Nunito', 'sans-serif',],
-      'serif': ['Nunito', 'sans-serif',],
-      'mono': ['Nunito', 'sans-serif',],
+      'sans': ['Playfair Display', 'sans-serif',],
+      'serif': ['Playfair Display', 'sans-serif',],
+      'mono': ['Playfair Display', 'sans-serif',],
     },
     screens: {
       'sm': '640px',

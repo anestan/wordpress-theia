@@ -23,6 +23,27 @@ let banner_carousel = new Swiper('.banner-carousel', {
 });
 
 /**
+ * Halfway Carousel
+ */
+let halfway_carousel = new Swiper('.halfway-carousel', {
+  loop: true,
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false,
+  },
+  speed: 300,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  pagination: {
+    el: '.swiper-pagination',
+  },
+  slidesPerView: 'auto',
+  spaceBetween: 30,
+});
+
+/**
  * Hover Link Carousel
  */
 let hover_link_carousel = new Swiper('.hover-link-carousel', {
@@ -54,6 +75,24 @@ let hover_link_carousel = new Swiper('.hover-link-carousel', {
       spaceBetween: 30,
     },
   },
+});
+
+/**
+ * Centered Carousel
+ */
+let centered_carousel = new Swiper('.centered-carousel', {
+  loop: true,
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false,
+  },
+  speed: 300,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  slidesPerView: 3,
+  centeredSlides: true,
 });
 
 /**
@@ -109,7 +148,7 @@ let numbered_carousel = new Swiper('.numbered-carousel', {
     el: '.swiper-pagination',
     clickable: true,
     renderBullet: (index, className) => {
-      return '<span class="' + className + ' bg-red-500 text-white h-[30px] w-[30px] rounded-full flex items-center justify-center mx-[15px]">' + (index + 1) + '</span>';
+      return '<span class="' + className + ' bg-red-700 text-white h-[30px] w-[30px] rounded-full flex items-center justify-center mx-[15px]">' + (index + 1) + '</span>';
     },
   },
   init: false,
@@ -123,45 +162,6 @@ numbered_carousel.init();
 
 numbered_carousel.on('slideChange', () => {
   document.getElementById('swiper-fraction').innerHTML = (numbered_carousel.realIndex + 1).toString().padStart(2, '0');
-});
-
-/**
- * Centered Carousel
- */
-let centered_carousel = new Swiper('.centered-carousel', {
-  loop: true,
-  autoplay: {
-    delay: 3000,
-    disableOnInteraction: false,
-  },
-  speed: 300,
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-  slidesPerView: 3,
-  centeredSlides: true,
-});
-
-/**
- * Halfway Carousel
- */
-let halfway_carousel = new Swiper('.halfway-carousel', {
-  loop: true,
-  autoplay: {
-    delay: 3000,
-    disableOnInteraction: false,
-  },
-  speed: 300,
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-  pagination: {
-    el: '.swiper-pagination',
-  },
-  slidesPerView: 'auto',
-  spaceBetween: 30,
 });
 
 /**
@@ -413,3 +413,67 @@ var initPhotoSwipeFromDOM = function (gallerySelector) {
 
 // execute above function
 initPhotoSwipeFromDOM('.my-gallery');
+
+/**
+ * Vertical Line On Carousel A
+ */
+let vertical_line_on_carousel_a = new Swiper('.vertical-line-on-carousel-a', {
+  loop: true,
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false,
+  },
+  speed: 300,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  pagination: {
+    el: '.swiper-pagination',
+  },
+  slidesPerView: 'auto',
+  spaceBetween: 30,
+});
+
+
+/**
+ * Vertical Line On Carousel B
+ */
+let vertical_line_on_carousel_b = new Swiper('.vertical-line-on-carousel-b', {
+  loop: true,
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false,
+  },
+  speed: 300,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  pagination: {
+    el: '.swiper-pagination',
+  },
+  slidesPerView: 'auto',
+  spaceBetween: 30,
+});
+
+/**
+ * Vertical Line On Carousel C
+ */
+let vertical_line_on_carousel_c = new Swiper('.vertical-line-on-carousel-c', {
+  loop: true,
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false,
+  },
+  speed: 300,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  pagination: {
+    el: '.swiper-pagination',
+  },
+  slidesPerView: 'auto',
+  spaceBetween: 30,
+});

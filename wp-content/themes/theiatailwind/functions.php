@@ -62,11 +62,13 @@ function enqueueScripts() {
 	wp_enqueue_script( 'app', get_stylesheet_directory_uri() . $mix_manifest['/public/js/app.js'], [], false,
 		true );
 
-	if ( is_home() || is_front_page() ) {
+	if ( is_page('carousels') ) {
 		wp_enqueue_script( 'carousels', get_stylesheet_directory_uri() . $mix_manifest['/public/js/carousels.js'], [],
 			false,
 			true );
+	}
 
+	if ( is_page('contact') ) {
 		wp_enqueue_script( 'google-maps', get_stylesheet_directory_uri() . $mix_manifest['/public/js/google-maps.js'],
 			[],
 			false,
@@ -86,6 +88,20 @@ function enqueueScripts() {
 			'google_recaptcha_site_key' => GOOGLE_RECAPTCHA_SITE_KEY,
 		] );
 	}
+
+	wp_enqueue_script( 'gsap-3.6.2', get_stylesheet_directory_uri() . '/vendor/js/gsap-3.6.2.min.js', [],
+		false,
+		true );
+
+	wp_enqueue_script( 'scrolltrigger-3.6.2', get_stylesheet_directory_uri() . '/vendor/js/scrolltrigger-3.6.2.min.js',
+		[],
+		false,
+		true );
+
+	wp_enqueue_script( 'parallax-scrolltrigger',
+		get_stylesheet_directory_uri() . $mix_manifest['/public/js/parallax-scrolltrigger.js'], [],
+		false,
+		true );
 }
 
 add_action( 'wp_enqueue_scripts', 'enqueueScripts', 10000 );
@@ -122,7 +138,7 @@ function enqueueLoginScripts() {
 	?>
     <style type="text/css">
         body {
-            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/public/images/admin-bg.jpg) !important;
+            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/public/imgs/admin-bg.jpg) !important;
             background-repeat: no-repeat !important;
             background-size: cover !important;
             background-position: bottom left !important;
@@ -130,7 +146,7 @@ function enqueueLoginScripts() {
 
         #login h1 a {
             background-color: #ffffff;
-            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/public/images/admin-logo.png) !important;
+            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/public/imgs/admin-logo.png) !important;
             background-size: auto;
             margin: 0;
             width: 100%;
