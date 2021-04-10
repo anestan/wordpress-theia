@@ -58,17 +58,18 @@ function enqueueScripts() {
 	$mix_manifest = (array) json_decode( file_get_contents( __DIR__ . '/mix-manifest.json' ) );
 
 	wp_enqueue_style( 'style', get_stylesheet_directory_uri() . $mix_manifest['/style.css'] );
+
 	wp_enqueue_style( 'app', get_stylesheet_directory_uri() . $mix_manifest['/public/css/app.css'] );
 	wp_enqueue_script( 'app', get_stylesheet_directory_uri() . $mix_manifest['/public/js/app.js'], [], false,
 		true );
 
-	if ( is_page('carousels') ) {
+	if ( is_page( 'carousels' ) ) {
 		wp_enqueue_script( 'carousels', get_stylesheet_directory_uri() . $mix_manifest['/public/js/carousels.js'], [],
 			false,
 			true );
 	}
 
-	if ( is_page('contact') ) {
+	if ( is_page( 'contact' ) ) {
 		wp_enqueue_script( 'google-maps', get_stylesheet_directory_uri() . $mix_manifest['/public/js/google-maps.js'],
 			[],
 			false,
@@ -89,19 +90,23 @@ function enqueueScripts() {
 		] );
 	}
 
-	wp_enqueue_script( 'gsap-3.6.2', get_stylesheet_directory_uri() . '/vendor/js/gsap-3.6.2.min.js', [],
-		false,
-		true );
+	if ( is_page( 'parallax-scrolltrigger' ) ) {
+		wp_enqueue_script( 'gsap-3.6.2', get_stylesheet_directory_uri() . '/vendor/js/gsap-3.6.2.min.js', [],
+			false,
+			true );
 
-	wp_enqueue_script( 'scrolltrigger-3.6.2', get_stylesheet_directory_uri() . '/vendor/js/scrolltrigger-3.6.2.min.js',
-		[],
-		false,
-		true );
+		wp_enqueue_script( 'gsap-scrolltrigger-3.6.2',
+			get_stylesheet_directory_uri() . '/vendor/js/gsap-scrolltrigger-3.6.2.min.js',
+			[],
+			false,
+			true );
 
-	wp_enqueue_script( 'parallax-scrolltrigger',
-		get_stylesheet_directory_uri() . $mix_manifest['/public/js/parallax-scrolltrigger.js'], [],
-		false,
-		true );
+		wp_enqueue_style( 'parallax-scrolltrigger', get_stylesheet_directory_uri() . $mix_manifest['/public/css/parallax-scrolltrigger.css'] );
+		wp_enqueue_script( 'parallax-scrolltrigger',
+			get_stylesheet_directory_uri() . $mix_manifest['/public/js/parallax-scrolltrigger.js'], [],
+			false,
+			true );
+	}
 }
 
 add_action( 'wp_enqueue_scripts', 'enqueueScripts', 10000 );

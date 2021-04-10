@@ -55,4 +55,3 @@
         </div>
     </div>
 </div>
-<div class="h-[48px]"></div>

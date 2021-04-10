@@ -1,5 +1,6 @@
 <!-- Header on Border -->
-<div class="container px-4 mt-16 mx-auto">
+<div class="h-32"></div>
+<div class="container px-4 mx-auto">
     <div class="p-8 mb-20 mx-auto ring-4 ring-blue-700">
         <div class="block w-[200px] text-6xl text-gray-700 text-center bg-white mt-[-75px]">Lorem</div>
         <div class="p-8">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, quia?</div>

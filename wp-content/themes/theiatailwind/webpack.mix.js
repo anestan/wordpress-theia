@@ -28,15 +28,25 @@ mix.browserSync({
 mix.setPublicPath('/');
 
 mix.sass('resources/sass/style.scss', 'style.css');
+
 mix.sass('resources/sass/app.scss', 'public/css/app.css').options({
   postCss: [
     require("@tailwindcss/jit"),
   ],
 });
 mix.js('resources/js/app.js', 'public/js/app.js');
+
 mix.js('resources/js/carousels.js', 'public/js/carousels.js');
+
 mix.js('resources/js/google-maps.js', 'public/js/google-maps.js');
+
 mix.js('resources/js/contact-form.js', 'public/js/contact-form.js').vue();
+
+mix.sass('resources/sass/parallax-scrolltrigger.scss', 'public/css/parallax-scrolltrigger.css').options({
+  postCss: [
+    require("@tailwindcss/jit"),
+  ],
+});
 mix.js('resources/js/parallax-scrolltrigger.js', 'public/js/parallax-scrolltrigger.js');
 
 if (mix.inProduction()) {
