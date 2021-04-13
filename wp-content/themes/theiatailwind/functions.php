@@ -38,6 +38,25 @@ function setupTheme() {
 
 add_action( 'after_setup_theme', 'setupTheme' );
 
+function switchTheme() {
+	foreach ( [ 'Carousels', 'Contact', 'How To', 'Mansory', 'Parallax Scrolltrigger' ] as $page_title ) {
+		$page = get_page_by_title( $page_title );
+
+		$postarr = [
+			'post_type'    => 'page',
+			'post_title'   => $page_title,
+			'post_content' => '',
+			'post_status'  => 'publish',
+		];
+
+		if ( ! isset( $page->ID ) ) {
+			wp_insert_post( $postarr );
+		}
+	}
+}
+
+add_action( 'after_switch_theme', 'switchTheme' );
+
 function setupWidgets() {
 	register_sidebar(
 		[
@@ -101,7 +120,8 @@ function enqueueScripts() {
 			false,
 			true );
 
-		wp_enqueue_style( 'parallax-scrolltrigger', get_stylesheet_directory_uri() . $mix_manifest['/public/css/parallax-scrolltrigger.css'] );
+		wp_enqueue_style( 'parallax-scrolltrigger',
+			get_stylesheet_directory_uri() . $mix_manifest['/public/css/parallax-scrolltrigger.css'] );
 		wp_enqueue_script( 'parallax-scrolltrigger',
 			get_stylesheet_directory_uri() . $mix_manifest['/public/js/parallax-scrolltrigger.js'], [],
 			false,
