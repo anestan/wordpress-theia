@@ -327,11 +327,11 @@ function setPostsOrder( $query ) {
 
 //add_filter('pre_get_posts', 'setPostsOrder');
 
-function uploadMimes( $mime_types ) {
-	$mime_types['svg'] = 'image/svg+xml';
-	$mime_types['psd'] = 'image/vnd.adobe.photoshop';
-
-	return $mime_types;
+function uploadMimes( $mimes ) {
+	return array_merge( $mimes, [
+		'svg' => 'image/svg+xml',
+		'psd' => 'image/vnd.adobe.photoshop',
+	] );
 }
 
 //add_filter( 'upload_mimes', 'uploadMimes', 1, 1 );
