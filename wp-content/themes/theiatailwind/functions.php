@@ -313,16 +313,25 @@ function debugMailFailed( $wp_error ) {
 
 add_action( 'wp_mail_failed', 'debugMailFailed', 10, 1 );
 
-function setPostsOrder($query)
-{
-	if ($query->is_admin) {
+function setPostsOrder( $query ) {
+	if ( $query->is_admin ) {
 
-		if ($query->get('post_type') == 'customs') {
-			$query->set('orderby', 'modified');
-			$query->set('order', 'DESC');
+		if ( $query->get( 'post_type' ) == 'customs' ) {
+			$query->set( 'orderby', 'modified' );
+			$query->set( 'order', 'DESC' );
 		}
 	}
+
 	return $query;
 }
 
 //add_filter('pre_get_posts', 'setPostsOrder');
+
+function uploadMimes( $mime_types ) {
+	$mime_types['svg'] = 'image/svg+xml';
+	$mime_types['psd'] = 'image/vnd.adobe.photoshop';
+
+	return $mime_types;
+}
+
+//add_filter( 'upload_mimes', 'uploadMimes', 1, 1 );
