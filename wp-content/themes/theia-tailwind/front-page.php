@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+<!-- blog posts with pagination -->
 <!-- import/export posts to excel - https://artisansweb.net/export-posts-csv-wordpress/ https://www.sitepoint.com/wordpress-headless-cms-eleventy/ -->
 <!-- lazy load image - https://css-tricks.com/the-complete-guide-to-lazy-loading-images/ -->
 <!-- vue apollo - https://apollo.vuejs.org/ -->
