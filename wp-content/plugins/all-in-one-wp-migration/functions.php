@@ -1586,6 +1586,21 @@ function ai1wm_is_filesize_supported( $file, $php_int_size = PHP_INT_SIZE, $php_
 }
 
 /**
+ * Check whether file name is supported by All-in-One WP Migration
+ *
+ * @param  string  $file       Path to file
+ * @param  array   $extensions File extensions
+ * @return boolean
+ */
+function ai1wm_is_filename_supported( $file, $extensions = array( 'wpress' ) ) {
+	if ( in_array( pathinfo( $file, PATHINFO_EXTENSION ), $extensions ) ) {
+		return true;
+	}
+
+	return false;
+}
+
+/**
  * Verify secret key
  *
  * @param  string  $secret_key Secret key
@@ -1835,5 +1850,17 @@ function ai1wm_get_htaccess() {
 function ai1wm_get_webconfig() {
 	if ( is_file( AI1WM_WORDPRESS_WEBCONFIG ) ) {
 		return @file_get_contents( AI1WM_WORDPRESS_WEBCONFIG );
+	}
+}
+
+/**
+ * Get available space on filesystem or disk partition
+ *
+ * @param  string $path Directory of the filesystem or disk partition
+ * @return mixed
+ */
+function ai1wm_disk_free_space( $path ) {
+	if ( function_exists( 'disk_free_space' ) ) {
+		return @disk_free_space( $path );
 	}
 }

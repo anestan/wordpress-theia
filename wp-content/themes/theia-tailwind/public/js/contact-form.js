@@ -47533,6 +47533,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+vue__WEBPACK_IMPORTED_MODULE_4__.default.config.devtools = true;
 vue__WEBPACK_IMPORTED_MODULE_4__.default.config.silent = false;
 vue__WEBPACK_IMPORTED_MODULE_4__.default.use(vue_sweetalert2__WEBPACK_IMPORTED_MODULE_2__.default);
 new vue__WEBPACK_IMPORTED_MODULE_4__.default({

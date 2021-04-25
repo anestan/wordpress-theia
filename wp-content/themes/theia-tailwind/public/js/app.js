@@ -2216,7 +2216,7 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 			__webpack_require__.O();
 /******/ 		}
 /******/ 		
-/******/ 		var chunkLoadingGlobal = self["webpackChunktheiatailwind"] = self["webpackChunktheiatailwind"] || [];
+/******/ 		var chunkLoadingGlobal = self["webpackChunktheia_tailwind"] = self["webpackChunktheia_tailwind"] || [];
 /******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
 /******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
 /******/ 	})();

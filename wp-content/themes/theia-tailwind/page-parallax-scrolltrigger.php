@@ -1,12 +1,12 @@
 <?php get_header(); ?>
 <?php get_template_part( 'template-parts/content', 'header-menu' ); ?>
 <div id="hero" class="h-[800px] relative overflow-hidden">
-    <div class="layer w-full h-full bg-bottom bg-auto bg-no-repeat fixed z-[-1]" style="background-image:url(/wp-content/themes/theiatailwind/public/imgs/parallax-scrolltrigger/ilu_bg.jpg)" data-depth="0.10"></div>
-    <div class="layer w-full h-full bg-left-bottom bg-auto bg-no-repeat fixed z-[-1]" style="background-image: url(/wp-content/themes/theiatailwind/public/imgs/parallax-scrolltrigger/ilu_03.png);" data-depth="0.20"></div>
-    <div class="layer w-full h-full bg-bottom bg-auto bg-no-repeat fixed z-[-1]" style="background-image: url(/wp-content/themes/theiatailwind/public/imgs/parallax-scrolltrigger/ilu_02.png)" data-depth="0.50"></div>
-    <div class="layer w-full h-full bg-right-bottom bg-auto bg-no-repeat fixed z-[-1]" style="background-image: url(/wp-content/themes/theiatailwind/public/imgs/parallax-scrolltrigger/ilu_man.png)" data-depth="0.80"></div>
-    <div class="layer w-full h-full bg-bottom bg-auto bg-no-repeat fixed z-[-1]" style="background-image: url(/wp-content/themes/theiatailwind/public/imgs/parallax-scrolltrigger/ilu_overlay.png)" data-depth="0.85"></div>
-    <div class="layer w-full h-full bg-bottom bg-auto bg-no-repeat fixed z-[-1]" style="background-image: url(/wp-content/themes/theiatailwind/public/imgs/parallax-scrolltrigger/ilu_01.png)" data-depth="1.00"></div>
+    <div class="layer w-full h-full bg-bottom bg-auto bg-no-repeat fixed z-[-1]" style="background-image:url(/wp-content/themes/theia-tailwind/public/imgs/parallax-scrolltrigger/ilu_bg.jpg)" data-depth="0.10"></div>
+    <div class="layer w-full h-full bg-left-bottom bg-auto bg-no-repeat fixed z-[-1]" style="background-image: url(/wp-content/themes/theia-tailwind/public/imgs/parallax-scrolltrigger/ilu_03.png);" data-depth="0.20"></div>
+    <div class="layer w-full h-full bg-bottom bg-auto bg-no-repeat fixed z-[-1]" style="background-image: url(/wp-content/themes/theia-tailwind/public/imgs/parallax-scrolltrigger/ilu_02.png)" data-depth="0.50"></div>
+    <div class="layer w-full h-full bg-right-bottom bg-auto bg-no-repeat fixed z-[-1]" style="background-image: url(/wp-content/themes/theia-tailwind/public/imgs/parallax-scrolltrigger/ilu_man.png)" data-depth="0.80"></div>
+    <div class="layer w-full h-full bg-bottom bg-auto bg-no-repeat fixed z-[-1]" style="background-image: url(/wp-content/themes/theia-tailwind/public/imgs/parallax-scrolltrigger/ilu_overlay.png)" data-depth="0.85"></div>
+    <div class="layer w-full h-full bg-bottom bg-auto bg-no-repeat fixed z-[-1]" style="background-image: url(/wp-content/themes/theia-tailwind/public/imgs/parallax-scrolltrigger/ilu_01.png)" data-depth="1.00"></div>
 </div>
 <div class="bg-yellow-500">
     <div class="container py-8 px-4 mx-auto">

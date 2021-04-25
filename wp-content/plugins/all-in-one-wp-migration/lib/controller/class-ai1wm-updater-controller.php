@@ -56,6 +56,15 @@ class Ai1wm_Updater_Controller {
 		return Ai1wm_Updater::plugin_row_meta( $links, $file );
 	}
 
+	public static function in_plugin_update_message( $plugin_data, $response ) {
+		$updater = get_option( AI1WM_UPDATER, array() );
+
+		// Get updater details
+		if ( isset( $updater[ $plugin_data['slug'] ] ) ) {
+			Ai1wm_Template::render( 'updater/message', array( 'updater' => $updater[ $plugin_data['slug'] ] ) );
+		}
+	}
+
 	public static function updater( $params = array() ) {
 		if ( check_ajax_referer( 'ai1wm_updater', 'ai1wm_nonce' ) ) {
 			ai1wm_setup_environment();
