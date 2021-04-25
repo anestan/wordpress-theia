@@ -40,7 +40,7 @@ mix.js('resources/js/carousels.js', 'public/js/carousels.js');
 
 mix.js('resources/js/google-maps.js', 'public/js/google-maps.js');
 
-mix.js('resources/js/contact-form.js', 'public/js/contact-form.js').vue();
+mix.js('resources/js/contact.js', 'public/js/contact.js').vue();
 
 mix.sass('resources/sass/parallax-scrolltrigger.scss', 'public/css/parallax-scrolltrigger.css').options({
   postCss: [

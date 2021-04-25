@@ -368,7 +368,7 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 new _googlemaps_js_api_loader__WEBPACK_IMPORTED_MODULE_0__.Loader({
-  apiKey: window.wp_obj.google_maps_api_key,
+  apiKey: window.google_maps_script_data.google_maps_api_key,
   version: 'weekly',
   libraries: ['places']
 }).load().then(function () {

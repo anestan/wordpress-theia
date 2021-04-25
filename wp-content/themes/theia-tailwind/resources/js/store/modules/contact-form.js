@@ -2,10 +2,10 @@ import moment from 'moment';
 
 export default {
   state: () => ({
-    wp_nonce: window.wp_obj.wp_nonce,
-    wp_ajax: window.wp_obj.wp_ajax,
-    wp_action: window.wp_obj.wp_action,
-    google_recaptcha_site_key: window.wp_obj.google_recaptcha_site_key,
+    wp_nonce: window.contact_script_data.wp_nonce,
+    wp_ajax: window.contact_script_data.wp_ajax,
+    wp_action: window.contact_script_data.wp_action,
+    google_recaptcha_site_key: window.contact_script_data.google_recaptcha_site_key,
     form_data: {
       name: '',
       phone: '',

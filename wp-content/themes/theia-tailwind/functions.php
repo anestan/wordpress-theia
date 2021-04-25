@@ -76,32 +76,29 @@ add_action( 'widgets_init', 'setupWidgets' );
 function enqueueScripts() {
 	$mix_manifest = (array) json_decode( file_get_contents( __DIR__ . '/mix-manifest.json' ) );
 
-	wp_enqueue_style( 'style', get_stylesheet_directory_uri() . $mix_manifest['/style.css'] );
+	wp_enqueue_style( 'theme_style', get_stylesheet_directory_uri() . $mix_manifest['/style.css'] );
 
-	wp_enqueue_style( 'app', get_stylesheet_directory_uri() . $mix_manifest['/public/css/app.css'] );
-	wp_enqueue_script( 'app', get_stylesheet_directory_uri() . $mix_manifest['/public/js/app.js'], [], false,
-		true );
+	wp_enqueue_style( 'app_style', get_stylesheet_directory_uri() . $mix_manifest['/public/css/app.css'] );
+	wp_enqueue_script( 'app_script', get_stylesheet_directory_uri() . $mix_manifest['/public/js/app.js'], [], false, true );
 
 	if ( is_page( 'carousels' ) ) {
-		wp_enqueue_script( 'carousels', get_stylesheet_directory_uri() . $mix_manifest['/public/js/carousels.js'], [],
-			false,
-			true );
+		wp_enqueue_script( 'carousels_script',
+			get_stylesheet_directory_uri() . $mix_manifest['/public/js/carousels.js'], [], false, true
+		);
 	}
 
 	if ( is_page( 'contact' ) ) {
-		wp_enqueue_script( 'google-maps', get_stylesheet_directory_uri() . $mix_manifest['/public/js/google-maps.js'],
-			[],
-			false,
-			true );
-		wp_localize_script( 'google-maps', 'wp_obj', [
+		wp_enqueue_script( 'google_maps_script', get_stylesheet_directory_uri() . $mix_manifest['/public/js/google-maps.js'],
+			[], false, true );
+		wp_localize_script( 'google_maps_script', 'google_maps_script_data', [
 			'google_maps_api_key' => GOOGLE_MAPS_API_KEY,
 		] );
 
-		wp_enqueue_script( 'contact-form', get_stylesheet_directory_uri() . $mix_manifest['/public/js/contact-form.js'],
+		wp_enqueue_script( 'contact_script', get_stylesheet_directory_uri() . $mix_manifest['/public/js/contact.js'],
 			[],
 			false,
 			true );
-		wp_localize_script( 'contact-form', 'wp_obj', [
+		wp_localize_script( 'contact_script', 'contact_script_data', [
 			'wp_nonce'                  => wp_create_nonce( 'wp-nonce' ),
 			'wp_ajax'                   => admin_url( 'admin-ajax.php' ),
 			'wp_action'                 => 'contactFormMail',
@@ -120,9 +117,9 @@ function enqueueScripts() {
 			false,
 			true );
 
-		wp_enqueue_style( 'parallax-scrolltrigger',
+		wp_enqueue_style( 'parallax_scrolltrigger_style',
 			get_stylesheet_directory_uri() . $mix_manifest['/public/css/parallax-scrolltrigger.css'] );
-		wp_enqueue_script( 'parallax-scrolltrigger',
+		wp_enqueue_script( 'parallax_scrolltrigger_script',
 			get_stylesheet_directory_uri() . $mix_manifest['/public/js/parallax-scrolltrigger.js'], [],
 			false,
 			true );
@@ -132,10 +129,10 @@ function enqueueScripts() {
 add_action( 'wp_enqueue_scripts', 'enqueueScripts', 10000 );
 
 function dequeueScripts() {
-
+	wp_dequeue_script( 'app' );
 }
 
-add_action( 'wp_print_scripts', 'dequeueScripts', 100 );
+//add_action( 'wp_print_scripts', 'dequeueScripts', 100 );
 
 function bodyClass( $classes ) {
 	$classes[] = '';

@@ -2109,12 +2109,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             _this.$refs.recaptcha.reset();
 
             _this.loading = false;
-            console.log(response);
           })["catch"](function (error) {
             _this.$refs.recaptcha.reset();
 
             _this.loading = false;
-            console.log(error);
           });
         }
       });
@@ -2174,10 +2172,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   state: function state() {
     return {
-      wp_nonce: window.wp_obj.wp_nonce,
-      wp_ajax: window.wp_obj.wp_ajax,
-      wp_action: window.wp_obj.wp_action,
-      google_recaptcha_site_key: window.wp_obj.google_recaptcha_site_key,
+      wp_nonce: window.contact_script_data.wp_nonce,
+      wp_ajax: window.contact_script_data.wp_ajax,
+      wp_action: window.contact_script_data.wp_action,
+      google_recaptcha_site_key: window.contact_script_data.google_recaptcha_site_key,
       form_data: {
         name: '',
         phone: '',
@@ -47516,9 +47514,9 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be in strict mode.
 (() => {
 "use strict";
-/*!**************************************!*\
-  !*** ./resources/js/contact-form.js ***!
-  \**************************************/
+/*!*********************************!*\
+  !*** ./resources/js/contact.js ***!
+  \*********************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./store */ "./resources/js/store/index.js");
@@ -47547,4 +47545,4 @@ new vue__WEBPACK_IMPORTED_MODULE_4__.default({
 
 /******/ })()
 ;
-//# sourceMappingURL=contact-form.js.map
+//# sourceMappingURL=contact.js.map

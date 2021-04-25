@@ -4,7 +4,7 @@
 import { Loader } from '@googlemaps/js-api-loader';
 
 new Loader({
-  apiKey: window.wp_obj.google_maps_api_key,
+  apiKey: window.google_maps_script_data.google_maps_api_key,
   version: 'weekly',
   libraries: ['places']
 }).load().then(() => {

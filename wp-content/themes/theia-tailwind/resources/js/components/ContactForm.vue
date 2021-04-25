@@ -262,13 +262,9 @@ export default {
 
             this.$refs.recaptcha.reset();
             this.loading = false;
-
-            console.log(response);
           }).catch(error => {
             this.$refs.recaptcha.reset();
             this.loading = false;
-
-            console.log(error);
           });
         }
       });
