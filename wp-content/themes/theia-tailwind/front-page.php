@@ -2,6 +2,7 @@
 <!-- backup old tailwind jit configs + update tailwind jit -->
 <!-- use theia yellow + font https://use.typekit.net/euj2ezr.css -->
 <!-- blog posts with pagination -->
+<!-- copy pacificheights orewa css over -->
 <!-- import/export posts to excel - https://artisansweb.net/export-posts-csv-wordpress/ https://www.sitepoint.com/wordpress-headless-cms-eleventy/ -->
 <!-- lazy load image - https://css-tricks.com/the-complete-guide-to-lazy-loading-images/ -->
 <!-- vue apollo - https://apollo.vuejs.org/ -->
