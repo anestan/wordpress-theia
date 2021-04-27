@@ -324,6 +324,14 @@ function setPostsOrder( $query ) {
 
 //add_filter('pre_get_posts', 'setPostsOrder');
 
+function setPostsPerPage( $query ) {
+	if (!is_admin()) {
+		$query->set('posts_per_page', 5);
+	}
+}
+
+//add_filter('pre_get_posts', 'setPostsPerPage');
+
 function uploadMimes( $mimes ) {
 	return array_merge( $mimes, [
 		'svg' => 'image/svg+xml',
