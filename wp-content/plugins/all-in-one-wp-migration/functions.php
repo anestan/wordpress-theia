@@ -1393,6 +1393,22 @@ function ai1wm_elementor_cache_flush() {
 }
 
 /**
+ * Set WooCommerce Force SSL checkout
+ *
+ * @param  boolean $yes Force SSL checkout
+ * @return void
+ */
+function ai1wm_woocommerce_force_ssl( $yes = true ) {
+	if ( get_option( 'woocommerce_force_ssl_checkout' ) ) {
+		if ( $yes ) {
+			update_option( 'woocommerce_force_ssl_checkout', 'yes' );
+		} else {
+			update_option( 'woocommerce_force_ssl_checkout', 'no' );
+		}
+	}
+}
+
+/**
  * Set URL scheme
  *
  * @param  string $url    URL value
