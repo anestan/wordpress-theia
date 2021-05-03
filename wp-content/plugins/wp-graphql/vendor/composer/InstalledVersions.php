@@ -20,17 +20,19 @@ use Composer\Semver\VersionParser;
 
 
 
+
+
 class InstalledVersions
 {
 private static $installed = array (
   'root' => 
   array (
-    'pretty_version' => 'v1.3.5',
-    'version' => '1.3.5.0',
+    'pretty_version' => 'v1.3.6',
+    'version' => '1.3.6.0',
     'aliases' => 
     array (
     ),
-    'reference' => 'b2471c50f338080ea10c8f2f519cf141b32273b1',
+    'reference' => '9158e64d44b46e77f1c7dce621382e8f1c3c959c',
     'name' => 'wp-graphql/wp-graphql',
   ),
   'versions' => 
@@ -55,12 +57,12 @@ private static $installed = array (
     ),
     'wp-graphql/wp-graphql' => 
     array (
-      'pretty_version' => 'v1.3.5',
-      'version' => '1.3.5.0',
+      'pretty_version' => 'v1.3.6',
+      'version' => '1.3.6.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'b2471c50f338080ea10c8f2f519cf141b32273b1',
+      'reference' => '9158e64d44b46e77f1c7dce621382e8f1c3c959c',
     ),
   ),
 );
@@ -79,7 +81,6 @@ $packages = array();
 foreach (self::getInstalled() as $installed) {
 $packages[] = array_keys($installed['versions']);
 }
-
 
 if (1 === \count($packages)) {
 return $packages[0];
@@ -272,6 +273,7 @@ public static function reload($data)
 self::$installed = $data;
 self::$installedByVendor = array();
 }
+
 
 
 
