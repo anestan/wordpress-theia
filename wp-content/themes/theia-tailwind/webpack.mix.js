@@ -14,7 +14,7 @@ mix.webpackConfig({
 });
 
 // mix.browserSync({
-//   proxy: 'theia.test',
+//   proxy: 'wordpress-theia.test',
 //   files: [
 //     'resources/js/*.{js,vue}',
 //     'resources/js/**/*.{js,vue}',
