@@ -13,17 +13,17 @@ mix.webpackConfig({
   devtool: 'source-map',
 });
 
-mix.browserSync({
-  proxy: 'theia.test',
-  files: [
-    'resources/js/*.{js,vue}',
-    'resources/js/**/*.{js,vue}',
-    'resources/sass/*.scss',
-    'resources/sass/**/*.scss',
-    '*.php',
-    '**/*.php',
-  ],
-});
+// mix.browserSync({
+//   proxy: 'theia.test',
+//   files: [
+//     'resources/js/*.{js,vue}',
+//     'resources/js/**/*.{js,vue}',
+//     'resources/sass/*.scss',
+//     'resources/sass/**/*.scss',
+//     '*.php',
+//     '**/*.php',
+//   ],
+// });
 
 mix.setPublicPath('/');
 

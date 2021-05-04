@@ -1393,6 +1393,9 @@ select{
 .top-0{
 	top: 0px !important;
 }
+.top-\[-25px\]{
+	top: -25px !important;
+}
 .z-10{
 	z-index: 10 !important;
 }
@@ -1464,6 +1467,10 @@ select{
 	margin-top: 1rem !important;
 	margin-bottom: 1rem !important;
 }
+.mx-\[30px\]{
+	margin-left: 30px !important;
+	margin-right: 30px !important;
+}
 .mx-\[15px\]{
 	margin-left: 15px !important;
 	margin-right: 15px !important;
@@ -1486,11 +1493,44 @@ select{
 .ml-\[100px\]{
 	margin-left: 100px !important;
 }
+.mt-16{
+	margin-top: 4rem !important;
+}
+.mt-\[-25px\]{
+	margin-top: -25px !important;
+}
+.mr-auto{
+	margin-right: auto !important;
+}
+.ml-auto{
+	margin-left: auto !important;
+}
 .mr-4{
 	margin-right: 1rem !important;
 }
+.mt-\[50px\]{
+	margin-top: 50px !important;
+}
+.mb-\[15px\]{
+	margin-bottom: 15px !important;
+}
+.mb-\[25px\]{
+	margin-bottom: 25px !important;
+}
+.mb-\[10px\]{
+	margin-bottom: 10px !important;
+}
+.mb-\[30px\]{
+	margin-bottom: 30px !important;
+}
 .ml-4{
 	margin-left: 1rem !important;
+}
+.mt-\[100px\]{
+	margin-top: 100px !important;
+}
+.mb-\[50px\]{
+	margin-bottom: 50px !important;
 }
 .flex{
 	display: flex !important;
@@ -1650,6 +1690,15 @@ select{
 }
 .w-\[350px\]{
 	width: 350px !important;
+}
+.w-\[600px\]{
+	width: 600px !important;
+}
+.w-\[800px\]{
+	width: 800px !important;
+}
+.w-\[960px\]{
+	width: 960px !important;
 }
 .w-\[220px\]{
 	width: 220px !important;
@@ -1819,6 +1868,10 @@ select{
 .gap-y-8{
 	row-gap: 2rem !important;
 }
+.gap-x-\[15px\]{
+	-moz-column-gap: 15px !important;
+	     column-gap: 15px !important;
+}
 .gap-y-4{
 	row-gap: 1rem !important;
 }
@@ -1908,6 +1961,14 @@ select{
 	--tw-bg-opacity: 1 !important;
 	background-color: rgba(139, 92, 246, var(--tw-bg-opacity)) !important;
 }
+.bg-gray-500{
+	--tw-bg-opacity: 1 !important;
+	background-color: rgba(107, 114, 128, var(--tw-bg-opacity)) !important;
+}
+.bg-black{
+	--tw-bg-opacity: 1 !important;
+	background-color: rgba(0, 0, 0, var(--tw-bg-opacity)) !important;
+}
 .bg-blue-50{
 	--tw-bg-opacity: 1 !important;
 	background-color: rgba(239, 246, 255, var(--tw-bg-opacity)) !important;
@@ -1960,6 +2021,15 @@ select{
 .p-16{
 	padding: 4rem !important;
 }
+.p-\[30px\]{
+	padding: 30px !important;
+}
+.p-\[50px\]{
+	padding: 50px !important;
+}
+.p-\[15px\]{
+	padding: 15px !important;
+}
 .p-2\.5{
 	padding: 0.625rem !important;
 }
@@ -1990,8 +2060,19 @@ select{
 	padding-left: 15px !important;
 	padding-right: 15px !important;
 }
+.py-\[100px\]{
+	padding-top: 100px !important;
+	padding-bottom: 100px !important;
+}
+.py-4{
+	padding-top: 1rem !important;
+	padding-bottom: 1rem !important;
+}
 .pb-4{
 	padding-bottom: 1rem !important;
+}
+.pb-\[100px\]{
+	padding-bottom: 100px !important;
 }
 .pb-8{
 	padding-bottom: 2rem !important;
@@ -2019,11 +2100,20 @@ select{
 	font-size: 1.25rem !important;
 	line-height: 1.75rem !important;
 }
+.text-\[24px\]{
+	font-size: 24px !important;
+}
+.text-\[14px\]{
+	font-size: 14px !important;
+}
 .font-medium{
 	font-weight: 500 !important;
 }
 .font-bold{
 	font-weight: 700 !important;
+}
+.leading-\[34px\]{
+	line-height: 34px !important;
 }
 .text-black{
 	--tw-text-opacity: 1 !important;
@@ -2182,6 +2272,17 @@ body::before{
 	height: 350px;
 	width: 450px;
 }
+
+.mansory {
+  -moz-columns: 1;
+       columns: 1;
+}
+@media (min-width: 768px) {
+  .mansory {
+    -moz-columns: 2;
+         columns: 2;
+  }
+}
 .hover\:translate-y-\[-90\%\]:hover{
 	--tw-translate-y: -90% !important;
 }
@@ -2223,6 +2324,30 @@ body::before{
 .focus\:ring-offset-2:focus{
 	--tw-ring-offset-width: 2px !important;
 }
+@media (min-width: 1024px){
+	.lg\:mt-\[50px\]{
+		margin-top: 50px !important;
+	}
+	.lg\:mb-\[30px\]{
+		margin-bottom: 30px !important;
+	}
+	.lg\:gap-x-\[30px\]{
+		-moz-column-gap: 30px !important;
+		     column-gap: 30px !important;
+	}
+	.lg\:p-\[30px\]{
+		padding: 30px !important;
+	}
+	.lg\:text-\[36px\]{
+		font-size: 36px !important;
+	}
+	.lg\:text-\[16px\]{
+		font-size: 16px !important;
+	}
+	.lg\:leading-\[46px\]{
+		line-height: 46px !important;
+	}
+}
 @media (min-width: 1280px){
 	.xl\:absolute{
 		position: absolute !important;
@@ -2250,5 +2375,20 @@ body::before{
 	}
 	.xl\:w-\[420px\]{
 		width: 420px !important;
+	}
+}
+@media (min-width: 1536px){
+	.\32xl\:mt-\[100px\]{
+		margin-top: 100px !important;
+	}
+	.\32xl\:mb-\[50px\]{
+		margin-bottom: 50px !important;
+	}
+	.\32xl\:gap-x-\[50px\]{
+		-moz-column-gap: 50px !important;
+		     column-gap: 50px !important;
+	}
+	.\32xl\:p-\[50px\]{
+		padding: 50px !important;
 	}
 }

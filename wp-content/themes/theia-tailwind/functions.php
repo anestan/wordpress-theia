@@ -239,6 +239,30 @@ function validateRecaptcha( $g_recaptcha_response ) {
 	return $response['success'];
 }
 
+function validateRecaptchaV3($action, $token)
+{
+    if (!isset($token)) {
+        return false;
+    }
+
+    $parameters = ['secret' => get_field('google_recaptcha_secret_key', 'option'), 'response' => $token];
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_URL, "https://www.google.com/recaptcha/api/siteverify");
+    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($parameters));
+    $response = curl_exec($ch);
+    $response = json_decode($response, true);
+    curl_close($ch);
+
+    if ($response['success'] && $response['action'] == $action && $response['score'] >= 0.5) {
+        return $response['success'];
+    } else {
+        return false;
+    }
+}
+
 function contactFormMail() {
 	if ( ! wp_verify_nonce( $_POST['wp_nonce'], 'wp-nonce' ) ) {
 		echo json_encode( [ 'status' => 0, 'message' => 'Invalid nonce.' ] );
@@ -249,6 +273,11 @@ function contactFormMail() {
 		echo json_encode( [ 'status' => 2, 'message' => 'Failed to validate recaptcha.' ] );
 		die();
 	}
+
+//    if (!validateRecaptchaV3($_POST['action'], $_POST['recaptcha_token'])) {
+//        echo json_encode(['status' => 2, 'message' => 'Failed to validate recaptcha.']);
+//        die();
+//    }
 
 	$to   = [];
 	$to[] = get_option( 'admin_email' );
@@ -311,7 +340,7 @@ function debugMailFailed( $wp_error ) {
 add_action( 'wp_mail_failed', 'debugMailFailed', 10, 1 );
 
 function setPostsOrder( $query ) {
-	if ( $query->is_admin ) {
+	if ( $query->is_admin && is_admin()) {
 
 		if ( $query->get( 'post_type' ) == 'customs' ) {
 			$query->set( 'orderby', 'modified' );
@@ -325,12 +354,12 @@ function setPostsOrder( $query ) {
 //add_filter('pre_get_posts', 'setPostsOrder');
 
 function setPostsPerPage( $query ) {
-	if (!is_admin()) {
-		$query->set('posts_per_page', 5);
+	if (!$query->is_admin && !is_admin()) {
+		$query->set('posts_per_page', 1);
 	}
 }
 
-//add_filter('pre_get_posts', 'setPostsPerPage');
+add_filter('pre_get_posts', 'setPostsPerPage');
 
 function uploadMimes( $mimes ) {
 	return array_merge( $mimes, [

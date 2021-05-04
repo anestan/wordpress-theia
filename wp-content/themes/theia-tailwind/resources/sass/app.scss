@@ -39,3 +39,11 @@ body {
     }
   }
 }
+
+.mansory {
+  columns: 1;
+
+  @media (min-width: 768px) {
+    columns: 2;
+  }
+}

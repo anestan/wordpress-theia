@@ -2,13 +2,13 @@
 <div class="banner-carousel swiper-container h-[400px] xl:h-[600px] mb-20 relative">
     <div class="swiper-wrapper">
         <div class="swiper-slide">
-            <img class="object-cover object-center h-full w-full" src="https://picsum.photos/1920/1080" alt="">
+            <img class="object-cover object-center h-full w-full" loading="lazy" src="https://picsum.photos/1920/1080" alt="">
         </div>
         <div class="swiper-slide">
-            <img class="object-cover object-center h-full w-full" src="https://picsum.photos/1920/1080" alt="">
+            <img class="object-cover object-center h-full w-full" loading="lazy" src="https://picsum.photos/1920/1080" alt="">
         </div>
         <div class="swiper-slide">
-            <img class="object-cover object-center h-full w-full" src="https://picsum.photos/1920/1080" alt="">
+            <img class="object-cover object-center h-full w-full" loading="lazy" src="https://picsum.photos/1920/1080" alt="">
         </div>
     </div>
     <div class="swiper-button-next absolute z-20 top-1/2 right-4 transform -translate-y-1/2"></div>
@@ -28,13 +28,13 @@
     <div class="col-span-12 xl:col-span-6 xl:col-start-7 halfway-carousel swiper-container relative order-1 xl:order-0">
         <div class="swiper-wrapper">
             <div class="swiper-slide h-[300px] w-[75%]">
-                <img class="object-cover object-center h-full w-full" src="https://picsum.photos/1920/1080" alt="">
+                <img class="object-cover object-center h-full w-full" loading="lazy" src="https://picsum.photos/1920/1080" alt="">
             </div>
             <div class="swiper-slide h-[300px] w-[75%]">
-                <img class="object-cover object-center h-full w-full" src="https://picsum.photos/1920/1080" alt="">
+                <img class="object-cover object-center h-full w-full" loading="lazy" src="https://picsum.photos/1920/1080" alt="">
             </div>
             <div class="swiper-slide h-[300px] w-[75%]">
-                <img class="object-cover object-center h-full w-full" src="https://picsum.photos/1920/1080" alt="">
+                <img class="object-cover object-center h-full w-full" loading="lazy" src="https://picsum.photos/1920/1080" alt="">
             </div>
         </div>
         <div class="swiper-button-next absolute top-1/2 right-4 transform -translate-y-1/2"></div>
@@ -51,7 +51,7 @@
     <div class="hover-link-carousel swiper-container relative">
         <div class="swiper-wrapper">
             <a href="#" class="swiper-slide relative overflow-hidden" x-data="{ overlay : false }" x-on:mouseover="overlay = true" x-on:mouseleave="overlay = false">
-                <img class="object-cover object-center h-full w-full transition-all duration-300 transform" src="https://picsum.photos/1920/1080" alt="" x-bind:class="{'scale-150' : overlay, 'scale-100': !overlay}">
+                <img class="object-cover object-center h-full w-full transition-all duration-300 transform" loading="lazy" src="https://picsum.photos/1920/1080" alt="" x-bind:class="{'scale-150' : overlay, 'scale-100': !overlay}">
                 <div class="absolute z-10 inset-0 h-full w-full bg-yellow-500 bg-opacity-50"
                      x-show="overlay"
                      x-transition:enter="transition-opacity duration-300 ease-linear"
@@ -64,7 +64,7 @@
                 </div>
             </a>
             <a href="#" class="swiper-slide relative overflow-hidden" x-data="{ overlay : false }" x-on:mouseover="overlay = true" x-on:mouseleave="overlay = false">
-                <img class="object-cover object-center h-full w-full transition-all duration-300 transform" src="https://picsum.photos/1920/1080" alt="" x-bind:class="{'scale-150' : overlay, 'scale-100': !overlay}">
+                <img class="object-cover object-center h-full w-full transition-all duration-300 transform" loading="lazy" src="https://picsum.photos/1920/1080" alt="" x-bind:class="{'scale-150' : overlay, 'scale-100': !overlay}">
                 <div class="absolute z-10 inset-0 h-full w-full bg-yellow-500 bg-opacity-50"
                      x-show="overlay"
                      x-transition:enter="transition-opacity duration-300 ease-linear"
@@ -77,7 +77,7 @@
                 </div>
             </a>
             <a href="#" class="swiper-slide relative overflow-hidden" x-data="{ overlay : false }" x-on:mouseover="overlay = true" x-on:mouseleave="overlay = false">
-                <img class="object-cover object-center h-full w-full transition-all duration-300 transform" src="https://picsum.photos/1920/1080" alt="" x-bind:class="{'scale-150' : overlay, 'scale-100': !overlay}">
+                <img class="object-cover object-center h-full w-full transition-all duration-300 transform" loading="lazy" src="https://picsum.photos/1920/1080" alt="" x-bind:class="{'scale-150' : overlay, 'scale-100': !overlay}">
                 <div class="absolute z-10 inset-0 h-full w-full bg-yellow-500 bg-opacity-50"
                      x-show="overlay"
                      x-transition:enter="transition-opacity duration-300 ease-linear"
@@ -101,17 +101,17 @@
         <div class="swiper-wrapper">
             <div class="swiper-slide h-[500px] w-[500px]">
                 <div class="flex items-center justify-center h-full w-full">
-                    <img src="https://picsum.photos/1920/1080" alt="">
+                    <img loading="lazy" src="https://picsum.photos/1920/1080" alt="">
                 </div>
             </div>
             <div class="swiper-slide h-[500px] w-[500px]">
                 <div class="flex items-center justify-center h-full w-full">
-                    <img src="https://picsum.photos/1920/1080" alt="">
+                    <img loading="lazy" src="https://picsum.photos/1920/1080" alt="">
                 </div>
             </div>
             <div class="swiper-slide h-[500px] w-[500px]">
                 <div class="flex items-center justify-center h-full w-full">
-                    <img src="https://picsum.photos/1920/1080" alt="">
+                    <img loading="lazy" src="https://picsum.photos/1920/1080" alt="">
                 </div>
             </div>
         </div>
@@ -124,26 +124,26 @@
     <div class="sync-primary-carousel swiper-container relative mb-8">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
-                <img class="object-cover object-center h-full w-full" src="https://picsum.photos/1920/1080" alt="">
+                <img class="object-cover object-center h-full w-full" loading="lazy" src="https://picsum.photos/1920/1080" alt="">
             </div>
             <div class="swiper-slide">
-                <img class="object-cover object-center h-full w-full" src="https://picsum.photos/1920/1080" alt="">
+                <img class="object-cover object-center h-full w-full" loading="lazy" src="https://picsum.photos/1920/1080" alt="">
             </div>
             <div class="swiper-slide">
-                <img class="object-cover object-center h-full w-full" src="https://picsum.photos/1920/1080" alt="">
+                <img class="object-cover object-center h-full w-full" loading="lazy" src="https://picsum.photos/1920/1080" alt="">
             </div>
         </div>
     </div>
     <div class="sync-secondary-carousel swiper-container relative h-[300px]">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
-                <img class="object-cover object-center h-full w-full" src="https://picsum.photos/1920/1080" alt="">
+                <img class="object-cover object-center h-full w-full" loading="lazy" src="https://picsum.photos/1920/1080" alt="">
             </div>
             <div class="swiper-slide">
-                <img class="object-cover object-center h-full w-full" src="https://picsum.photos/1920/1080" alt="">
+                <img class="object-cover object-center h-full w-full" loading="lazy" src="https://picsum.photos/1920/1080" alt="">
             </div>
             <div class="swiper-slide">
-                <img class="object-cover object-center h-full w-full" src="https://picsum.photos/1920/1080" alt="">
+                <img class="object-cover object-center h-full w-full" loading="lazy" src="https://picsum.photos/1920/1080" alt="">
             </div>
         </div>
         <div class="swiper-button-next absolute top-1/2 right-4 transform -translate-y-1/2"></div>
@@ -156,13 +156,13 @@
     <div class="numbered-carousel swiper-container relative">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
-                <img class="object-cover object-center h-full w-full" src="https://picsum.photos/1920/1080" alt="">
+                <img class="object-cover object-center h-full w-full" loading="lazy" src="https://picsum.photos/1920/1080" alt="">
             </div>
             <div class="swiper-slide">
-                <img class="object-cover object-center h-full w-full" src="https://picsum.photos/1920/1080" alt="">
+                <img class="object-cover object-center h-full w-full" loading="lazy" src="https://picsum.photos/1920/1080" alt="">
             </div>
             <div class="swiper-slide">
-                <img class="object-cover object-center h-full w-full" src="https://picsum.photos/1920/1080" alt="">
+                <img class="object-cover object-center h-full w-full" loading="lazy" src="https://picsum.photos/1920/1080" alt="">
             </div>
         </div>
         <div class="swiper-button-next absolute top-1/2 right-4 transform -translate-y-1/2"></div>
@@ -178,19 +178,19 @@
         <ul class="swiper-wrapper my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
             <li class="swiper-slide" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
                 <a title="click to zoom-in" href="https://picsum.photos/1920/1080" itemprop="contentUrl" data-size="1920x1080">
-                    <img class="object-cover object-center h-full w-full" src="https://picsum.photos/1920/1080" itemprop="thumbnail" alt="Image description"/>
+                    <img class="object-cover object-center h-full w-full" loading="lazy" src="https://picsum.photos/1920/1080" itemprop="thumbnail" alt="Image description"/>
                 </a>
                 <p itemprop="caption description">Image caption 1</p>
             </li>
             <li class="swiper-slide" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
                 <a title="click to zoom-in" href="https://picsum.photos/1920/1080" itemprop="contentUrl" data-size="1920x1081">
-                    <img class="object-cover object-center h-full w-full" src="https://picsum.photos/1920/1080" itemprop="thumbnail" alt="Image description"/>
+                    <img class="object-cover object-center h-full w-full" loading="lazy" src="https://picsum.photos/1920/1080" itemprop="thumbnail" alt="Image description"/>
                 </a>
                 <p itemprop="caption description">Image caption 2</p>
             </li>
             <li class="swiper-slide" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
                 <a title="click to zoom-in" href="https://picsum.photos/1920/1080" itemprop="contentUrl" data-size="1920x1082">
-                    <img class="object-cover object-center h-full w-full" src="https://picsum.photos/1920/1080" itemprop="thumbnail" alt="Image description"/>
+                    <img class="object-cover object-center h-full w-full" loading="lazy" src="https://picsum.photos/1920/1080" itemprop="thumbnail" alt="Image description"/>
                 </a>
                 <p itemprop="caption description">Image caption 3</p>
             </li>
@@ -258,7 +258,7 @@
                             <small>Lorem ipsum</small>
                         </div>
                     </div>
-                    <img class="object-cover object-center h-full w-full" src="https://picsum.photos/1920/1080" alt="">
+                    <img class="object-cover object-center h-full w-full" loading="lazy" src="https://picsum.photos/1920/1080" alt="">
                 </div>
             </div>
             <div class="flex items-end swiper-slide h-[780px] w-[40%]">
@@ -269,7 +269,7 @@
                             <small>Lorem ipsum</small>
                         </div>
                     </div>
-                    <img class="object-cover object-center h-full w-full" src="https://picsum.photos/1920/1080" alt="">
+                    <img class="object-cover object-center h-full w-full" loading="lazy" src="https://picsum.photos/1920/1080" alt="">
                 </div>
             </div>
             <div class="flex items-end swiper-slide h-[780px] w-[40%]">
@@ -280,7 +280,7 @@
                             <small>Lorem ipsum</small>
                         </div>
                     </div>
-                    <img class="object-cover object-center h-full w-full" src="https://picsum.photos/1920/1080" alt="">
+                    <img class="object-cover object-center h-full w-full" loading="lazy" src="https://picsum.photos/1920/1080" alt="">
                 </div>
             </div>
         </div>
@@ -301,7 +301,7 @@
                             <small>Lorem ipsum</small>
                         </div>
                     </div>
-                    <img class="object-cover object-center h-full w-full" src="https://picsum.photos/1920/1080" alt="">
+                    <img class="object-cover object-center h-full w-full" loading="lazy" src="https://picsum.photos/1920/1080" alt="">
                 </div>
             </div>
             <div class="flex items-end swiper-slide h-[780px] w-[30%]">
@@ -312,7 +312,7 @@
                             <small>Lorem ipsum</small>
                         </div>
                     </div>
-                    <img class="object-cover object-center h-full w-full" src="https://picsum.photos/1920/1080" alt="">
+                    <img class="object-cover object-center h-full w-full" loading="lazy" src="https://picsum.photos/1920/1080" alt="">
                 </div>
             </div>
             <div class="flex items-end swiper-slide h-[780px] w-[50%]">
@@ -323,7 +323,7 @@
                             <small>Lorem ipsum</small>
                         </div>
                     </div>
-                    <img class="object-cover object-center h-full w-full" src="https://picsum.photos/1920/1080" alt="">
+                    <img class="object-cover object-center h-full w-full" loading="lazy" src="https://picsum.photos/1920/1080" alt="">
                 </div>
             </div>
         </div>
@@ -344,7 +344,7 @@
                             <small>Lorem ipsum</small>
                         </div>
                     </div>
-                    <img class="object-cover object-center h-full w-full" src="https://picsum.photos/1920/1080" alt="">
+                    <img class="object-cover object-center h-full w-full" loading="lazy" src="https://picsum.photos/1920/1080" alt="">
                 </div>
             </div>
             <div class="flex items-end swiper-slide h-[780px] w-[60%]">
@@ -355,7 +355,7 @@
                             <small>Lorem ipsum</small>
                         </div>
                     </div>
-                    <img class="object-cover object-center h-full w-full" src="https://picsum.photos/1920/1080" alt="">
+                    <img class="object-cover object-center h-full w-full" loading="lazy" src="https://picsum.photos/1920/1080" alt="">
                 </div>
             </div>
             <div class="flex items-end swiper-slide h-[780px] w-[60%]">
@@ -366,7 +366,7 @@
                             <small>Lorem ipsum</small>
                         </div>
                     </div>
-                    <img class="object-cover object-center h-full w-full" src="https://picsum.photos/1920/1080" alt="">
+                    <img class="object-cover object-center h-full w-full" loading="lazy" src="https://picsum.photos/1920/1080" alt="">
                 </div>
             </div>
         </div>
