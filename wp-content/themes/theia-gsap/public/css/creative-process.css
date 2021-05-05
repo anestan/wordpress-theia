@@ -1,0 +1,164 @@
+@import url(https://fonts.googleapis.com/css?family=Kanit:200,400,500&display=swap);
+body {
+  font-family: "Kanit", sans-serif;
+  background: #252525;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#demo {
+  visibility: hidden;
+  position: relative;
+  width: 621px;
+  height: 385px;
+  border: 1px solid #333;
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/32887/creative-process-bg.png);
+}
+
+#main {
+  position: absolute;
+  width: 250px;
+  top: 130px;
+  left: 20px;
+}
+
+h1 {
+  font-size: 50px;
+  font-weight: 500;
+}
+
+h2 {
+  font-size: 40px;
+  font-weight: 200;
+  margin-top: -10px;
+}
+
+p {
+  font-weight: 200;
+  margin-top: 14px;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+#images {
+  position: absolute;
+  left: 375px;
+  top: 80px;
+}
+
+.myButton {
+  margin-top: 20px;
+  box-shadow: inset 0px 1px 0px 0px #fbafe3;
+  background: linear-gradient(to bottom, #ff905c 5%, #ef027d 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff905c", endColorstr="#ef027d", GradientType=0);
+  background-color: #ff905c;
+  border-radius: 17px;
+  border: 1px solid #ee1eb5;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 6px 24px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #c70067;
+}
+
+.myButton:hover {
+  background: linear-gradient(to bottom, #ef027d 5%, #ff905c 100%);
+}
+
+.myButton:active {
+  position: relative;
+}
+
+.st0 {
+  fill: #FFF7D9;
+}
+
+.st1 {
+  fill: #FFC400;
+}
+
+.st2 {
+  fill: #FF2F00;
+}
+
+.st3 {
+  fill: #2228B3;
+}
+
+.st4 {
+  fill: #009245;
+}
+
+.st5 {
+  fill: #45AACE;
+}
+
+.st6 {
+  fill: #E02828;
+}
+
+.st7 {
+  fill: #FF2E2E;
+}
+
+.st8 {
+  fill: #D61E1E;
+}
+
+.st9 {
+  fill: url(#SVGID_1_);
+}
+
+.st10 {
+  fill: #0D0B30;
+}
+
+.st11 {
+  fill: #FFFFFF;
+}
+
+.st12 {
+  fill: #D6D6D6;
+}
+
+.st13 {
+  fill: #CCCCCC;
+}
+
+.st14 {
+  fill: #F0F0F0;
+}
+
+.st15 {
+  fill: #494ED1;
+}
+
+.st16 {
+  fill: #FAB594;
+}
+
+.st17 {
+  fill: #1FDDFF;
+}
+
+.st18 {
+  fill: #0AABE0;
+}
+
+.st19 {
+  fill: #E61E64;
+}
+
+.st20 {
+  fill: #A8023D;
+}
+
+.st21 {
+  fill: url(#SVGID_2_);
+}
