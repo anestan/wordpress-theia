@@ -40,6 +40,8 @@ mix.js('resources/js/creative-process.js', 'public/js/creative-process.js');
 mix.sass('resources/sass/position-parameter-visualiser.scss', 'public/css/position-parameter-visualiser.css');
 mix.js('resources/js/position-parameter-visualiser.js', 'public/js/position-parameter-visualiser.js');
 
+mix.sass('resources/sass/text-effects.scss', 'public/css/text-effects.css');
+mix.js('resources/js/text-effects.js', 'public/js/text-effects.js');
 
 if (mix.inProduction()) {
   mix.version();

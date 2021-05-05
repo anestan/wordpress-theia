@@ -1986,6 +1986,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/sass/text-effects.scss":
+/*!******************************************!*\
+  !*** ./resources/sass/text-effects.scss ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./resources/sass/style.scss":
 /*!***********************************!*\
   !*** ./resources/sass/style.scss ***!
@@ -2152,7 +2165,8 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 			"public/css/app": 0,
 /******/ 			"public/css/position-parameter-visualiser": 0,
 /******/ 			"public/css/meet-the-freds": 0,
-/******/ 			"style": 0
+/******/ 			"style": 0,
+/******/ 			"public/css/text-effects": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -2200,12 +2214,13 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["public/css/creative-process","public/css/app","public/css/position-parameter-visualiser","public/css/meet-the-freds","style"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["public/css/creative-process","public/css/app","public/css/position-parameter-visualiser","public/css/meet-the-freds","style"], () => (__webpack_require__("./resources/sass/style.scss")))
-/******/ 	__webpack_require__.O(undefined, ["public/css/creative-process","public/css/app","public/css/position-parameter-visualiser","public/css/meet-the-freds","style"], () => (__webpack_require__("./resources/sass/app.scss")))
-/******/ 	__webpack_require__.O(undefined, ["public/css/creative-process","public/css/app","public/css/position-parameter-visualiser","public/css/meet-the-freds","style"], () => (__webpack_require__("./resources/sass/meet-the-freds.scss")))
-/******/ 	__webpack_require__.O(undefined, ["public/css/creative-process","public/css/app","public/css/position-parameter-visualiser","public/css/meet-the-freds","style"], () => (__webpack_require__("./resources/sass/creative-process.scss")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["public/css/creative-process","public/css/app","public/css/position-parameter-visualiser","public/css/meet-the-freds","style"], () => (__webpack_require__("./resources/sass/position-parameter-visualiser.scss")))
+/******/ 	__webpack_require__.O(undefined, ["public/css/creative-process","public/css/app","public/css/position-parameter-visualiser","public/css/meet-the-freds","style","public/css/text-effects"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["public/css/creative-process","public/css/app","public/css/position-parameter-visualiser","public/css/meet-the-freds","style","public/css/text-effects"], () => (__webpack_require__("./resources/sass/style.scss")))
+/******/ 	__webpack_require__.O(undefined, ["public/css/creative-process","public/css/app","public/css/position-parameter-visualiser","public/css/meet-the-freds","style","public/css/text-effects"], () => (__webpack_require__("./resources/sass/app.scss")))
+/******/ 	__webpack_require__.O(undefined, ["public/css/creative-process","public/css/app","public/css/position-parameter-visualiser","public/css/meet-the-freds","style","public/css/text-effects"], () => (__webpack_require__("./resources/sass/meet-the-freds.scss")))
+/******/ 	__webpack_require__.O(undefined, ["public/css/creative-process","public/css/app","public/css/position-parameter-visualiser","public/css/meet-the-freds","style","public/css/text-effects"], () => (__webpack_require__("./resources/sass/creative-process.scss")))
+/******/ 	__webpack_require__.O(undefined, ["public/css/creative-process","public/css/app","public/css/position-parameter-visualiser","public/css/meet-the-freds","style","public/css/text-effects"], () => (__webpack_require__("./resources/sass/position-parameter-visualiser.scss")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["public/css/creative-process","public/css/app","public/css/position-parameter-visualiser","public/css/meet-the-freds","style","public/css/text-effects"], () => (__webpack_require__("./resources/sass/text-effects.scss")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

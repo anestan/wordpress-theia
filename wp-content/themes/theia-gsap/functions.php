@@ -29,6 +29,14 @@ function enqueueScripts() {
             get_stylesheet_directory_uri() . $mix_manifest['/public/js/position-parameter-visualiser.js'], [], false, true
         );
     }
+
+    if ( is_page( 'text-effects' ) ) {
+        wp_enqueue_style( 'text_effects_style',
+            get_stylesheet_directory_uri() . $mix_manifest['/public/css/text-effects.css'] );
+        wp_enqueue_script( 'text_effects_script',
+            get_stylesheet_directory_uri() . $mix_manifest['/public/js/text-effects.js'], [], false, true
+        );
+    }
 }
 
 add_action( 'wp_enqueue_scripts', 'enqueueScripts', 10000 );
@@ -40,7 +48,7 @@ function showAdminBar() {
 add_action( 'after_setup_theme', 'showAdminBar' );
 
 function switchTheme() {
-    foreach ( [ 'Meet The Freds', 'Position Parameter Visualiser', 'Creative Process' ] as $page_title ) {
+    foreach ( [ 'Meet The Freds', 'Position Parameter Visualiser', 'Creative Process', 'Text Effects' ] as $page_title ) {
         $page = get_page_by_title( $page_title );
 
         $postarr = [

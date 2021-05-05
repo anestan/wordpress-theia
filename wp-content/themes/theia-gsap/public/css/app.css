@@ -502,6 +502,12 @@ video {
 .flex{
 	display: flex !important;
 }
+.h-\[200px\]{
+	height: 200px !important;
+}
+.h-\[100px\]{
+	height: 100px !important;
+}
 .transform{
 	--tw-translate-x: 0 !important;
 	--tw-translate-y: 0 !important;
@@ -520,6 +526,9 @@ video {
 }
 .p-4{
 	padding: 1rem !important;
+}
+.p-8{
+	padding: 2rem !important;
 }
 .p-2\.5{
 	padding: 0.625rem !important;

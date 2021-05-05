@@ -3,9 +3,11 @@
     "/public/js/meet-the-freds.js": "/public/js/meet-the-freds.js",
     "/public/js/creative-process.js": "/public/js/creative-process.js",
     "/public/js/position-parameter-visualiser.js": "/public/js/position-parameter-visualiser.js",
-    "/public/css/app.css": "/public/css/app.css",
+    "/public/js/text-effects.js": "/public/js/text-effects.js",
     "/public/css/creative-process.css": "/public/css/creative-process.css",
+    "/public/css/app.css": "/public/css/app.css",
+    "/public/css/position-parameter-visualiser.css": "/public/css/position-parameter-visualiser.css",
     "/public/css/meet-the-freds.css": "/public/css/meet-the-freds.css",
     "/style.css": "/style.css",
-    "/public/css/position-parameter-visualiser.css": "/public/css/position-parameter-visualiser.css"
+    "/public/css/text-effects.css": "/public/css/text-effects.css"
 }
